@@ -58,7 +58,7 @@ html {
   }
 }
 
-@media (min-width: 3000px) {
+@media (min-width: 2400px) {
   html {
     font-size: 1.25vw;
   }
