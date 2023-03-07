@@ -54,13 +54,13 @@ html {
 
 @media (min-width: 2000px) and (max-width: 2399px) {
   html {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
-@media (min-width: 2400px) {
+@media (min-width: 3000px) {
   html {
-    font-size: 24px;
+    font-size: 1.25vw;
   }
 }
 
