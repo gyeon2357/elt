@@ -802,6 +802,7 @@ html {
   .another-project-gallery button {
     width: 100%;
     height: 100%;
+    display: block;
   }
 
   .another-project-gallery img {
@@ -864,19 +865,21 @@ html {
 }
 
 
-/* list, gallery */
+/* list, gallery, weeklyzine */
 
 .head-padding {
   padding-top: calc(var(--height-space) * 1);
 }
 
 section#listview-head,
-section#galleryview-head {
+section#galleryview-head,
+section#weeklyzine-head {
   padding-bottom: 12rem;
 }
 
 div.list-filters,
-div.gallery-head {
+div.gallery-head,
+div.weeklyzine-head-title {
   font-size: 2rem;
   font-weight: bold;
 }
@@ -917,8 +920,21 @@ div#index {
 
 #index .list-image {
   display: none;
-
 }
+
+div.weeklyzine-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: .5rem;
+  row-gap: .875rem;
+}
+
+.weeklyzine-box figure img {
+  border: 1px solid #515151;
+}
+
+
+
 
 div.img-gallery-box {
   display: grid;
@@ -945,7 +961,8 @@ figure figcaption {
 
 figure p.tags {
   font-size: 0.875rem;
-  font-weight: 300;
+  line-height: 1.25;
+  font-weight: 400;
 }
 
 p.arrow {
@@ -1253,11 +1270,18 @@ p.arrow {
 
 
 
-  /* // list, gallery */
+  /* // list, gallery, weeklyzine */
 
   section#listview-head,
-  section#galleryview-head {
+  section#galleryview-head,
+  section#weeklyzine-head {
     padding-bottom: 6rem;
+  }
+
+  div.list-filters,
+  div.gallery-head,
+  div.weeklyzine-head-title {
+    font-size: 1.5rem;
   }
 
   div.img-gallery-box {
@@ -1307,6 +1331,35 @@ p.arrow {
   #index .list-image img {
     border-radius: 0.25rem;
   }
+
+  div.weeklyzine-box {
+    display: block;
+  }
+
+  div.weeklyzine-box button {
+    width: 100%;
+
+    border-left: 1px solid #515151;
+    border-bottom: 1px solid #515151;
+
+    padding: 0 0 .25rem .5rem;
+    margin: 0.5rem 0;
+  }
+
+
+  div.weeklyzine-box figure img {
+    float: right;
+    border: none;
+    max-width: 4rem;
+  }
+
+  div.weeklyzine-box figure figcaption {
+    padding: 0 0 .75rem 0;
+  }
+
+
+
+
 
   #footer-contact-credits {
     display: block;
@@ -1374,68 +1427,62 @@ p.arrow {
     margin: calc(var(--height-space) * 0.5) 0 0 0;
   }
 
-  #single-project-header #page-heading {
-    margin: calc(var(--height-space) * 1.5) 0 0 0;
+  /* single project */
+
+  div.project-head {
+    font-size: 1.5rem;
+    width: 20ch;
   }
 
-  #single-project-header #site-title {
-    font-size: 2.5rem;
+  section#single-project-head {
+    padding-bottom: 1.5rem;
   }
 
-  #single-project-cover {
-    width: auto;
-    margin: calc(var(--height-space) * 0.125) auto 0 auto;
+  #single-project-body .single-project-title-box {
+    display: block;
   }
 
-  #single-project-intro {
-    margin: calc(var(--height-space) * 0.5) 0 0 0;
+  .single-project-title-box .single-project-title-head {
+    display: block;
   }
 
-  #single-project-intro .section-title {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin: calc(var(--height-space) * 0.25) 0;
+  .single-project-title-box .single-project-title-head p,
+  .single-project-title-desc {
+    padding: 0 0 .25rem .5rem !important;
+    margin-bottom: 0.75rem;
   }
 
-  #single-project-intro .main-desc {
-    margin: 0 0 calc(var(--height-space) * 0.5) 0;
+  .single-project-title-box .single-project-title-head p:last-child {
+    margin-bottom: 1.25rem;
   }
 
-  .single-project-subtitle {
-    font-size: 2rem;
-    margin: calc(var(--height-space) * 0.5) 0 0.5em 0;
+  .single-project-gallery figure {
+    flex-direction: column;
   }
 
-  #single-project-main-video {
-    margin: calc(var(--height-space) * 0.5) 0;
+  .single-project-title-desc {
+    margin-top: 0.875rem;
   }
 
-  .single-project-featured-thumb {
-    width: auto;
-    margin: calc(var(--height-space) * 0.5) 0;
+  .single-project-gallery-box {
+    margin-top: 3rem;
   }
 
-  #single-project-navigation-link {
-    width: auto;
-    margin: calc(var(--height-space) * 0.5) 0;
+  .single-project-gallery figure img {
+    padding: 0.25rem 0;
   }
 
-  #single-project-navigation-titles {
-    margin: calc(var(--height-space) * 0.5) 0;
+
+  .another-project-gallery button:nth-last-child(-n+2) {
+    width: 100%;
+    height: 100%;
+    display: none;
   }
 
-  #single-project-navigation h2 {
-    font-size: 6.125rem;
+  .another-project-gallery figcaption {
+    font-size: .875rem;
   }
 
-  #single-project-navigation h3 {
-    font-size: 1rem;
-  }
-
-  #single-project-navigation-thumb .media-wrapper {
-    padding-bottom: 56.25%;
-  }
 
   #page-404-title {
     font-size: 7.5rem;
@@ -1467,6 +1514,11 @@ p.arrow {
 
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr;
+    column-gap: 0.5rem;
+    row-gap: 0.875rem;
+  }
+
+  div.weeklyzine-box {
     column-gap: 0.5rem;
     row-gap: 0.875rem;
   }
