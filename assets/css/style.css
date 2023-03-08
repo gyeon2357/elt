@@ -767,142 +767,56 @@ html {
     border-radius: .25rem;
   }
 
-
-  #single-project-header #site-title {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    font-size: 6.25rem;
-    color: var(--main-text-color);
+  .single-project-gallery-box {
+    margin-top: 2rem;
   }
 
-  #single-project-cover {
-    width: calc(100% * 9 / 12);
-    margin: calc(var(--height-space) * 0.25) auto 0 auto;
-    position: relative;
-    z-index: 1;
+  .single-project-gallery figure {
+    display: flex;
+    flex-direction: row;
   }
 
-  #single-project-intro {
-    margin: var(--height-space) 0 0 0;
-    position: relative;
+  .single-project-gallery figure img {
+    border-radius: 0;
+    padding: .125rem;
   }
 
-  #single-project-intro .section-title {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .another-project-title-box {
+    margin: 3rem 0 0.75rem 0;
   }
 
-  #single-project-intro .main-desc {}
-
-  #single-project-infos {}
-
-  #single-project-infos p {
-    margin-bottom: calc(var(--height-space) * 0.5);
-  }
-
-  #single-project-infos p:last-child {
-    margin-bottom: 0;
-  }
-
-  #single-project-infos p a {
-    display: inline-block;
-    margin: -0.25em 0;
-    padding: 0.25em 0;
-  }
-
-  #single-project-main-desc .text-plane {
-    margin: 0 -1em;
-    padding: 0 1em;
-  }
-
-  .single-project-subtitle {
-    font-weight: normal;
-    margin: var(--height-space) 0 0.5em 0;
-    font-family: var(--display-font);
-    font-weight: 600;
-    font-size: 2.75rem;
-    line-height: 1.2;
-  }
-
-  .single-project-subtitle .main-title-text {
-    display: block;
-    margin: -0.1em;
-    padding: 0.1em;
-  }
-
-  .single-project-featured-thumb {
-    width: calc(100% * 8 / 12);
-    margin: var(--height-space) auto;
-  }
-
-  #single-project-main-video {
-    max-width: 1280px;
-    margin: var(--height-space) auto;
-  }
-
-  #single-project-main-video .video-plane {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  #single-project-content .main-desc p.text-plane {
-    margin: -1em -1em 0 -1em;
-    padding: 1em;
-  }
-
-  #single-project-navigation {
-    margin: var(--height-space) auto;
-    position: relative;
-    overflow: hidden;
-  }
-
-  #single-project-navigation .single-project-navigation-hr:last-of-type {
-    top: auto;
-    bottom: 0;
-  }
-
-  #single-project-navigation-link {
-    display: block;
-    color: var(--main-text-color);
-    text-decoration: none;
-    margin: calc(var(--height-space) * 0.5) 0 calc(var(--height-space) * 0.5) auto;
-    width: calc(100% * 8 / 12);
-  }
-
-  #single-project-navigation-titles {
-    margin: calc(var(--height-space) * 0.5) 0 calc(var(--height-space) * 0.5) calc(100% * 2 / 8);
-  }
-
-  #single-project-navigation h2 {
-    font-size: 10rem;
-    font-family: var(--display-font);
-    font-weight: 600;
-    font-weight: normal;
-    line-height: 1.2;
-    overflow: hidden;
-    margin: 0;
-  }
-
-  #single-project-navigation h3 {
+  .another-project-title-box p {
     font-size: 1.25rem;
-    font-family: var(--light-display-font);
-    font-weight: 700;
-    margin: 0;
+    font-weight: 600;
+
+    padding: 0 0 .25rem .5rem;
+    border-left: 1px solid #515151;
+    border-bottom: 1px solid #515151;
   }
 
-  #single-project-navigation-thumb {
-    margin: 0 0 calc(var(--height-space) * 0.5) 0;
+  .another-project-gallery-box .another-project-gallery {
+    display: flex;
+    flex-direction: row;
   }
 
-  #single-project-navigation-thumb .media-wrapper {
-    padding-bottom: 37.5%;
+  .another-project-gallery button {
+    width: 100%;
+    height: 100%;
   }
+
+  .another-project-gallery img {
+    width: 100%;
+    height: 100%;
+    padding: .125rem;
+    object-fit: cover;
+  }
+
+  .another-project-gallery figcaption {
+    font-size: 0.625rem;
+    font-weight: 400;
+  }
+
+
 
   body.reduced-motion #single-project-navigation-link .main-image-plane-shown {
     transition: opacity 0.5s ease-in-out;
