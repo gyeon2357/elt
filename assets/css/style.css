@@ -1,4 +1,4 @@
-/*! style.css v1.0.3 | everylittlething.co.kr @gyeon@everylittlething.co.kr */
+/*! style.css v1.0.4 | everylittlething.co.kr @gyeon@everylittlething.co.kr */
 
 :root {
   --bg-color: #fff;
@@ -462,6 +462,10 @@ html {
   }
 
   #nav-desc .nav-box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8.33%, auto));
+
     margin: 0.75rem;
     padding: .5rem 0 .25rem .5rem;
     border-left: 1px solid #515151;
@@ -469,17 +473,17 @@ html {
   }
 
   #nav-desc .text-plane {
-    padding: 0 10rem 0 0;
+    padding: 0;
+    grid-column: 1 / span 9;
+    grid-row: 1;
   }
 
   #nav-desc span {
-    float: right;
-    padding-right: .5rem;
+    padding-right: .25rem;
+    text-align: right;
+    grid-column: 12 / span 1;
+    grid-row: 1;
   }
-
-
-
-
 
   #notice-head {
     font-size: 1.5rem;
@@ -987,18 +991,23 @@ p.arrow {
     padding-top: .25rem !important;
   }
 
+  #intro-title .text-plane {
+    min-height: 100vh;
+  }
+
   #page-heading {
     margin: calc(var(--height-space) * 1.5) 0 0 0;
   }
 
   #nav-desc {
     flex-direction: column;
-    margin: calc(var(--height-space) * 0.5) 0 calc(var(--height-space) * 2) 0;
+    margin: 3rem 0 4rem 0;
   }
 
   #nav-desc .text-plane {
-    padding: 0 3rem 0 0;
+    padding: 0;
     margin: 0;
+    grid-column: 1 / span 12;
   }
 
   #notice-desc {
@@ -1010,7 +1019,6 @@ p.arrow {
   #nav-desc .nav-box {
     margin: .5rem 0;
     padding: .375rem 0 .125rem 0.5rem;
-
   }
 
 
@@ -1508,9 +1516,7 @@ p.arrow {
     font-size: 3rem;
   }
 
-  #nav-desc {
-    margin-left: 0;
-  }
+
 
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr;
@@ -1531,9 +1537,7 @@ p.arrow {
     font-size: 4.5rem;
   }
 
-  #nav-desc {
-    margin-left: calc(var(--height-space) * 1);
-  }
+
 
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr;
@@ -1548,10 +1552,6 @@ p.arrow {
     font-size: 5rem;
   }
 
-  #nav-desc {
-    margin-left: calc(var(--height-space) * 1);
-  }
-
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: .75rem;
@@ -1563,10 +1563,6 @@ p.arrow {
 
   #intro-title {
     font-size: 5.25rem;
-  }
-
-  #nav-desc {
-    margin-left: calc(var(--height-space) * 1);
   }
 
   div.img-gallery-box {
@@ -1583,10 +1579,6 @@ p.arrow {
     font-size: 5.375rem;
   }
 
-  #nav-desc {
-    margin-left: calc(var(--height-space) * 1);
-  }
-
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: .5rem;
@@ -1598,10 +1590,6 @@ p.arrow {
 
   #intro-title {
     font-size: 5.5rem;
-  }
-
-  #nav-desc {
-    margin-left: calc(var(--height-space) * 3.5);
   }
 
   div.img-gallery-box {
