@@ -382,12 +382,11 @@ button,
   border: 0;
   background: none transparent;
   color: inherit;
-  vertical-align: middle;
-  text-align: center;
+
   text-decoration: none;
   text-transform: none;
   font: inherit;
-  line-height: normal;
+  
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
