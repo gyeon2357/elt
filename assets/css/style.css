@@ -338,7 +338,7 @@ html {
     position: fixed;
     z-index: 4;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
+    grid-template-columns: repeat(auto-fill, minmax(8.333%, auto));
 
     justify-content: space-between;
     align-items: center;
@@ -376,17 +376,17 @@ html {
   }
 
   .header-col:nth-child(2) {
-    grid-column: 5 / span 3;
+    grid-column: 8 / span 3;
     grid-row: 1;
   }
 
   .header-col:nth-child(3) {
-    grid-column: 7 / span 2;
+    grid-column: 10 / span 2;
     grid-row: 1;
   }
 
   .header-col:nth-child(4) {
-    grid-column: 8 / span 1;
+    grid-column: 11 / span 3;
     grid-row: 1;
   }
 
@@ -617,7 +617,13 @@ html {
   #footer-contact-credits figure {
     grid-column: 1 / span 8;
     grid-row: 2;
+    height: 50vh;
     filter: saturate(0);
+  }
+
+  #footer-contact-credits figure img {
+    border-radius: 0;
+    object-fit: fill;
   }
 
   .footer-end-col {
@@ -1480,6 +1486,7 @@ p.arrow {
 
 
 
+
   .fonts-credits .text-plane,
   .footer-end-col .text-plane,
   #scroll-to-top {
@@ -1515,6 +1522,17 @@ p.arrow {
     flex-basis: 100%;
   }
 
+  #footer-contact-credits figure {
+    grid-column: 1 / span 8;
+    grid-row: 2;
+    height: 25vh;
+    filter: saturate(0);
+  }
+
+  #footer-contact-credits figure img {
+    border-radius: 0;
+    object-fit: fill;
+  }
 
 
   /* single project */
@@ -1594,11 +1612,19 @@ p.arrow {
 }
 
 @media (max-width: 699px) {
+  .header-col:nth-child(2) {
+    grid-column: 7 / span 3;
+    grid-row: 1;
+  }
+
+  .header-col:nth-child(3) {
+    grid-column: 10 / span 2;
+    grid-row: 1;
+  }
+
   #intro-title {
     font-size: 3rem;
   }
-
-
 
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr;
@@ -1613,13 +1639,19 @@ p.arrow {
 }
 
 @media (min-width: 700px) and (max-width: 999px) {
+  .header-col:nth-child(2) {
+    grid-column: 7 / span 3;
+    grid-row: 1;
+  }
 
+  .header-col:nth-child(3) {
+    grid-column: 10 / span 2;
+    grid-row: 1;
+  }
 
   #intro-title {
     font-size: 4.5rem;
   }
-
-
 
   div.img-gallery-box {
     grid-template-columns: 1fr 1fr;
@@ -1629,6 +1661,16 @@ p.arrow {
 }
 
 @media (min-width: 1000px) and (max-width: 1599px) {
+
+  .header-col:nth-child(2) {
+    grid-column: 7 / span 3;
+    grid-row: 1;
+  }
+
+  .header-col:nth-child(3) {
+    grid-column: 10 / span 2;
+    grid-row: 1;
+  }
 
   #intro-title {
     font-size: 5rem;
