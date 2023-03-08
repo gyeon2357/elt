@@ -1,4 +1,4 @@
-/*! style.css v1.0.0 | everylittlething.co.kr @gyeon@everylittlething.co.kr */
+/*! style.css v1.0.3 | everylittlething.co.kr @gyeon@everylittlething.co.kr */
 
 :root {
   --bg-color: #fff;
@@ -574,7 +574,7 @@ html {
   }
 
   #footer-contact-credits {
-    margin: 0 calc(var(--gutter-size) * 0.75);
+    margin: 0 calc(var(--gutter-size) * -.5);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
     position: relative;
@@ -605,6 +605,7 @@ html {
 
   .footer-col span {
     padding-top: 1.25rem;
+    font-size: .625rem;
     opacity: .5;
   }
 
