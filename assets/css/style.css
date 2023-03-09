@@ -920,6 +920,20 @@ div.content-head {
   display: block;
 }
 
+.list-filters button {
+  text-align: left;
+}
+
+.work-filters_toggler_open-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.work-filters_toggler_open-label span {
+  min-width: 9ch;
+}
+
 div#index {
   font-size: 1.25rem;
   line-height: 1.75;
@@ -961,9 +975,12 @@ div#index {
 }
 
 sup {
-  padding: .375rem;
+
+  top: 0;
+  margin-top: .5rem;
+  padding: 0 -.5rem;
   color: var(--secondary-color-50);
-  background-color: var(--primary-color-30);
+
   border-radius: 50%;
 }
 
