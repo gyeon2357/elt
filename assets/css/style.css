@@ -927,10 +927,17 @@ div.content-head {
 .work-filters_toggler_open-label {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  align-items: center;
+
 }
 
-.work-filters_toggler_open-label span {
+.work-filters_toggler_open-label img {
+  min-width: .625rem;
+  margin-right: .5rem;
+  margin-top: -.1rem;
+}
+
+.work-filters_toggler_open-label .filter-text {
   min-width: 9ch;
 }
 
@@ -974,14 +981,22 @@ div#index {
   display: none;
 }
 
-sup {
+.sup-box {
+  width: 3rem;
+  height: 3rem;
 
-  top: 0;
-  margin-top: .5rem;
-  padding: 0 -.5rem;
+  align-items: center;
+  text-align: center;
+  transform: translate(-.5rem, -.75rem);
+
+  background: var(--primary-color-30);
+  border-radius: 50%;
+}
+
+sup {
+  top: -.125rem;
   color: var(--secondary-color-50);
 
-  border-radius: 50%;
 }
 
 div.weeklyzine-box {
@@ -1421,6 +1436,18 @@ p.arrow {
     grid-template-columns: 1fr 1fr;
   }
 
+  .work-filters_toggler_open-label img {
+    min-width: .5rem;
+    width: .5rem;
+    margin-right: .75rem;
+    margin-top: -.25rem;
+  }
+
+  .sup-box {
+    transform: translate(-.375rem, -.5rem);
+    width: 2.25rem;
+    height: 2.25rem;
+  }
 
   #index .list-box {
     width: 100%;
