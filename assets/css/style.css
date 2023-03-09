@@ -17,10 +17,9 @@
   --hue-rotate: calc(-78deg);
   --saturate: 1.5;
 
-  --display-font: "founders-grotesk", sans-serif;
-  --text-font: "Pretendard Variable", sans-serif;
+  --display-font: "founders-grotesk", -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --text-font: "Pretendard Variable", -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 
-  --light-display-font: "founders-grotesk", "Pretendard Variable", sans-serif;
   --gutter-size: 1vw;
   --height-space: 20vh;
 }
@@ -573,14 +572,14 @@ html {
 
   .main-image-thumb {
     width: 100%;
+    height: 100%;
     position: relative;
+    display: block;
     z-index: 1;
     overflow: hidden;
 
     margin: calc(var(--height-space) * 2) auto 0 auto;
-    display: block;
     text-decoration: none;
-    position: relative;
     color: var(--main-text-color);
   }
 
@@ -596,7 +595,7 @@ html {
     align-items: center;
   }
 
-  .main-image .main-image-thumb .plane img {
+  .main-image-thumb .plane img {
     width: auto;
     height: 100%;
   }
@@ -1206,41 +1205,17 @@ p.arrow {
     width: auto;
   }
 
-  #intro-work-fields {
-    margin: 0;
-    width: auto;
-  }
-
-  .main-image {
+  .main-image-plane {
     margin: 0;
   }
 
-  .main-image-infos {
-    width: auto;
-    flex-basis: 100%;
-    text-align: center;
-  }
-
-  .main-image-number {
-    padding: 1em 1em 1.5em 1em;
-    font-size: 0.8rem;
-  }
-
-  .main-image-title {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    justify-content: center;
-    display: flex;
-  }
-
-  .main-image .main-image-title-line {
+  .main-image-title-line {
     font-size: 2.5rem;
     text-align: center;
     flex-basis: 100%;
   }
 
-  .main-image .main-image-thumb {
+  .main-image-thumb {
     position: relative;
     top: auto;
     right: auto;
@@ -1249,7 +1224,7 @@ p.arrow {
     margin: calc(var(--height-space) * 0.125) auto;
   }
 
-  .main-image .main-image-thumb .media-wrapper {
+  .main-image-thumb .media-wrapper {
     height: 75vh;
     padding-bottom: 56.25%;
   }

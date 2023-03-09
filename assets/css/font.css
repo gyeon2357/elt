@@ -4,8 +4,6 @@
 		url("../fonts/FoundersGrotesk-Regular.woff") format("woff"),
 		url("../fonts/FoundersGrotesk-Regular.otf") format("opentype");
 	font-weight: 400;
-
-
 }
 
 @font-face {
@@ -14,8 +12,6 @@
 		url("../fonts/FoundersGrotesk-Medium.woff") format("woff"),
 		url("../fonts/FoundersGrotesk-Medium.otf") format("opentype");
 	font-weight: 500;
-
-
 }
 
 @font-face {
@@ -24,6 +20,4 @@
 		url("../fonts/FoundersGrotesk-Semibold.woff") format("woff"),
 		url("../fonts/FoundersGrotesk-Semibold.otf") format("opentype");
 	font-weight: 600;
-
-
 }
