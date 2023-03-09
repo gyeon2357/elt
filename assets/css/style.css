@@ -6,6 +6,8 @@
   --fade-text-color: #fff;
   --main-ripple-color: #fff;
 
+  --primary-color-10: #515151;
+  --primary-color-30: #8C8C8C;
   --primary-color-50: #C7C7C7;
   --primary-color-90: #eee;
 
@@ -129,14 +131,17 @@ html {
 
   .text-plane-has-link a {
     text-decoration: underline;
+    text-decoration-color: var(--secondary-color-50);
   }
 
   .text-plane-is-link:hover {
     text-decoration: underline;
+    text-decoration-color: var(--secondary-color-50);
   }
 
   .text-plane-has-link a:hover {
     text-decoration: underline;
+    text-decoration-color: var(--secondary-color-50);
   }
 
   .reduced-motion a:visited,
@@ -364,10 +369,24 @@ html {
     padding: 0.25em 0.5em;
     margin: 0 -0.5em;
     text-decoration: none;
+
   }
 
-  #header a:hover {
-    text-decoration: underline;
+  #header a::after {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--secondary-color-50);
+    transform: scaleX(0) translateY(-14px);
+    transform-origin: top left;
+    transition: transform 0.25s ease;
+  }
+
+  #header a:hover::after {
+    transform: scaleX(1) translateY(-14px);
   }
 
   .header-col:nth-child(1) {
@@ -428,7 +447,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem 0 var(--height-space) 0;
+    padding: 6rem 0 3rem 0;
     font-family: var(--display-font);
     font-weight: 600;
     line-height: 1.25;
@@ -439,7 +458,7 @@ html {
     margin: -0.25rem;
     padding: 0.25rem;
     display: block;
-    min-height: 120vh;
+    min-height: 50vh;
     padding-top: 3rem;
   }
 
@@ -469,8 +488,8 @@ html {
 
     margin: 0.75rem;
     padding: .5rem 0 .25rem .5rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   #nav-desc .text-plane {
@@ -493,8 +512,8 @@ html {
 
     margin: .75rem 0 .75rem 0;
     padding: .5rem 0 .25rem .5rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   #notice-desc {
@@ -509,17 +528,14 @@ html {
   #notice-desc .text-plane {
     margin: .75rem .75rem 0 0;
     padding: .5rem 0 .25rem .5rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   #notice-desc span {
     float: right;
     padding: 0 .5rem 0 7rem;
   }
-
-
-
 
   .main-images {
     margin: var(--height-space) 0;
@@ -605,8 +621,14 @@ html {
 
   .footer-col a:first-child {
     font-weight: 700;
-    border-bottom: 1px solid #515151;
+    border-bottom: 1px solid var(--primary-color-10);
     margin-bottom: 0.75rem;
+
+    cursor: inherit;
+  }
+
+  .footer-col a:first-child:hover {
+    text-decoration: none;
   }
 
   .footer-col span {
@@ -718,8 +740,8 @@ html {
 
   .single-project-title-desc {
     padding: 0 0 .25rem .5rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   .single-project-image-box {
@@ -737,16 +759,16 @@ html {
 
     padding: 0 0 .25rem .375rem;
     margin-right: .375rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   .single-project-title-box .single-project-title-head p:nth-child(2) {
     flex-basis: 25%;
 
     padding: 0 0 .25rem .375rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   .single-project-title-desc {
@@ -790,8 +812,8 @@ html {
     font-weight: 600;
 
     padding: 0 0 .25rem .5rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   .another-project-gallery-box .another-project-gallery {
@@ -908,6 +930,8 @@ div#index {
 
 #index p:hover {
   text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-color: var(--secondary-color-50);
 }
 
 #index span {
@@ -920,6 +944,13 @@ div#index {
   display: none;
 }
 
+sup {
+  padding: .375rem;
+  color: var(--secondary-color-50);
+  background-color: var(--primary-color-30);
+  border-radius: 50%;
+}
+
 div.weeklyzine-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -928,7 +959,7 @@ div.weeklyzine-box {
 }
 
 .weeklyzine-box figure img {
-  border: 1px solid #515151;
+  border: 1px solid var(--primary-color-10);
 }
 
 
@@ -975,21 +1006,29 @@ div.about-box .main-info {
   font-weight: 500;
   line-height: 1.68;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.333%, auto));
 
-  border-left: 1px solid #515151;
-  border-bottom: 1px solid #515151;
+  justify-content: space-between;
+  align-items: start;
+
+  border-left: 1px solid var(--primary-color-10);
+  border-bottom: 1px solid var(--primary-color-10);
   margin-bottom: 2rem;
 }
 
-.main-info-box {
-  flex-basis: 50%;
+.main-info-box:nth-child(1) {
+  grid-column: 1 / span 4;
+  padding: 0 0 .375rem .5rem;
+}
+
+.main-info-box:nth-child(2) {
+  grid-column: 8 / span 4;
   padding: 0 0 .375rem .5rem;
 }
 
 .main-info p {
-  width: 46ch;
+
   word-break: keep-all;
 }
 
@@ -1006,26 +1045,30 @@ div.about-box .sub-info {
   font-weight: 300;
   line-height: 1.68;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.333%, auto));
 
-  border-left: 1px solid #515151;
-  border-bottom: 1px solid #515151;
+  justify-content: space-between;
+  align-items: center;
+
+  border-left: 1px solid var(--primary-color-10);
+  border-bottom: 1px solid var(--primary-color-10);
 
   margin: 6rem 0 1rem 0;
 }
 
-.sub-info-box {
-  flex-basis: 50%;
+.sub-info-box:nth-child(1) {
+  grid-column: 1 / span 4;
   padding: 0 0 .375rem .5rem;
 }
 
-.sub-info-box:last-child {
+.sub-info-box:nth-child(2) {
+  grid-column: 8 / span 4;
   padding-left: .25rem;
 }
 
 .sub-info p {
-  width: 40ch;
+
   word-break: keep-all;
 }
 
@@ -1081,6 +1124,10 @@ p.arrow {
 
   #notice-desc {
     flex-direction: column;
+  }
+
+  #notice-head {
+    padding: 0 0 .25rem .5rem;
   }
 
 
@@ -1305,15 +1352,15 @@ p.arrow {
   .menu__box #header-right {
     display: block;
 
-    font-size: 2.25rem;
+    font-size: 1.875rem;
     line-height: 1.45;
     font-weight: 400;
     text-align: left;
 
     margin: 2rem 0;
     padding: 0 0 0 0.675rem;
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
   }
 
   .menu__box #header-right,
@@ -1368,8 +1415,8 @@ p.arrow {
     width: 100%;
     display: block;
 
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
 
     padding: 0 0 .25rem .5rem;
     margin: 0.5rem 0;
@@ -1414,8 +1461,8 @@ p.arrow {
   div.weeklyzine-box button {
     width: 100%;
 
-    border-left: 1px solid #515151;
-    border-bottom: 1px solid #515151;
+    border-left: 1px solid var(--primary-color-10);
+    border-bottom: 1px solid var(--primary-color-10);
 
     padding: 0 0 .25rem .5rem;
     margin: 0.5rem 0;
@@ -1441,8 +1488,8 @@ p.arrow {
 
   .main-info p {
     margin-bottom: .75rem;
-    padding: 0 0 1rem 0;
-    width: 80vw;
+    padding: 0;
+    width: 83vw;
   }
 
   .main-info-box {
@@ -1455,6 +1502,7 @@ p.arrow {
 
   div.about-box .sub-info {
     display: block;
+    margin: 3rem 0 0 0;
   }
 
   .sub-info-box {
@@ -1623,6 +1671,11 @@ p.arrow {
     grid-row: 1;
   }
 
+  .main-info-box:nth-child(2),
+  .sub-info-box:nth-child(2) {
+    grid-column: 7 / span 4;
+  }
+
   #intro-title {
     font-size: 3rem;
   }
@@ -1650,6 +1703,11 @@ p.arrow {
     grid-row: 1;
   }
 
+  .main-info-box:nth-child(2),
+  .sub-info-box:nth-child(2) {
+    grid-column: 7 / span 4;
+  }
+
   #intro-title {
     font-size: 4.5rem;
   }
@@ -1672,6 +1730,12 @@ p.arrow {
     grid-column: 10 / span 2;
     grid-row: 1;
   }
+
+  .main-info-box:nth-child(2),
+  .sub-info-box:nth-child(2) {
+    grid-column: 7 / span 4;
+  }
+
 
   #intro-title {
     font-size: 5rem;
