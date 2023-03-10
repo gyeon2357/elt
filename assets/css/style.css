@@ -1012,11 +1012,15 @@ figure {
 
 }
 
-img {
+figure img {
   width: 100%;
   overflow: hidden;
 
   border-radius: .375rem;
+
+}
+
+img {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
