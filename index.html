@@ -74,6 +74,7 @@
     />
     <link rel="stylesheet" href="./assets/css/font.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/normalize.css" type="text/css" />
+    <link rel="preload" href="./assets/css/style.css" as="style" />
     <link
       rel="stylesheet"
       href="./assets/css/style.css"
@@ -88,7 +89,7 @@
     <div id="ripples"></div>
     <div id="loader" class="shown"></div>
 
-    <script type="text/javascript">
+    <script>
       document.getElementById("loader").innerText = "main loader";
       document.body.classList.remove("no-motion");
     </script>
@@ -217,9 +218,7 @@
         <section id="intro">
           <h2 id="intro-title">
             <span class="main-title-text text-plane scroll-trigger"
-              >&#x2D0; graphic &para; editorial ◌ app &#176; web newmedia ―album
-              ˝ music ℗ poster &#43; movie &times; brochure ≈ branding ˘
-              illustration &#42; art @every.little.thing</span
+              >&#x2D0; graphic &para; editorial ◌ app &#176; web newmedia ―album ˝ music ℗ poster &#43; movie &times; brochure ≈ branding ˘ illustration &#42; art @every.little.thing</span
             >
           </h2>
 
@@ -360,7 +359,7 @@ transform="translate(1824.758 968.368) rotate(-135)" style="fill: rgb(33, 33, 33
       </div>
     </main>
 
-    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/script.js" type="text/javascript"></script>
   </body>
 </html>
