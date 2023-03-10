@@ -974,7 +974,6 @@ div#index {
 .sup-box {
   width: 3rem;
   height: 3rem;
-
   align-items: center;
   text-align: center;
   transform: translate(-.5rem, -.75rem);
@@ -983,12 +982,12 @@ div#index {
 sup {
   top: -.125rem;
   color: var(--secondary-color-50);
-
 }
 
 div.weeklyzine-box {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
   column-gap: .5rem;
   row-gap: .875rem;
 }
