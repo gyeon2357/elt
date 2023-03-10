@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>ELT | Project</title>
+    <title>ELT | List</title>
     <meta
       name="keywords"
       content="graphic, editorial, app, web, newmedia, album, music, poster, movie, brochure, branding, illustration, art, @every.little.thing"
@@ -96,14 +95,14 @@
         <span>Project</span>
         <span>&lpar;</span>
         <a
-          href="../../project/list/"
+          href="#"
           id="list-link"
           class="header-plane header-link main-title-text not-scroll-trigger"
           >List</a
         >
         <span>|</span>
         <a
-          href="../../project/gallery/"
+          href="../gallery/"
           id="gallery-link"
           class="header-plane header-link main-title-text not-scroll-trigger"
           >Gallery</a
@@ -148,7 +147,7 @@
 
             <div class="mobile__project">
               <a
-                href="../../project/list/"
+                href="#"
                 id="list-link"
                 class="header-plane header-link main-title-text not-scroll-trigger"
                 >List&nbsp;view&nbsp;</a
@@ -157,7 +156,7 @@
             </div>
             <div class="mobile__project">
               <a
-                href="../../project/gallery/"
+                href="../gallery/"
                 id="gallery-link"
                 class="header-plane header-link main-title-text not-scroll-trigger"
                 >Gallery&nbsp;view&nbsp;</a
@@ -186,7 +185,6 @@
                 >Notice</a
               >
             </div>
-
             <div class="mobile__project">
               <a
                 href="../../about/"
@@ -209,93 +207,168 @@
 
     <main id="page">
       <div id="content" class="head-padding" data-namespace="home">
-        <section id="single-project-head">
-          <div class="project-head">
-            <span>Arena Homme+ Nov 2022 Oh Yeongsu</span>
+        <section id="listview-head">
+          <div class="list-filters">
+            <button
+              class="work-filters_toggler || form_select-wrapper"
+              data-work-filters="toggler"
+              aria-expanded="false"
+              aria-controls="work-filters-content"
+            >
+              <span
+                data-work-filters="toggler-open-label"
+                class="work-filters_toggler_open-label || form_select"
+              >
+                <span><img src="../../assets/img/select.svg" /></span>
+                <div class="filter-text">
+                  <span data-work-filters="currentCategoryName" style=""
+                    >All projects
+                  </span>
+                </div>
+                <div class="sup-box">
+                  <sup data-work-filters="currentCategoryQty" style="">78</sup>
+                </div>
+              </span>
+              <span
+                data-work-filters="toggler-close-label"
+                class="work-filters_toggler_close-label -hidden"
+                style="display: none"
+              >
+                Close
+              </span>
+            </button>
           </div>
         </section>
 
-        <section id="single-project-body">
-          <div class="single-project-title-box">
-            <div class="single-project-title-head">
-              <p>Editorial, Graphic, CI, Book</p>
-              <p>2022, Seoul</p>
-            </div>
-
-            <div class="single-project-image-box">
-              <img src="../../assets/img/gallery/ex-img-1.jpg" />
-            </div>
-
-            <div class="single-project-title-desc">
-              <p>다이어트 요리 전문가 @nice_nemo 김지영의 레시피북</p>
-              <p>
-                Diet Cooking Expert @nemo. Kim Jiyoung's Recipe Book.<br /><br />
-              </p>
-
-              <p>Client. 동아일보사</p>
-              <p>Work. Book Design, 2019.</p>
-            </div>
-          </div>
-
-          <div class="single-project-gallery-box">
-            <div class="single-project-gallery">
-              <figure>
+        <section id="listview-body">
+          <div id="index">
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
                 <img src="../../assets/img/gallery/ex-img-1.jpg" />
-                <img src="../../assets/img/gallery/ex-img-2.jpg" />
-              </figure>
-              <figure>
-                <img src="../../assets/img/gallery/ex-img-4.jpg" />
-                <img src="../../assets/img/gallery/ex-img-5.jpg" />
-              </figure>
-              <figure>
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
                 <img src="../../assets/img/gallery/ex-img-1.jpg" />
-                <img src="../../assets/img/gallery/ex-img-2.jpg" />
-                <img src="../../assets/img/gallery/ex-img-2.jpg" />
-              </figure>
-            </div>
-          </div>
-        </section>
-
-        <section id="another-project">
-          <div class="another-project-title-box">
-            <p>You may also like</p>
-          </div>
-
-          <div class="another-project-gallery-box">
-            <div class="another-project-gallery">
-              <button onclick="location.href='../elt-graphic'">
-                <figure>
-                  <img src="../../assets/img/gallery/ex-img-2.jpg" />
-                  <figcaption>ELT Graphic</figcaption>
-                </figure>
-              </button>
-              <button onclick="location.href='../elt-graphic'">
-                <figure>
-                  <img src="../../assets/img/gallery/ex-img-2.jpg" />
-                  <figcaption>ELT Graphic</figcaption>
-                </figure>
-              </button>
-              <button onclick="location.href='../elt-graphic'">
-                <figure>
-                  <img src="../../assets/img/gallery/ex-img-2.jpg" />
-                  <figcaption>ELT Graphic</figcaption>
-                </figure>
-              </button>
-              <button onclick="location.href='../elt-graphic'">
-                <figure>
-                  <img src="../../assets/img/gallery/ex-img-2.jpg" />
-                  <figcaption>ELT Graphic</figcaption>
-                </figure>
-              </button>
-            </div>
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
+            <button
+              class="list-box"
+              onclick="location.href='../../projects/arena-homme+-november-2022'"
+            >
+              <p>Arena Homme+ November 2022 Oh Yeongsu</p>
+              <div class="list-image">
+                <img src="../../assets/img/gallery/ex-img-1.jpg" />
+              </div>
+              <span>Graphic</span>
+            </button>
           </div>
         </section>
 
         <footer id="footer">
           <div id="footer-contact-credits">
             <div class="footer-col">
-              <a
-                class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+              <a class="out main-title-text text-plane not-scroll-trigger"
                 >Social</a
               >
               <a
@@ -319,8 +392,7 @@
             </div>
 
             <div class="footer-col">
-              <a
-                class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+              <a class="out main-title-text text-plane not-scroll-trigger"
                 >Contact</a
               >
               <a
@@ -341,7 +413,5 @@
         </footer>
       </div>
     </main>
-
-    
   </body>
 </html>

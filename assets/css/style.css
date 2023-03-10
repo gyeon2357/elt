@@ -201,7 +201,7 @@ html {
     align-items: center;
     font-size: 2rem;
     font-family: var(--display-font);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
 
 
@@ -450,7 +450,7 @@ html {
     font-family: var(--display-font);
 
     font-size: 7.25rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.25;
   }
 
@@ -484,7 +484,7 @@ html {
     flex-flow: row nowrap;
 
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: calc(var(--height-space) * 2) 0 calc(var(--height-space) * 2) calc(var(--height-space) * 1);
   }
 
@@ -514,7 +514,7 @@ html {
 
   #notice-head {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     display: block;
 
     margin: .75rem 0 .75rem 0;
@@ -647,7 +647,7 @@ html {
 
   #footer-title {
     font-family: var(--display-font);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
 
     margin: calc(var(--height-space) * 0.25) -2em 0 -2em;
@@ -691,8 +691,9 @@ html {
   }
 
   div.project-head {
-    font-size: 2.25rem;
-    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 700;
   }
 
   div#single-project-body {
@@ -735,7 +736,7 @@ html {
 
   .single-project-title-head {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .single-project-title-box .single-project-title-head p:nth-child(1) {
@@ -793,7 +794,7 @@ html {
 
   .another-project-title-box p {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
 
     padding: 0 0 .25rem .5rem;
     border-left: 1px solid var(--primary-color-10);
@@ -848,7 +849,7 @@ html {
 
     margin: calc(var(--gutter-size) + var(--base-font-size) * 1.5) 0 calc(var(--height-space) * 0.25) 0;
     font-family: var(--display-font);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     font-weight: normal;
     display: flex;
@@ -886,7 +887,7 @@ div.list-filters,
 div.content-head {
   font-size: 2rem;
   line-height: 1.4;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .content-head span {
@@ -1008,19 +1009,25 @@ div.img-gallery-box {
 
 figure {
   text-align: left;
+
 }
 
-figure img {
+img {
   width: 100%;
   overflow: hidden;
 
   border-radius: .375rem;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 figure figcaption {
   font-size: 0.875rem;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 figure p.tags {
@@ -1387,7 +1394,7 @@ p.arrow {
   }
 
   .menu__box #header-center span:first-child {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .menu__box #header-center span,
@@ -1459,7 +1466,7 @@ p.arrow {
 
     font-size: 0.875rem;
     line-height: 1.6;
-    font-weight: 600;
+    font-weight: 700;
 
     padding: 0;
     cursor: pointer;
