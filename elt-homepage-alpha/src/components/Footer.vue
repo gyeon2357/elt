@@ -4,7 +4,7 @@
       <div class="footer-col">
         <a class="out main-title-text text-plane text-plane-is-link not-scroll-trigger">Social</a>
         <a
-          to="https://www.instagram.com/everylittlething_graphic/"
+          href="https://www.instagram.com/everylittlething_graphic/"
           target="_blank"
           class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
           >Instagram</a
