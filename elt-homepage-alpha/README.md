@@ -1,35 +1,13 @@
-# elt-homepage-alpha
+vue3 vite 프로젝트 입니다.
 
-This template should help get you started developing with Vue 3 in Vite.
+node 16이상 설치
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
 npm install
-```
 
-### Compile and Hot-Reload for Development
+//개발모드 실행
 
-```sh
 npm run dev
-```
 
-### Compile and Minify for Production
+//빌드
 
-```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
