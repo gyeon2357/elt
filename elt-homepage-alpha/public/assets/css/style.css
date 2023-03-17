@@ -1576,7 +1576,7 @@ p.arrow {
   }
 
   #footer-contact-credits {
-    display: block;
+    display: block !important;
     margin: 0;
   }
 
