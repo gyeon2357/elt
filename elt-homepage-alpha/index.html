@@ -80,6 +80,24 @@
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
     <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
-    <!-- <script src="./assets/js/script.js" type="text/javascript"></script> -->
+    <script type="text/javascript">
+      $(function () {
+        var lastScrollTop = 0,
+          delta = 15
+        $(window).scroll(function (event) {
+          var st = $(this).scrollTop()
+
+          if (Math.abs(lastScrollTop - st) <= delta) return
+          if (st > lastScrollTop && lastScrollTop > 0) {
+            // downscroll
+            $('#header').css('top', '-5rem')
+          } else {
+            // upscroll
+            $('#header').css('top', '0')
+          }
+          lastScrollTop = st
+        })
+      })
+    </script>
   </body>
 </html>
