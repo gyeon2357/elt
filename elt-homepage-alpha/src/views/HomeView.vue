@@ -1,6 +1,7 @@
 <script setup>
 // import TheWelcome from '../components/TheWelcome.vue'
 import { RouterLink } from 'vue-router'
+// import '../../../assets/js/script.js'
 </script>
 
 <template>

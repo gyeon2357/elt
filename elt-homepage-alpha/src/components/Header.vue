@@ -117,7 +117,19 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+watch(useRoute(), () => {
+  document.querySelector('#menu__toggle').checked = false
+  scrollToTop()
+})
 </script>
 
 <style scoped></style>

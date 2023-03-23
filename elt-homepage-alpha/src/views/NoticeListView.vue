@@ -10,9 +10,9 @@
       <div id="index">
         <RouterLink
           class="list-box"
-          :to="`/notice/${item.id}`"
-          v-for="item in items"
-          :key="item.id"
+          :to="`/notice/${item._id}`"
+          v-for="item in projects"
+          :key="item._id"
         >
           <p>{{ item.title }}</p>
           <span>{{ item.date }}</span>
@@ -22,46 +22,32 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, inject, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 
-const items = ref([
-  {
-    id: 1,
-    title: '웹사이트 리뉴얼',
-    date: '2023. 02. 27.'
-  },
-  {
-    id: 2,
-    title: '봄맞이 이벤트 공지',
-    date: '2023. 01. 21.'
-  },
-  {
-    id: 3,
-    title: '한겨울 이벤트 공지',
-    date: '2023. 01. 07.'
-  },
-  {
-    id: 4,
-    title: '추석 이벤트 공지',
-    date: '2022. 09. 27.'
-  },
-  {
-    id: 5,
-    title: '바캉스 이벤트 공지',
-    date: '2022. 08. 15.'
-  },
-  {
-    id: 6,
-    title: '호캉스 이벤트 공지',
-    date: '2023. 02. 27.'
-  },
-  {
-    id: 7,
-    title: '봄맞이 이벤트 공지',
-    date: '2023. 02. 27.'
+const projects = reactive([])
+const $axios = inject('$axios')
+const fetchArticleList = async (query) => {
+  const qs = (obj) => {
+    const str = []
+    for (const p in obj) {
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
+      }
+    }
+    return str.join('&')
   }
-])
+  const qq = qs(query)
+  return $axios.get('/contents?' + qq).then(({ data }) => data)
+}
+const reload = async () => {
+  fetchArticleList({ filter: { category: 'notice' } }).then((l) => {
+    projects.splice(0, projects.length)
+    projects.push(...l)
+  })
+}
+
+reload()
 </script>
 
 <style></style>

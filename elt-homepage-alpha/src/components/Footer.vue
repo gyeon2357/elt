@@ -49,7 +49,7 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const isCurrentAboutPage = computed(() => route.path.startsWith('/about'))
-console.log(isCurrentAboutPage.value)
+// console.log(isCurrentAboutPage.value)
 </script>
 <style>
 #footer {
