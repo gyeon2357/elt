@@ -14,7 +14,7 @@
       itemprop="description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
     />
-    <meta itemprop="image" content="/assets/img/og-image.jpg" />
+    <meta itemprop="image" content="./assets/img/og-image.jpg" />
 
     <meta property="og:url" content="https://everylittlething.co.kr" />
     <meta property="og:type" content="website" />
@@ -23,12 +23,12 @@
       property="og:description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
     />
-    <meta property="og:image" content="/assets/img/og-image.jpg" />
+    <meta property="og:image" content="./assets/img/og-image.jpg" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://everylittlething.co.kr" />
     <meta property="og:title" content="Every‧little‧thing" />
-    <meta property="og:image" content="/assets/img/og-image.jpg" />
+    <meta property="og:image" content="./assets/img/og-image.jpg" />
     <meta
       property="og:description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
@@ -45,12 +45,12 @@
       name="twitter:description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
     />
-    <meta name="twitter:image" content="/assets/img/og-image.jpg" />
+    <meta name="twitter:image" content="./assets/img/og-image.jpg" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="/assets/img/favicon/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/img/favicon/site.webmanifest" />
 
     <link
       rel="stylesheet"
@@ -58,45 +58,220 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    /> -->
     <link rel="stylesheet" href="/assets/css/font.css" type="text/css" />
     <link rel="stylesheet" href="/assets/css/normalize.css" type="text/css" />
     <link rel="preload" href="/assets/css/style.css" as="style" />
     <link
       rel="stylesheet"
-      href="/assets/css/style.css"
+      href="./assets/css/style.css"
       media="print"
       onload="this.media='all'"
       type="text/css"
     />
   </head>
   <body class="no-motion">
-    <div id="canvas"></div>
-    <div id="ripples"></div>
-    <div id="loader" class="shown"></div>
-    <script>
-      // document.getElementById('loader').innerText = 'main loader'
-      // document.body.classList.remove('no-motion')
-    </script>
     <div id="app"></div>
+    <svg></svg>
     <script type="module" src="/src/main.js"></script>
-    <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(function () {
-        var lastScrollTop = 0,
-          delta = 15
-        $(window).scroll(function (event) {
-          var st = $(this).scrollTop()
+    <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomWiggle3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
 
-          if (Math.abs(lastScrollTop - st) <= delta) return
-          if (st > lastScrollTop && lastScrollTop > 0) {
-            // downscroll
-            $('#header').css('top', '-5rem')
-          } else {
-            // upscroll
-            $('#header').css('top', '0')
-          }
-          lastScrollTop = st
+    <!-- <script src="./assets/js/script.js"></script> -->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(function () {
+          var lastScrollTop = 0,
+            delta = 15
+          $(window).scroll(function (event) {
+            var st = $(this).scrollTop()
+
+            if (Math.abs(lastScrollTop - st) <= delta) return
+            if (st > lastScrollTop && lastScrollTop > 0) {
+              // downscroll
+              $('#header').css('top', '-5rem')
+            } else {
+              // upscroll
+              $('#header').css('top', '0')
+            }
+            lastScrollTop = st
+          })
         })
+      })
+    </script>
+    <script>
+      // greensock.com
+      // 2023. 03. 24
+      // example tag: intro-title
+
+      // gsap example
+
+      $(document).ready(function () {
+        const split = new SplitText('#intro-title')
+
+        gsap.to(
+          split.chars,
+          // Animation duration in seconds
+          2,
+          {
+            // Translate on X axis -100 pixels
+            x: '16',
+            // Smooth out the stop/start with easeInOut
+            ease: 'power2.inOut',
+            // Reverse the animation back to start
+            yoyo: true,
+            // Delay the next item in seconds
+            stagger: 0.03,
+            // Infinite repeat
+            repeat: -1
+          }
+        )
+
+        gsap.registerPlugin(CustomEase, CustomWiggle)
+
+        copy('#intro-title', 0)
+
+        //swarms all the balls by ?px in each direction on the x-axis, ? on the y-axis, and uses a ?-second duration for each tween and ? wiggles.
+        swarm('#intro-title', 16, 16, 8, 3)
+
+        //helper function for copying an element a bunch of times.
+        function copy(element, quantity) {
+          if (typeof element === 'string') {
+            element = document.querySelector(element)
+          }
+          var parent = element.parentNode,
+            type = element.nodeName,
+            a = [],
+            child
+          while (--quantity > -1) {
+            child = document.createElement(type)
+            parent.insertBefore(child, element)
+            a.push(child)
+            child.outerHTML = element.outerHTML
+          }
+          return a
+        }
+
+        //helper function for building the swarm
+        function swarm(elements, x, y, duration, wiggles) {
+          elements = gsap.utils.toArray(elements)
+          var tl = new TimelineMax(),
+            i = elements.length,
+            ease = 'wiggle({type: random, wiggles: ' + wiggles + '})',
+            delay
+          duration = duration || 2
+          while (--i > -1) {
+            delay = Math.random() * duration
+
+            //animate x and y separately so that they're more randomized (putting x and y in the same tween using the same ease would make the changes coincide and always travel diagonally)
+            tl.to(
+              elements[i],
+              { duration: duration, x: '+=' + x, repeat: -1, ease: ease },
+              delay
+            ).to(elements[i], { duration: duration, y: '+=' + y, repeat: -1, ease: ease }, delay)
+          }
+          tl.time(duration) //jump ahead so that we start with everything spread out.
+          return tl
+        }
+
+        // skew example
+
+        let proxy = { skew: 0 },
+          skewSetter = gsap.quickSetter('#intro-title .text-plane div div', 'skewY', 'deg'), // fast
+          clamp = gsap.utils.clamp(-20, 20) // don't let the skew go beyond 20 degrees.
+
+        ScrollTrigger.create({
+          onUpdate: (self) => {
+            let skew = clamp(self.getVelocity() / -100)
+            // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+            if (Math.abs(skew) > Math.abs(proxy.skew)) {
+              proxy.skew = skew
+              gsap.to(proxy, {
+                skew: 0,
+                duration: 0.8,
+                ease: 'power3',
+                overwrite: true,
+                onUpdate: () => skewSetter(proxy.skew)
+              })
+            }
+          }
+        })
+
+        // make the right edge "stick" to the scroll bar. force3D: true improves performance
+        gsap.set('#intro-title .text-plane div div', {
+          transformOrigin: 'left center',
+          force3D: true
+        })
+
+        // mouse effect
+
+        let svgns = 'http://www.w3.org/2000/svg'
+        let root = document.querySelector('svg')
+        let ease = 0.7
+
+        let pointer = {
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2
+        }
+
+        window.addEventListener('mousemove', (event) => {
+          pointer.x = event.clientX
+          pointer.y = event.clientY
+        })
+
+        let leader = (prop) => {
+          return prop === 'x' ? pointer.x : pointer.y
+        }
+
+        let total = 50
+        for (let i = 0; i < total; i++) {
+          leader = createLine(leader, i)
+        }
+
+        function createLine(leader, i) {
+          let line = document.createElementNS(svgns, 'line')
+          root.appendChild(line)
+
+          gsap.set(line, { x: -1500, y: -750 })
+
+          let pos = gsap.getProperty(line)
+
+          gsap.to(line, {
+            duration: 10000,
+            x: '+=150',
+            y: '+=10',
+            repeat: -1,
+            ease: 'expo.inOut',
+            modifiers: {
+              x: () => {
+                let posX = pos('x')
+                let leaderX = leader('x')
+                let x = posX + (leaderX - posX) * ease
+                line.setAttribute('x2', leaderX - x)
+                return x
+              },
+              y: () => {
+                let posY = pos('y')
+                let leaderY = leader('y')
+                let y = posY + (leaderY - posY) * ease
+                line.setAttribute('y2', leaderY - y)
+                return y
+              }
+            }
+          })
+
+          return pos
+        }
       })
     </script>
   </body>
