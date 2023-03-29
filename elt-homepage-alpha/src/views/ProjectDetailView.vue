@@ -21,13 +21,13 @@
           <pre>{{ project.description }}</pre>
         </div>
       </div>
-      <div class="single-project-gallery-box" style="max-width: 1440px; margin: auto">
+      <div class="single-project-gallery-box">
         <Block
           v-for="(item, idx) in project.contents"
           :key="item.type + idx"
           :blockType="item.type"
           :data="item.data"
-          align="center"
+          align="left"
         />
       </div>
     </section>

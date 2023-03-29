@@ -304,7 +304,7 @@ hr {
   img.stretched {
     width: 100%;
     max-height: initial;
-    border-top: 5px solid red;
+    // border-top: 5px solid red;
     // min-width: 920px !important;
   }
 }
