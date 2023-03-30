@@ -39,7 +39,7 @@
           >Copyright © every.little.thing</span
         >
       </div>
-      <figure v-if="isCurrentAboutPage"><img src="../assets/img/gallery/ex-img-3.jpg" /></figure>
+  
     </div>
   </footer>
 </template>
@@ -49,12 +49,13 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const isCurrentAboutPage = computed(() => route.path.startsWith('/about'))
-// console.log(isCurrentAboutPage.value)
+console.log(isCurrentAboutPage.value)
 </script>
+
 <style>
 #footer {
-  padding: calc(var(--height-space) * 0.5) calc(var(--gutter-size) * 1.2) var(--gutter-size)
-    calc(var(--gutter-size) * 1.2);
+  padding: calc(var(--height-space) * 0.5) calc(var(--gutter-size) * 1.5) var(--gutter-size)
+    calc(var(--gutter-size) * 1.5);
   margin-bottom: 1rem;
 }
 

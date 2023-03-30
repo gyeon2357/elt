@@ -8,61 +8,6 @@
         title="Back to home"
       />
     </h1>
-    <!-- 
-    <div style="width: 100%; position: absolute; left: 0">
-      <div
-        style="
-          display: flex;
-          max-width: 1200px;
-          width: 100%;
-          margin: auto;
-          padding: 0 calc(var(--gutter-size) * 1.2);
-        "
-      >
-        <div>
-          <span>Project</span>
-          <span>&lpar;</span>
-          <RouterLink
-            to="/project/list/"
-            id="list-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
-            >List</RouterLink
-          >
-          <span>|</span>
-          <RouterLink
-            to="/project/gallery/"
-            id="gallery-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
-            >Gallery</RouterLink
-          >
-          <span>&rpar;</span>
-        </div>
-        <div>
-          <RouterLink
-            to="/weeklyzine/"
-            id="weeklyzine-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
-            >Weeklyzine</RouterLink
-          >
-        </div>
-
-        <div>
-          <RouterLink
-            to="/notice/"
-            id="about-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
-            >Notice</RouterLink
-          >
-          <span>|</span>
-          <RouterLink
-            to="/about/"
-            id="about-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
-            >About</RouterLink
-          >
-        </div>
-      </div>
-    </div> -->
 
     <div id="header-center" class="header-col">
       <span>Project</span>
@@ -81,9 +26,6 @@
         >Gallery</RouterLink
       >
       <span>&rpar;</span>
-    </div>
-
-    <div id="header-center" class="header-col">
       <RouterLink
         to="/weeklyzine/"
         id="weeklyzine-link"
@@ -166,31 +108,13 @@
     </div>
 
     <button id="scroll-to-top" class="main-title-text text-plane not-scroll-trigger">
-      <img src="/assets/img/backtotop.svg" />
+      <img id="scroll" fetchpriority="high" src="/assets/img/backtotop.svg" />
     </button>
   </header>
 </template>
 
 <script setup>
-import { RouterLink, useRoute } from 'vue-router'
-import { ref, watch } from 'vue'
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-watch(useRoute(), () => {
-  document.querySelector('#menu__toggle').checked = false
-  scrollToTop()
-})
+import { RouterLink } from 'vue-router'
 </script>
 
-<style lang="scss" scoped>
-#header {
-  max-width: 1920px;
-  margin: auto;
-  // border: 1px solid red;
-}
-</style>
+<style scoped></style>
