@@ -9,8 +9,8 @@
     <section id="single-project-body">
       <div class="single-project-title-box">
         <div class="single-project-title-head">
-          <p>{{ project.tags.join(', ') }}</p>
           <p>{{ project.subtitle }}</p>
+          <p>{{ project.description }}</p>
         </div>
 
         <div class="single-project-image-box">
@@ -18,7 +18,9 @@
         </div>
 
         <div class="single-project-title-desc">
-          <pre>{{ project.description }}</pre>
+          {{ project?.publishedDate?.substring(0, 4)
+          }}<span style="margin-left: 24px">{{ project.tags.map((k) => '#' + k).join(', ') }}</span>
+          <!-- <p style="margin-top: 24px" v-html="project.description.split('\n').join('<br />')"></p> -->
         </div>
       </div>
       <div class="single-project-gallery-box">
@@ -90,6 +92,7 @@ const reload = async () => {
     project.description = l.description
     project.mainImg = l.mainImg
     project.contents = l.contents
+    project.publishedDate = l.publishedDate
   })
 
   fetchArticleList().then((l) => {
