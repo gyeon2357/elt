@@ -36,10 +36,9 @@
           >graphic@everylittlething.co.kr</a
         >
         <span class="out main-title-text text-plane not-scroll-trigger"
-          >Copyright © every.little.thing</span
+          >Copyright © every‧little‧thing</span
         >
       </div>
-  
     </div>
   </footer>
 </template>
@@ -69,7 +68,7 @@ console.log(isCurrentAboutPage.value)
 }
 
 .footer-col {
-  padding: 0 calc(var(--gutter-size) * 0.5);
+  padding: 0 0.5rem;
   font-size: 0.875rem;
   line-height: 1.68;
 }
@@ -147,5 +146,76 @@ console.log(isCurrentAboutPage.value)
 
 #footer-title .main-title-text:last-child {
   padding: 0.1em;
+}
+
+@media screen and (orientation: portrait), (max-width: 699px) {
+  #footer {
+    padding: var(--height-space) 1rem var(--gutter-size) 1rem;
+  }
+
+  #footer-contact-credits {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .footer-col {
+    margin: calc(var(--height-space) * 0.25) 0;
+    padding: 0 !important;
+  }
+
+  .footer-col .fonts-credits:first-of-type {
+    margin: 0 0 calc(var(--height-space) * 0.25) 0;
+  }
+
+  .footer-end-col {
+    display: block;
+  }
+
+  .fonts-credits .text-plane,
+  .footer-end-col .text-plane,
+  #scroll-to-top {
+    margin: -0.5em;
+    padding: 0.5em;
+  }
+
+  .footer-end-col .text-plane.text-plane-has-link {
+    display: block;
+    margin: -0.5em -0.5em calc(var(--height-space) * 0.25 - 0.5em) -0.5em;
+  }
+
+  #footer-title {
+    font-size: 4.875rem;
+    margin: 0 -1em;
+    flex-wrap: wrap;
+  }
+
+  #footer-title .main-title-text {
+    padding: 0.25em;
+    margin: -0.25em;
+  }
+
+  #footer-title .main-title-text:first-of-type {
+    padding: 0.25em 0.75em 0.25em 0.25em;
+  }
+
+  #footer-title .main-title-text:last-child {
+    padding: 0.25em;
+  }
+
+  #footer-title .main-title-text:last-of-type {
+    flex-basis: 100%;
+  }
+
+  #footer-contact-credits figure {
+    grid-column: 1 / span 8;
+    grid-row: 2;
+    height: 25vh;
+    filter: saturate(0);
+  }
+
+  #footer-contact-credits figure img {
+    border-radius: 0;
+    object-fit: fill;
+  }
 }
 </style>

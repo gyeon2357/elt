@@ -9,7 +9,7 @@
       <h2 id="intro-title">
         <p>
           ː graphic ¶ editorial ◌ app ° web newmedia ― album ˝ music ℗ poster + movie × brochure ≈
-          branding ˘ illustration * art @every.little.thing
+          branding ˘ illustration * art @every‧little‧thing
         </p>
       </h2>
 
@@ -34,7 +34,7 @@
         <div data-scroll-section data-scroll-speed="3">
           <div id="intro-desc">
             <div class="text-plane not-scroll-trigger">
-              Every.little.thing we does. And you know the things we does. graphic design lab.
+              Every‧little‧thing we does. And you know the things we does. graphic design lab.
               hannam-dong office&sup1; &#47; hangang-ro office&sup2; &gt; since 2012
             </div>
           </div>
@@ -166,7 +166,7 @@ const effect = () => {
 
   ScrollTrigger.create({
     onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -400)
+      let skew = clamp(self.getVelocity() / -700)
       // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
       if (Math.abs(skew) > Math.abs(proxy.skew)) {
         proxy.skew = skew

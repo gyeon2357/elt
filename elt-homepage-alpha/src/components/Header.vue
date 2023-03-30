@@ -18,7 +18,7 @@
         class="header-plane header-link main-title-text not-scroll-trigger"
         >List</RouterLink
       >
-      <span>|</span>
+      <span>&#124;</span>
       <RouterLink
         to="/project/gallery/"
         id="gallery-link"

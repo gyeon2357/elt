@@ -1,38 +1,38 @@
 @font-face {
 	font-family: "founders-grotesk", sans-serif;
-	src: url("/public/fonts/fonts/FoundersGrotesk-Regular.woff2") format("woff2"),
-		url("/public/fonts/fonts/FoundersGrotesk-Regular.woff") format("woff"),
-		url("/public/fonts/fonts/FoundersGrotesk-Regular.otf") format("opentype");
+	src: url("./assets/fonts/FoundersGrotesk-Regular.woff2") format("woff2"),
+		url("./assets/fonts/FoundersGrotesk-Regular.woff") format("woff"),
+		url("./assets/fonts/FoundersGrotesk-Regular.otf") format("opentype");
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: "founders-grotesk", sans-serif;
-	src: url("/public/fonts/fonts/FoundersGrotesk-Medium.woff2") format("woff2"),
-		url("/public/fonts/fonts/FoundersGrotesk-Medium.woff") format("woff"),
-		url("/public/fonts/fonts/FoundersGrotesk-Medium.otf") format("opentype");
+	src: url("./assets/fonts/FoundersGrotesk-Medium.woff2") format("woff2"),
+		url("./assets/fonts/FoundersGrotesk-Medium.woff") format("woff"),
+		url("./assets/fonts/FoundersGrotesk-Medium.otf") format("opentype");
 	font-weight: 500;
 }
 
 @font-face {
 	font-family: "founders-grotesk", sans-serif;
-	src: url("/public/fonts/fonts/FoundersGrotesk-Semibold.woff2") format("woff2"),
-		url("/public/fonts/fonts/FoundersGrotesk-Semibold.woff") format("woff"),
-		url("/public/fonts/fonts/FoundersGrotesk-Semibold.otf") format("opentype");
+	src: url("./assets/fonts/FoundersGrotesk-Semibold.woff2") format("woff2"),
+		url("./assets/fonts/FoundersGrotesk-Semibold.woff") format("woff"),
+		url("./assets/fonts/FoundersGrotesk-Semibold.otf") format("opentype");
 	font-weight: 600;
 }
 
 @font-face {
 	font-family: "DIN-bold", sans-serif;
-	src: url("/public/fonts/fonts/DIN-Bold.otf") format("opentype");
+	src: url("./assets/fonts/DIN-Bold.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Gill-Sans-bold", sans-serif;
-	src: url("/public/fonts/fonts/GillSansStd-Bold.otf") format("opentype");
+	src: url("./assets/fonts/GillSansStd-Bold.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Univers-bold", sans-serif;
-	src: url("/public/fonts/fonts/UniversLTStd-Bold.otf") format("opentype");
+	src: url("./assets/fonts/UniversLTStd-Bold.otf") format("opentype");
 }
