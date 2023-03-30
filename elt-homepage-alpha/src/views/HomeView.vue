@@ -4,10 +4,14 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
+  <div class="canvas" id="canvas-wrapper" aria-label="neumorphism"></div>
   <div id="content" data-namespace="home">
     <section id="intro">
       <h2 id="intro-title">
-        <div class="canvas" id="canvas-wrapper" aria-label="neumorphism"></div>
+        <p>
+          ː graphic ¶ editorial ◌ app ° web newmedia ― album ˝ music ℗ poster + movie × brochure ≈
+          branding ˘ illustration * art @every.little.thing
+        </p>
       </h2>
 
       <div data-scroll-container>
@@ -99,68 +103,68 @@ transform="translate(1824.758 968.368) rotate(-135)" style="fill: rgb(33, 33, 33
 $(document).ready(function () {
   // mouse effect
 
-  let svgns = 'http://www.w3.org/2000/svg'
-  let root = document.querySelector('svg')
-  let ease = 0.7
+  // let svgns = 'http://www.w3.org/2000/svg'
+  // let root = document.querySelector('svg')
+  // let ease = 0.7
 
-  let pointer = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-  }
+  // let pointer = {
+  //   x: window.innerWidth / 2,
+  //   y: window.innerHeight / 2
+  // }
 
-  window.addEventListener('mousemove', (event) => {
-    pointer.x = event.clientX
-    pointer.y = event.clientY
-  })
+  // window.addEventListener('mousemove', (event) => {
+  //   pointer.x = event.clientX
+  //   pointer.y = event.clientY
+  // })
 
-  let leader = (prop) => {
-    return prop === 'x' ? pointer.x : pointer.y
-  }
+  // let leader = (prop) => {
+  //   return prop === 'x' ? pointer.x : pointer.y
+  // }
 
-  let total = 50
-  for (let i = 0; i < total; i++) {
-    leader = createLine(leader, i)
-  }
+  // let total = 50
+  // for (let i = 0; i < total; i++) {
+  //   leader = createLine(leader, i)
+  // }
 
-  function createLine(leader, i) {
-    let line = document.createElementNS(svgns, 'line')
-    root.appendChild(line)
+  // function createLine(leader, i) {
+  //   let line = document.createElementNS(svgns, 'line')
+  //   root.appendChild(line)
 
-    gsap.set(line, { x: -1500, y: -750 })
+  //   gsap.set(line, { x: -1500, y: -750 })
 
-    let pos = gsap.getProperty(line)
+  //   let pos = gsap.getProperty(line)
 
-    gsap.to(line, {
-      duration: 10000,
-      x: '+=150',
-      y: '+=10',
-      repeat: -1,
-      ease: 'expo.inOut',
-      modifiers: {
-        x: () => {
-          let posX = pos('x')
-          let leaderX = leader('x')
-          let x = posX + (leaderX - posX) * ease
-          line.setAttribute('x2', leaderX - x)
-          return x
-        },
-        y: () => {
-          let posY = pos('y')
-          let leaderY = leader('y')
-          let y = posY + (leaderY - posY) * ease
-          line.setAttribute('y2', leaderY - y)
-          return y
-        }
-      }
-    })
+  //   gsap.to(line, {
+  //     duration: 10000,
+  //     x: '+=150',
+  //     y: '+=10',
+  //     repeat: -1,
+  //     ease: 'expo.inOut',
+  //     modifiers: {
+  //       x: () => {
+  //         let posX = pos('x')
+  //         let leaderX = leader('x')
+  //         let x = posX + (leaderX - posX) * ease
+  //         line.setAttribute('x2', leaderX - x)
+  //         return x
+  //       },
+  //       y: () => {
+  //         let posY = pos('y')
+  //         let leaderY = leader('y')
+  //         let y = posY + (leaderY - posY) * ease
+  //         line.setAttribute('y2', leaderY - y)
+  //         return y
+  //       }
+  //     }
+  //   })
 
-    return pos
-  }
+  //   return pos
+  // }
 
   // skew example
 
   let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter('#canvas-wrapper', 'skewY', 'deg'), // fast
+    skewSetter = gsap.quickSetter('#intro-title p', 'skewY', 'deg'), // fast
     clamp = gsap.utils.clamp(-20, 20) // don't let the skew go beyond 20 degrees.
 
   ScrollTrigger.create({
@@ -181,137 +185,130 @@ $(document).ready(function () {
   })
 
   // make the right edge "stick" to the scroll bar. force3D: true improves performance
-  gsap.set('#canvas-wrapper', {
+  gsap.set('#intro-title p', {
     transformOrigin: 'center center',
     force3D: true
   })
 
   /*
-   * NEUMORPHISM TYPO
-   * Made with ThreeJS - Enjoy!
-   *
-   * Experimenting with neumorphism in typography.
    * Use cursor to move around the shiny effect.
    * On mobile touch + drag screen.
    *
-   * #034 - #100DaysOfCode
-   * By ilithya | 2020
    * https://www.ilithya.rocks/
    * https://twitter.com/ilithya_rocks
    */
 
-  const colorBg = 'white'
-  const colorTypo = '#333'
+  // const colorBg = 'white'
+  // const colorTypo = '#000'
 
-  const nearDist = 0.1
-  const farDist = 10000
+  // const nearDist = 0.1
 
-  const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(
-    50,
-    window.innerWidth / window.innerHeight,
-    nearDist,
-    farDist
-  )
+  // let farDist = 10000
 
-  camera.position.z = Math.round(farDist / 16)
+  // const scene = new THREE.Scene()
+  // const camera = new THREE.PerspectiveCamera(
+  //   50,
+  //   window.innerWidth / window.innerHeight,
+  //   nearDist,
+  //   farDist
+  // )
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.setClearColor(colorBg)
-  renderer.setPixelRatio(window.devicePixelRatio)
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  document.querySelector('#canvas-wrapper').appendChild(renderer.domElement)
+  // camera.position.z = Math.round(farDist / 16)
 
-  const light = new THREE.DirectionalLight(0xffdffd, 1)
-  light.position.set(-100, 0, 70)
-  scene.add(light)
+  // const renderer = new THREE.WebGLRenderer({ antialias: true })
+  // renderer.setClearColor(colorBg)
+  // renderer.setPixelRatio(window.devicePixelRatio)
+  // renderer.setSize(window.innerWidth, window.innerHeight)
+  // document.querySelector('#canvas-wrapper').appendChild(renderer.domElement)
 
-  // CREATE TYPOGRAPHY
-  const group = new THREE.Group()
-  const typoLoader = new THREE.FontLoader()
-  const createTypo = (font) => {
-    const word = `    ː graphic ¶ editorial 
-    ◌ app ° web newmedia ― album ˝ 
-    music ℗ poster + movie × brochure 
-    ≈ branding ˘ illustration * art 
-    @every.little.thing`
-    const typoSize = 40
-    const typoHeight = Math.round(typoSize / 30)
-    const typoProperties = {
-      font: font,
-      size: typoSize,
-      height: 8,
-      curveSegments: 10,
-      bevelEnabled: false,
-      bevelThickness: 0.1,
-      bevelSize: 0.5,
-      bevelOffset: 0,
-      bevelSegments: 10
-    }
+  // const light = new THREE.DirectionalLight(0xffdffd, 1)
+  // light.position.set(-10, 0, 70)
+  // scene.add(light)
 
-    const textMesh = new THREE.Mesh()
-    textMesh.geometry = new THREE.TextBufferGeometry(word, typoProperties)
-    textMesh.material = new THREE.MeshStandardMaterial({
-      color: colorBg,
-      emissive: colorTypo,
-      roughness: 0,
-      metalness: 1,
-      // side: THREE.DoubleSide,
-      transparent: true,
-      opacity: 1
-    })
+  // // CREATE TYPOGRAPHY
+  // const group = new THREE.Group()
+  // const typoLoader = new THREE.FontLoader()
+  // const createTypo = (font) => {
+  //   const word = `ː graphic ¶ editorial\n ◌ app ° web newmedia ― album ˝\n music ℗ poster + movie × brochure\n ≈ branding ˘ illustration * art\n @every.little.thing`
 
-    textMesh.geometry.computeBoundingBox()
-    textMesh.geometry.boundingBox.getCenter(textMesh.position).multiplyScalar(-1)
+  //   const typoSize = 40
+  //   const typoHeight = Math.round(typoSize / 30)
+  //   const typoProperties = {
+  //     font: font,
+  //     size: typoSize,
+  //     height: typoSize / 3,
+  //     curveSegments: 10,
+  //     bevelEnabled: false,
+  //     bevelThickness: 0.1,
+  //     bevelSize: 0.5,
+  //     bevelOffset: 0,
+  //     bevelSegments: 10
+  //   }
 
-    textMesh.matrixAutoUpdate = false
-    textMesh.updateMatrix()
+  //   const textMesh = new THREE.Mesh()
+  //   textMesh.geometry = new THREE.TextBufferGeometry(word, typoProperties)
+  //   textMesh.material = new THREE.MeshStandardMaterial({
+  //     color: colorBg,
+  //     emissive: colorTypo,
+  //     roughness: 1,
+  //     metalness: 1,
+  //     // side: THREE.DoubleSide,
+  //     transparent: true,
+  //     opacity: 1
+  //   })
 
-    group.add(textMesh)
-  }
-  typoLoader.load('/assets/fonts/source.json', createTypo)
+  //   textMesh.geometry.computeBoundingBox()
+  //   textMesh.geometry.boundingBox.getCenter(textMesh.position).multiplyScalar(-1)
 
-  scene.add(group)
+  //   textMesh.matrixAutoUpdate = false
+  //   textMesh.updateMatrix()
 
-  // CREATE PART OF THE MOUSE/TOUCH OVER EFFECT
-  let mouseX = 0
-  let mouseY = 0
-  const mouseFX = {
-    windowX: Math.round(window.innerWidth / 4),
-    windowY: Math.round(window.innerHeight / 4),
-    coordinates: function (cX, cY) {
-      mouseX = cX - this.windowX
-      mouseY = cY - this.windowY
-    },
-    onMouseMove: function (e) {
-      mouseFX.coordinates(e.clientX, e.clientY)
-    },
-    onTouchMove: function (e) {
-      const touchX = e.changedTouches[0].clientX
-      const touchY = e.changedTouches[0].clientY
-      mouseFX.coordinates(touchX, touchY)
-    }
-  }
+  //   group.add(textMesh)
+  // }
 
-  document.addEventListener('mousemove', mouseFX.onMouseMove)
-  document.addEventListener('touchmove', mouseFX.onTouchMove)
+  // typoLoader.load('/assets/fonts/source.json', createTypo)
 
-  // RENDERING
-  const render = () => {
-    const ct = 0.001
-    camera.position.x += (mouseX - camera.position.x) * ct
-    camera.position.y += (mouseY - camera.position.y) * ct
-    camera.lookAt(scene.position)
+  // scene.add(group)
 
-    const r = Date.now() * 0.0001
-    const rot = Math.sin(r) * 0.12
-    group.rotation.x = rot * 1.4
-    group.rotation.y = rot
+  // // CREATE PART OF THE MOUSE/TOUCH OVER EFFECT
+  // let mouseX = 0
+  // let mouseY = 0
+  // const mouseFX = {
+  //   windowX: Math.round(window.innerWidth / 4),
+  //   windowY: Math.round(window.innerHeight / 4),
+  //   coordinates: function (cX, cY) {
+  //     mouseX = cX - this.windowX
+  //     mouseY = cY - this.windowY
+  //   },
+  //   onMouseMove: function (e) {
+  //     mouseFX.coordinates(e.clientX, e.clientY)
+  //   },
+  //   onTouchMove: function (e) {
+  //     const touchX = e.changedTouches[0].clientX
+  //     const touchY = e.changedTouches[0].clientY
+  //     mouseFX.coordinates(touchX, touchY)
+  //   }
+  // }
 
-    renderer.render(scene, camera)
+  // document.addEventListener('mousemove', mouseFX.onMouseMove)
+  // document.addEventListener('touchmove', mouseFX.onTouchMove)
 
-    requestAnimationFrame(render)
-  }
-  render()
+  // // RENDERING
+  // const render = () => {
+  //   const ct = 0.001
+  //   camera.position.x += (mouseX - camera.position.x) * ct
+  //   camera.position.y += (mouseY - camera.position.y) * ct
+  //   camera.lookAt(scene.position)
+
+  //   const r = Date.now() * 0.0001
+  //   const rot = Math.sin(r) * 0.12
+  //   group.rotation.x = rot * 1.4
+  //   group.rotation.y = rot
+
+  //   renderer.render(scene, camera)
+
+  //   requestAnimationFrame(render)
+  // }
+  // render()
 })
 </script>
