@@ -15,11 +15,15 @@
           <p class="tags">Editorial, Graphic</p>
         </figure> -->
         <!-- </button> -->
-        <RouterLink to="/project/1" v-for="(project, idx) in projects" :key="idx + 'g'">
+        <RouterLink
+          :to="'/project/' + project._id"
+          v-for="(project, idx) in projects"
+          :key="idx + 'g'"
+        >
           <figure>
-            <img :src="project.titleImage" :alt="project.title" />
+            <img :src="project.mainImg" :alt="project.title" />
             <figcaption>{{ project.title }}</figcaption>
-            <p class="tags">{{ project.tags }}</p>
+            <p class="tags">{{ project.tags.map((k) => '#' + k).join(' ') }}</p>
           </figure>
         </RouterLink>
       </div>
@@ -27,59 +31,31 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, inject, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
-const projects = ref([
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
-  },
-  {
-    title: 'Arena Homme+ November 2022 Oh Yeongsu',
-    tags: 'Graphic, Editorial',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
+
+const projects = reactive([])
+const $axios = inject('$axios')
+const fetchArticleList = async (query) => {
+  const qs = (obj) => {
+    const str = []
+    for (const p in obj) {
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
+      }
+    }
+    return str.join('&')
   }
-])
+  const qq = qs(query)
+  return $axios.get('/contents?' + qq).then(({ data }) => data)
+}
+const reload = async () => {
+  fetchArticleList({ filter: { category: 'project' } }).then((l) => {
+    projects.splice(0, projects.length)
+    projects.push(...l)
+  })
+}
+
+reload()
 </script>
 <style></style>

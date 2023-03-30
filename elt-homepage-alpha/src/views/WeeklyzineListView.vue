@@ -8,11 +8,11 @@
 
     <section id="weeklyzine-main-body">
       <div class="weeklyzine-box">
-        <RouterLink :to="`/weeklyzine/${item.id}`" v-for="item in items" :key="item.id">
+        <RouterLink :to="`/weeklyzine/${item._id}`" v-for="item in projects" :key="item.id">
           <figure>
-            <img :src="item.titleImage" alt="" />
+            <img :src="item.mainImg" alt="" />
             <figcaption>{{ item.title }}</figcaption>
-            <p class="tags">{{ item.tags }}</p>
+            <p class="tags">{{ item.subtitle }}</p>
           </figure>
         </RouterLink>
       </div>
@@ -20,46 +20,31 @@
   </div>
 </template>
 <script setup>
+import { inject, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
 
-const items = ref([
-  {
-    id: 1,
-    title: 'Weeklyzine #1',
-    tags: '@gyeon',
-    titleImage: '/assets/img/gallery/ex-img-1.jpg'
-  },
-  {
-    id: 2,
-    title: 'Weeklyzine #2',
-    tags: '@samwork',
-    titleImage: '/assets/img/gallery/ex-img-2.jpg'
-  },
-  {
-    id: 3,
-    title: 'Weeklyzine #3',
-    tags: '@bibl2',
-    titleImage: '/assets/img/gallery/ex-img-3.jpg'
-  },
-  {
-    id: 4,
-    title: 'Weeklyzine #4',
-    tags: '@ben',
-    titleImage: '/assets/img/gallery/ex-img-4.jpg'
-  },
-  {
-    id: 5,
-    title: 'Weeklyzine #5',
-    tags: '@yamin',
-    titleImage: '/assets/img/gallery/ex-img-5.jpg'
-  },
-  {
-    id: 6,
-    title: 'Weeklyzine #6',
-    tags: '@yamin',
-    titleImage: '/assets/img/gallery/ex-img-5.jpg'
+const projects = reactive([])
+const $axios = inject('$axios')
+const fetchArticleList = async (query) => {
+  const qs = (obj) => {
+    const str = []
+    for (const p in obj) {
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
+      }
+    }
+    return str.join('&')
   }
-])
+  const qq = qs(query)
+  return $axios.get('/contents?' + qq).then(({ data }) => data)
+}
+const reload = async () => {
+  fetchArticleList({ filter: { category: 'weeklyzine' } }).then((l) => {
+    projects.splice(0, projects.length)
+    projects.push(...l)
+  })
+}
+
+reload()
 </script>
 <style></style>
