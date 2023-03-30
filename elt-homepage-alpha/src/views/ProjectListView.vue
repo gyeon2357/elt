@@ -43,7 +43,7 @@
           <div class="list-image">
             <img :src="project.mainImg" />
           </div>
-          <span>{{ project.category }}</span>
+          <span>{{ project.publishedDate.substring(0, 4) }}</span>
         </RouterLink>
       </div>
     </section>
