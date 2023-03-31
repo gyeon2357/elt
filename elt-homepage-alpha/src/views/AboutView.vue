@@ -29,12 +29,14 @@
         <div class="main-info">
           <div class="main-info-box">
             <p>서울시 용산구 이태원로 54길 52 1층 2호</p>
+            <p>+82 10-9711-5110</p>
+            <p>+82 70-8659-3068</p>
           </div>
           <div class="main-info-box">
             <p>
               <span>102, 52, 54 Gil, Itaewon Ro, Yongsan Gu, Seoul, Korea</span>
-              <span>+82 10-9711-5110</span>
-              <span>+82 70-8659-3068</span>
+              <span></span>
+              <span></span>
             </p>
           </div>
         </div>

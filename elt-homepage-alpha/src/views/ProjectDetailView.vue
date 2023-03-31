@@ -19,7 +19,7 @@
 
         <div class="single-project-title-desc">
           {{ project?.publishedDate?.substring(0, 4)
-          }}<span style="margin-left: 24px">{{ project.tags.map((k) => '#' + k).join(', ') }}</span>
+          }}<span>{{ project.tags.map((k) => '#' + k).join(', ') }}</span>
           <!-- <p style="margin-top: 24px" v-html="project.description.split('\n').join('<br />')"></p> -->
         </div>
       </div>

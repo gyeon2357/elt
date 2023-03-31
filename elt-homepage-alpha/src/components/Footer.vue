@@ -87,6 +87,12 @@ console.log(isCurrentAboutPage.value)
   margin-bottom: 0.75rem;
 
   cursor: inherit;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .footer-col a:first-child:hover {
@@ -157,6 +163,7 @@ console.log(isCurrentAboutPage.value)
   }
 
   .footer-col {
+    font-size: 1rem;
     margin: calc(var(--height-space) * 0.25) 0;
     padding: 0 !important;
   }
