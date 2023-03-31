@@ -6,12 +6,14 @@
   <div id="content" data-namespace="home">
     <section id="intro">
       <div class="container" data-scroll-container>
-        <h2 id="intro-title">
-          <p>
-            ː graphic ¶ editorial ◌ app ° web newmedia ― album ˝ music ℗ poster + movie × brochure ≈
-            branding ˘ illustration * art @every‧little‧thing
-          </p>
-        </h2>
+        <div data-scroll data-scroll-speed="1">
+          <h2 id="intro-title">
+            <p>
+              ː graphic ¶ editorial ◌ app ° web newmedia ― album ˝ music ℗ poster + movie × brochure
+              ≈ branding ˘ illustration * art @every‧little‧thing
+            </p>
+          </h2>
+        </div>
 
         <div data-scroll data-scroll-speed="1">
           <div class="main-image-thumb">
@@ -28,7 +30,7 @@
             </div>
           </div>
         </div>
-        <div data-scroll data-scroll-speed="4">
+        <div data-scroll data-scroll-speed="1">
           <div id="intro-desc">
             <div class="text-plane">
               Every‧little‧thing we does. And you know the things we does. graphic design lab.

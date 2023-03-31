@@ -99,6 +99,12 @@
           })
         })
 
+        $('.mobile-menu')
+          .find('a')
+          .click(function () {
+            $("input:checkbox[id='menu__toggle']").prop('checked', false)
+          })
+
         $(function () {
           $('#scroll-to-top').click(function () {
             $('html, body').animate({ scrollTop: 0 }, 'slow')
@@ -122,6 +128,22 @@
           $('#scroll-to-top').css({ display: 'none' })
         }
       }
+
+      // // function to set the height on fly
+      // function autoHeight() {
+      //   $('footer').css('margin-top', 0)
+      //   $('footer').css('margin-top', $('#page').height() - $('#footer').outerHeight())
+      // }
+
+      // // onDocumentReady function bind
+      // $(document).ready(function () {
+      //   autoHeight()
+      // })
+
+      // // onResize bind of the function
+      // $(window).resize(function () {
+      //   autoHeight()
+      // })
     </script>
   </body>
 </html>

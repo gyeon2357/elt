@@ -363,7 +363,7 @@ html {
 
   #home-link {
     content: url(../img/logo.svg);
-    width: 2.5rem;
+    width: 2.75rem;
   }
 
   #header a,
@@ -445,6 +445,7 @@ html {
     margin: 0 calc(var(--gutter-size) * 8.333);
 
     padding-left: calc(var(--gutter-size) + 0.25rem);
+    /* min-height: calc(100vh - var(--height-space) * 2); */
   }
 
   svg {
@@ -460,6 +461,10 @@ html {
     stroke: var(--secondary-color-50);
     stroke-width: 20;
     stroke-linecap: round;
+  }
+
+  #intro {
+    overflow: hidden;
   }
 
   #intro .text-plane {
@@ -524,7 +529,7 @@ html {
     max-width: 40ch;
     width: calc(100% * 10 / 16);
 
-    z-index: 1001;
+    z-index: 1;
 
     margin: 0;
   }
@@ -625,6 +630,10 @@ html {
   .main-image-thumb .plane img {
     width: auto;
     height: 100%;
+  }
+
+  footer {
+  
   }
 
   #footer {
@@ -1283,6 +1292,8 @@ p.arrow {
   }
 
   #home-link {
+    content: url(../img/logo.svg);
+
     width: 2rem;
     padding-top: 0.25rem !important;
   }
@@ -1482,7 +1493,7 @@ p.arrow {
     width: 100%;
     height: 2.5px;
     background-color: #000;
-    transition-duration: 0.125s;
+    
     border-radius: 0.125rem;
   }
 
@@ -1508,8 +1519,8 @@ p.arrow {
     padding: 6rem 1rem;
 
     list-style: none;
-    background: linear-gradient(180deg, #ffffff 83%, rgba(217, 217, 217, 0) 100%);
-    transition-duration: 0.25s;
+    background: linear-gradient(180deg, #ffffff 87%, rgba(255, 255, 255, 0) 100%);
+    
     z-index: 10;
 
     user-select: none;
@@ -1928,10 +1939,6 @@ p.arrow {
 
   #nav-desc {
     margin: calc(var(--height-space)) 0 3rem 0;
-  }
-
-  #nav-desc .nav-box {
-    margin: 0.375rem;
   }
 
   #nav-desc .nav-box:nth-child(1) {
