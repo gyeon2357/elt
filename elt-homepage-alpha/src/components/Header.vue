@@ -1,12 +1,7 @@
 <template>
   <header id="header">
     <h1 id="header-left" class="header-col">
-      <RouterLink
-        to="/"
-        id="home-link"
-        class="header-plane main-title-text not-scroll-trigger"
-        title="Back to home"
-      />
+      <RouterLink to="/" id="home-link" class="header-plane main-title-text" title="Back to home" />
     </h1>
 
     <div id="header-center" class="header-col">
@@ -15,37 +10,31 @@
       <RouterLink
         to="/project/list/"
         id="list-link"
-        class="header-plane header-link main-title-text not-scroll-trigger"
+        class="header-plane header-link main-title-text"
         >List</RouterLink
       >
       <span>&#124;</span>
       <RouterLink
         to="/project/gallery/"
         id="gallery-link"
-        class="header-plane header-link main-title-text not-scroll-trigger"
+        class="header-plane header-link main-title-text"
         >Gallery</RouterLink
       >
       <span>&rpar;</span>
       <RouterLink
         to="/weeklyzine/"
         id="weeklyzine-link"
-        class="header-plane header-link main-title-text not-scroll-trigger"
+        class="header-plane header-link main-title-text"
         >Weeklyzine</RouterLink
       >
     </div>
 
     <div id="header-right" class="header-col">
-      <RouterLink
-        to="/notice/"
-        id="about-link"
-        class="header-plane header-link main-title-text not-scroll-trigger"
+      <RouterLink to="/notice/" id="about-link" class="header-plane header-link main-title-text"
         >Notice</RouterLink
       >
       <span>|</span>
-      <RouterLink
-        to="/about/"
-        id="about-link"
-        class="header-plane header-link main-title-text not-scroll-trigger"
+      <RouterLink to="/about/" id="about-link" class="header-plane header-link main-title-text"
         >About</RouterLink
       >
     </div>
@@ -64,7 +53,7 @@
             <RouterLink
               to="/project/list/"
               id="list-link"
-              class="header-plane header-link main-title-text not-scroll-trigger"
+              class="header-plane header-link main-title-text"
               >List&nbsp;view&nbsp;</RouterLink
             >
             <p class="arrow">←</p>
@@ -73,7 +62,7 @@
             <RouterLink
               to="/project/gallery/"
               id="gallery-link"
-              class="header-plane header-link main-title-text not-scroll-trigger"
+              class="header-plane header-link main-title-text"
               >Gallery&nbsp;view&nbsp;</RouterLink
             >
             <p class="arrow">←</p>
@@ -84,30 +73,24 @@
           <RouterLink
             to="/weeklyzine/"
             id="weeklyzine-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
+            class="header-plane header-link main-title-text"
             >Weeklyzine</RouterLink
           >
         </div>
 
         <div id="header-right" class="header-col">
-          <RouterLink
-            to="/notice/"
-            id="about-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
+          <RouterLink to="/notice/" id="about-link" class="header-plane header-link main-title-text"
             >Notice</RouterLink
           >
 
-          <RouterLink
-            to="/about/"
-            id="about-link"
-            class="header-plane header-link main-title-text not-scroll-trigger"
+          <RouterLink to="/about/" id="about-link" class="header-plane header-link main-title-text"
             >About</RouterLink
           >
         </div>
       </ol>
     </div>
 
-    <button id="scroll-to-top" class="main-title-text text-plane not-scroll-trigger">
+    <button id="scroll-to-top" class="main-title-text text-plane">
       <img id="scroll" fetchpriority="high" src="/assets/img/backtotop.svg" />
     </button>
   </header>

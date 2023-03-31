@@ -2,42 +2,40 @@
   <footer id="footer">
     <div id="footer-contact-credits">
       <div class="footer-col">
-        <a class="out main-title-text text-plane text-plane-is-link not-scroll-trigger">Social</a>
+        <a class="out main-title-text text-plane text-plane-is-link">Social</a>
         <a
           href="https://www.instagram.com/everylittlething_graphic/"
           target="_blank"
-          class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+          class="out main-title-text text-plane text-plane-is-link"
           >Instagram</a
         >
         <a
           href="https://www.facebook.com/e.littlething/"
           target="_blank"
-          class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+          class="out main-title-text text-plane text-plane-is-link"
           >Facebook</a
         >
         <a
           href="https://www.behance.net/everylittlething"
           target="_blank"
-          class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+          class="out main-title-text text-plane text-plane-is-link"
           >Behance</a
         >
       </div>
 
       <div class="footer-col">
-        <a class="out main-title-text text-plane text-plane-is-link not-scroll-trigger">Contact</a>
+        <a class="out main-title-text text-plane text-plane-is-link">Contact</a>
         <a
           to="mailto:design@everylittlething.co.kr"
-          class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+          class="out main-title-text text-plane text-plane-is-link"
           >design@everylittlething.co.kr</a
         >
         <a
           to="mailto:graphic@everylittlething.co.kr"
-          class="out main-title-text text-plane text-plane-is-link not-scroll-trigger"
+          class="out main-title-text text-plane text-plane-is-link"
           >graphic@everylittlething.co.kr</a
         >
-        <span class="out main-title-text text-plane not-scroll-trigger"
-          >Copyright © every‧little‧thing</span
-        >
+        <span class="out main-title-text text-plane">Copyright © every‧little‧thing</span>
       </div>
     </div>
   </footer>
