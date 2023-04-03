@@ -8,20 +8,13 @@
 
     <section id="galleryview-body">
       <div class="img-gallery-box">
-        <!-- <button onclick="location.href='../../projects/arena-homme+-november-2022'"> -->
-        <!-- <figure>
-          <img src="/assets/img/gallery/ex-img-2.jpg" alt="Arena Homme+ Nov 2022 Oh Yeongsu" />
-          <figcaption>Arena Homme+ Nov 2022 Oh Yeongsu</figcaption>
-          <p class="tags">Editorial, Graphic</p>
-        </figure> -->
-        <!-- </button> -->
         <RouterLink
           :to="'/project/' + project._id"
           v-for="(project, idx) in projects"
           :key="idx + 'g'"
         >
           <figure>
-            <img :src="project.mainImg" :alt="project.title" />
+            <img :src="project.mainImg" :alt="project.title" class="lazy"/>
             <figcaption>{{ project.title }}</figcaption>
             <p class="tags">{{ project.tags.map((k) => '#' + k).join(' ') }}</p>
           </figure>

@@ -41,7 +41,7 @@
         >
           <p>{{ project.title }}</p>
           <div class="list-image">
-            <img :src="project.mainImg" />
+            <img :src="project.mainImg" class="lazy"/>
           </div>
           <span>{{ project.publishedDate.substring(0, 4) }}</span>
         </RouterLink>

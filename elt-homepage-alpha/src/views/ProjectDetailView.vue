@@ -14,7 +14,7 @@
         </div>
 
         <div class="single-project-image-box">
-          <img :src="project.mainImg" />
+          <img :src="project.mainImg" class="lazy"/>
         </div>
 
         <div class="single-project-title-desc">

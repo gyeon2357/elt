@@ -9,9 +9,13 @@
         <div data-scroll data-scroll-speed="1">
           <h2 id="intro-title">
             <p>
-              ː graphic ¶ editorial ◌ app ° web newmedia ― album ˝ music ℗ poster + movie × brochure
-              ≈ branding ˘ illustration * art @every‧little‧thing
+              <span> ː graphic ¶ editorial ≈ app ° web</span>
             </p>
+            <p><span> newmedia ― album ◌ music </span></p>
+            <p><span> ℗ poster + movie </span></p>
+            <p><span>× brochure ˝ branding ˘</span></p>
+            <p><span>illustration * art </span></p>
+            <p><span>@every‧little‧thing </span></p>
           </h2>
         </div>
 
@@ -20,6 +24,7 @@
             <div class="media-wrapper">
               <div class="plane main-image-plane main-main-image-plane main-gradient">
                 <img
+                  class="lazy"
                   src="/assets/img/elt-bg-bk.jpg"
                   width="1600"
                   height="900"
@@ -135,8 +140,27 @@ const effect = () => {
 
   // skew example
 
+  gsap.fromTo(
+    '#intro-title p',
+    {
+      y: 100,
+      opacity: 0
+    },
+    {
+      delay: 1,
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: 'power2.easeOut',
+      stagger: {
+        from: 'start',
+        amount: 0.25
+      }
+    }
+  )
+
   let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter('#intro-title p', 'skewY', 'deg'), // fast
+    skewSetter = gsap.quickSetter('#intro-title span', 'skewY', 'deg'), // fast
     clamp = gsap.utils.clamp(-20, 20) // don't let the skew go beyond 20 degrees.
 
   ScrollTrigger.create({
@@ -157,7 +181,7 @@ const effect = () => {
   })
 
   // make the right edge "stick" to the scroll bar. force3D: true improves performance
-  gsap.set('#intro-title p', {
+  gsap.set('#intro-title span', {
     transformOrigin: 'center center',
     force3D: true
   })
