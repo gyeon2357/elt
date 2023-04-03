@@ -67,11 +67,12 @@
         >
       </div>
       <div id="notice-desc">
-        <RouterLink to="/notice" class="out main-title-text text-plane text-plane-is-link"
-          >2023. 02. 28.<span>웹사이트 리뉴얼</span></RouterLink
-        >
-        <RouterLink to="/notice" class="out main-title-text text-plane text-plane-is-link"
-          >2023. 02. 28.<span>웹사이트 리뉴얼</span></RouterLink
+        <RouterLink
+          v-for="notice in notices"
+          :to="`/notice/${notice.id}`"
+          class="out main-title-text text-plane text-plane-is-link"
+          :key="notice.id"
+          >{{ notice.publishedDate }}<span>{{ notice.title }}</span></RouterLink
         >
       </div>
     </section>
@@ -189,12 +190,40 @@ const effect = () => {
   })
 }
 
-
-
 $(document).ready(effect)
 export default {
   name: 'HomeView',
+  data: () => ({
+    notices: []
+  }),
+  inject: ['$axios'],
+  methods: {
+    async fetchArticleList(query) {
+      const qs = (obj) => {
+        const str = []
+        for (const p in obj) {
+          if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
+          }
+        }
+        return str.join('&')
+      }
+      const qq = qs(query)
+
+      return this.$axios.get('/contents?' + qq).then(({ data }) => data)
+    },
+    async reload() {
+      this.fetchArticleList({
+        filter: { category: 'notice' },
+        sort: { publishedDate: -1 },
+        limit: 2
+      }).then((l) => {
+        this.notices = l
+      })
+    }
+  },
   mounted() {
+    this.reload()
     effect()
   }
 }
