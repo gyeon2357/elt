@@ -35,7 +35,7 @@
           class="out main-title-text text-plane text-plane-is-link"
           >graphic@everylittlething.co.kr</a
         >
-        <span class="out main-title-text text-plane">Copyright © every‧little‧thing</span>
+        <span class="out main-title-text text-plane">Copyright © everylittlething</span>
       </div>
     </div>
   </footer>
@@ -51,6 +51,8 @@ console.log(isCurrentAboutPage.value)
 
 <style>
 #footer {
+  font-family: var(--display-font);
+  letter-spacing: 0.00125rem;
   padding: calc(var(--height-space) * 0.5) calc(var(--gutter-size) * 1.5) var(--gutter-size)
     calc(var(--gutter-size) * 1.5);
   margin-bottom: 1rem;
@@ -154,7 +156,7 @@ console.log(isCurrentAboutPage.value)
 
 @media screen and (orientation: portrait), (max-width: 699px) {
   #footer {
-    padding: var(--height-space) 1rem var(--gutter-size) 1rem;
+    padding: calc(var(--height-space)/2) 1rem var(--gutter-size) 1rem;
   }
 
   #footer-contact-credits {
@@ -211,16 +213,9 @@ console.log(isCurrentAboutPage.value)
     flex-basis: 100%;
   }
 
-  #footer-contact-credits figure {
-    grid-column: 1 / span 8;
-    grid-row: 2;
-    height: 25vh;
-    filter: saturate(0);
-  }
-
-  #footer-contact-credits figure img {
-    border-radius: 0;
-    object-fit: fill;
+  .footer-col span {
+    font-size: .875rem;
+    padding-top: 1rem;
   }
 }
 </style>

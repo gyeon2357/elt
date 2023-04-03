@@ -20,7 +20,7 @@
       <div class="single-project-gallery-box">
         <div class="single-project-gallery">
           <figure>
-            <img :src="project.mainImg" class="lazy"/>
+            <img :src="project.mainImg" class="lazy" />
           </figure>
         </div>
       </div>

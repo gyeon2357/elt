@@ -8,14 +8,16 @@
       <div class="container" data-scroll-container>
         <div data-scroll data-scroll-speed="1">
           <h2 id="intro-title">
-            <p>
-              <span> ː graphic ¶ editorial ≈ app ° web</span>
+            <p class="move-box-1">
+              <span class="title-effect-1"> ː graphic ¶ editorial ≈ app ° web</span>
             </p>
-            <p><span> newmedia ― album ◌ music </span></p>
+            <p class="move-box-2"><span class="title-effect-2"> newmedia ˇ music — album </span></p>
             <p><span> ℗ poster + movie </span></p>
-            <p><span>× brochure ˝ branding ˘</span></p>
-            <p><span>illustration * art </span></p>
-            <p><span>@every‧little‧thing </span></p>
+            <p><span>˘ branding × brochure </span></p>
+            <p><span>illustration * art ˝</span></p>
+            <p>
+              <span>@every‧little‧thing <img src="/assets/img/logo-line.svg" /></span>
+            </p>
           </h2>
         </div>
 
@@ -147,8 +149,8 @@ const effect = () => {
       opacity: 0
     },
     {
-      delay: 1,
-      duration: 1,
+      delay: 0.9,
+      duration: 1.125,
       y: 0,
       opacity: 1,
       ease: 'power2.easeOut',
@@ -186,6 +188,9 @@ const effect = () => {
     force3D: true
   })
 }
+
+
+
 $(document).ready(effect)
 export default {
   name: 'HomeView',
