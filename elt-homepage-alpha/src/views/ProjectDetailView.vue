@@ -9,12 +9,12 @@
     <section id="single-project-body">
       <div class="single-project-title-box">
         <div class="single-project-title-head">
-          <p>{{ project.subtitle }}</p>
-          <p>{{ project.description }}</p>
+          <p>{{ project.subtitle }}&nbsp;</p>
+          <p>{{ project.description }}&nbsp;</p>
         </div>
 
         <div class="single-project-image-box">
-          <img :src="project.mainImg" class="lazy"/>
+          <img :src="project.mainImg" class="lazy" />
         </div>
 
         <div class="single-project-title-desc">

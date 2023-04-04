@@ -70,16 +70,15 @@ console.log(isCurrentAboutPage.value)
 .footer-col {
   padding: 0 0.5rem;
   font-size: 0.875rem;
-  line-height: 1.68;
+  line-height: 1.55;
 }
-
 .footer-col:nth-child(1) {
-  grid-column: 1 / span 6;
+  grid-column: 1 / span 7;
   grid-row: 1;
 }
 
 .footer-col:nth-child(2) {
-  grid-column: 7 / span 2;
+  grid-column: 8 / span 7;
   grid-row: 1;
 }
 
@@ -156,7 +155,7 @@ console.log(isCurrentAboutPage.value)
 
 @media screen and (orientation: portrait), (max-width: 699px) {
   #footer {
-    padding: calc(var(--height-space)/2) 1rem var(--gutter-size) 1rem;
+    padding: calc(var(--height-space) / 2) 1rem var(--gutter-size) 1rem;
   }
 
   #footer-contact-credits {
@@ -166,6 +165,7 @@ console.log(isCurrentAboutPage.value)
 
   .footer-col {
     font-size: 1rem;
+    line-height: 1.5;
     margin: calc(var(--height-space) * 0.25) 0;
     padding: 0 !important;
   }
@@ -214,7 +214,7 @@ console.log(isCurrentAboutPage.value)
   }
 
   .footer-col span {
-    font-size: .875rem;
+    font-size: 0.875rem;
     padding-top: 1rem;
   }
 }
