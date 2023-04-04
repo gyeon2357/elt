@@ -69,7 +69,7 @@
       <div id="notice-desc">
         <RouterLink
           v-for="notice in notices"
-          :to="`/notice/${notice.id}`"
+          :to="`/notice/${notice._id}`"
           class="out main-title-text text-plane text-plane-is-link"
           :key="notice.id"
           >{{ notice.publishedDate }}<span>{{ notice.title }}</span></RouterLink
