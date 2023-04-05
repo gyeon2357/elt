@@ -54,18 +54,19 @@
               to="/project/list/"
               id="list-link"
               class="header-plane header-link main-title-text"
-              >List&nbsp;view&nbsp;</RouterLink
+              ><img
+                class="mobile__icon__1"
+                src="/assets/img/icon-list.svg"
+              />List&nbsp;view&nbsp;</RouterLink
             >
-            <p class="arrow">←</p>
           </div>
           <div class="mobile__project">
             <RouterLink
               to="/project/gallery/"
               id="gallery-link"
               class="header-plane header-link main-title-text"
-              >Gallery&nbsp;view&nbsp;</RouterLink
+              ><img class="mobile__icon__2" src="/assets/img/icon-gallery.svg" />Gallery&nbsp;view&nbsp;</RouterLink
             >
-            <p class="arrow">←</p>
           </div>
         </div>
 

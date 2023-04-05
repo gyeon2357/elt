@@ -54,7 +54,7 @@
               <span id="everylittlething"
                 >@every.little.thing <img class="line" src="/assets/img/logo-line.svg" /><img
                   class="tooltip14"
-                  src="/assets/img/elt-bg-bk.jpg"
+                  src="/assets/img/elt-bg.jpg"
               /></span>
             </p>
           </h2>
@@ -79,7 +79,7 @@
         <div data-scroll data-scroll-speed="1">
           <div id="intro-desc">
             <div class="text-plane">
-              Every‧little‧thing we does. And you know the things we does. graphic design lab.
+              Every.little.thing we does. And you know the things we does. graphic design lab.
               hannam-dong office&sup1; &#47; hangang-ro office&sup2; &gt; since 2012
             </div>
           </div>
@@ -183,7 +183,7 @@ const effect = () => {
   // skew example
 
   gsap.fromTo(
-    '#intro-title p, .main-image-thumb',
+    '#intro-title p, .main-image-thumb, #intro-desc',
     {
       y: 100,
       opacity: 0
@@ -202,12 +202,12 @@ const effect = () => {
   )
 
   let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter('#intro-title span', 'skewY', 'deg'), // fast
+    skewSetter = gsap.quickSetter('#intro-title', 'skewY', 'deg'), // fast
     clamp = gsap.utils.clamp(-20, 20) // don't let the skew go beyond 20 degrees.
 
   ScrollTrigger.create({
     onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -700)
+      let skew = clamp(self.getVelocity() / -500)
       // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
       if (Math.abs(skew) > Math.abs(proxy.skew)) {
         proxy.skew = skew
@@ -222,82 +222,83 @@ const effect = () => {
     }
   })
 
-  gsap.set('#intro-title span', {
+  gsap.set('#intro-title', {
     transformOrigin: 'center center',
     force3D: true
   })
 
   //intro-title-mouseover-toggle
 
-  const div1 = document.querySelector('#graphic')
-  const hover1 = document.querySelector('.tooltip1')
-  div1.addEventListener('mouseenter', () => (hover1.style.opacity = 1))
-  div1.addEventListener('mouseleave', () => (hover1.style.opacity = 0))
+  // const div1 = document.querySelector('#graphic')
+  // const hover1 = document.querySelector('.tooltip1')
+  // div1.addEventListener('mouseenter', () => (hover1.style.opacity = 1))
+  // div1.addEventListener('mouseleave', () => (hover1.style.opacity = 0))
 
-  const div2 = document.querySelector('#editorial')
-  const hover2 = document.querySelector('.tooltip2')
-  div2.addEventListener('mouseenter', () => (hover2.style.opacity = 1))
-  div2.addEventListener('mouseleave', () => (hover2.style.opacity = 0))
+  // const div2 = document.querySelector('#editorial')
+  // const hover2 = document.querySelector('.tooltip2')
+  // div2.addEventListener('mouseenter', () => (hover2.style.opacity = 1))
+  // div2.addEventListener('mouseleave', () => (hover2.style.opacity = 0))
 
-  const div3 = document.querySelector('#application')
-  const hover3 = document.querySelector('.tooltip3')
-  div3.addEventListener('mouseenter', () => (hover3.style.opacity = 1))
-  div3.addEventListener('mouseleave', () => (hover3.style.opacity = 0))
+  // const div3 = document.querySelector('#application')
+  // const hover3 = document.querySelector('.tooltip3')
+  // div3.addEventListener('mouseenter', () => (hover3.style.opacity = 1))
+  // div3.addEventListener('mouseleave', () => (hover3.style.opacity = 0))
 
-  const div4 = document.querySelector('#web')
-  const hover4 = document.querySelector('.tooltip4')
-  div4.addEventListener('mouseenter', () => (hover4.style.opacity = 1))
-  div4.addEventListener('mouseleave', () => (hover4.style.opacity = 0))
+  // const div4 = document.querySelector('#web')
+  // const hover4 = document.querySelector('.tooltip4')
+  // div4.addEventListener('mouseenter', () => (hover4.style.opacity = 1))
+  // div4.addEventListener('mouseleave', () => (hover4.style.opacity = 0))
 
-  const div5 = document.querySelector('#newmedia')
-  const hover5 = document.querySelector('.tooltip5')
-  div5.addEventListener('mouseenter', () => (hover5.style.opacity = 1))
-  div5.addEventListener('mouseleave', () => (hover5.style.opacity = 0))
+  // const div5 = document.querySelector('#newmedia')
+  // const hover5 = document.querySelector('.tooltip5')
+  // div5.addEventListener('mouseenter', () => (hover5.style.opacity = 1))
+  // div5.addEventListener('mouseleave', () => (hover5.style.opacity = 0))
 
-  const div6 = document.querySelector('#music')
-  const hover6 = document.querySelector('.tooltip6')
-  div6.addEventListener('mouseenter', () => (hover6.style.opacity = 1))
-  div6.addEventListener('mouseleave', () => (hover6.style.opacity = 0))
+  // const div6 = document.querySelector('#music')
+  // const hover6 = document.querySelector('.tooltip6')
+  // div6.addEventListener('mouseenter', () => (hover6.style.opacity = 1))
+  // div6.addEventListener('mouseleave', () => (hover6.style.opacity = 0))
 
-  const div7 = document.querySelector('#album')
-  const hover7 = document.querySelector('.tooltip7')
-  div7.addEventListener('mouseenter', () => (hover7.style.opacity = 1))
-  div7.addEventListener('mouseleave', () => (hover7.style.opacity = 0))
+  // const div7 = document.querySelector('#album')
+  // const hover7 = document.querySelector('.tooltip7')
+  // div7.addEventListener('mouseenter', () => (hover7.style.opacity = 1))
+  // div7.addEventListener('mouseleave', () => (hover7.style.opacity = 0))
 
-  const div8 = document.querySelector('#poster')
-  const hover8 = document.querySelector('.tooltip8')
-  div8.addEventListener('mouseenter', () => (hover8.style.opacity = 1))
-  div8.addEventListener('mouseleave', () => (hover8.style.opacity = 0))
+  // const div8 = document.querySelector('#poster')
+  // const hover8 = document.querySelector('.tooltip8')
+  // div8.addEventListener('mouseenter', () => (hover8.style.opacity = 1))
+  // div8.addEventListener('mouseleave', () => (hover8.style.opacity = 0))
 
-  const div9 = document.querySelector('#movie')
-  const hover9 = document.querySelector('.tooltip9')
-  div9.addEventListener('mouseenter', () => (hover9.style.opacity = 1))
-  div9.addEventListener('mouseleave', () => (hover9.style.opacity = 0))
+  // const div9 = document.querySelector('#movie')
+  // const hover9 = document.querySelector('.tooltip9')
+  // div9.addEventListener('mouseenter', () => (hover9.style.opacity = 1))
+  // div9.addEventListener('mouseleave', () => (hover9.style.opacity = 0))
 
-  const div10 = document.querySelector('#branding')
-  const hover10 = document.querySelector('.tooltip10')
-  div10.addEventListener('mouseenter', () => (hover10.style.opacity = 1))
-  div10.addEventListener('mouseleave', () => (hover10.style.opacity = 0))
+  // const div10 = document.querySelector('#branding')
+  // const hover10 = document.querySelector('.tooltip10')
+  // div10.addEventListener('mouseenter', () => (hover10.style.opacity = 1))
+  // div10.addEventListener('mouseleave', () => (hover10.style.opacity = 0))
 
-  const div11 = document.querySelector('#brochure')
-  const hover11 = document.querySelector('.tooltip11')
-  div11.addEventListener('mouseenter', () => (hover11.style.opacity = 1))
-  div11.addEventListener('mouseleave', () => (hover11.style.opacity = 0))
+  // const div11 = document.querySelector('#brochure')
+  // const hover11 = document.querySelector('.tooltip11')
+  // div11.addEventListener('mouseenter', () => (hover11.style.opacity = 1))
+  // div11.addEventListener('mouseleave', () => (hover11.style.opacity = 0))
 
-  const div12 = document.querySelector('#illustration')
-  const hover12 = document.querySelector('.tooltip12')
-  div12.addEventListener('mouseenter', () => (hover12.style.opacity = 1))
-  div12.addEventListener('mouseleave', () => (hover12.style.opacity = 0))
+  // const div12 = document.querySelector('#illustration')
+  // const hover12 = document.querySelector('.tooltip12')
+  // div12.addEventListener('mouseenter', () => (hover12.style.opacity = 1))
+  // div12.addEventListener('mouseleave', () => (hover12.style.opacity = 0))
 
-  const div13 = document.querySelector('#art')
-  const hover13 = document.querySelector('.tooltip13')
-  div13.addEventListener('mouseenter', () => (hover13.style.opacity = 1))
-  div13.addEventListener('mouseleave', () => (hover13.style.opacity = 0))
+  // const div13 = document.querySelector('#art')
+  // const hover13 = document.querySelector('.tooltip13')
+  // div13.addEventListener('mouseenter', () => (hover13.style.opacity = 1))
+  // div13.addEventListener('mouseleave', () => (hover13.style.opacity = 0))
 
-  const div14 = document.querySelector('#everylittlething')
-  const hover14 = document.querySelector('.tooltip14')
-  div14.addEventListener('mouseenter', () => (hover14.style.opacity = 1))
-  div14.addEventListener('mouseleave', () => (hover14.style.opacity = 0))
+  // const div14 = document.querySelector('#everylittlething')
+  // const hover14 = document.querySelector('.tooltip14')
+  // div14.addEventListener('mouseenter', () => (hover14.style.opacity = 1))
+  // div14.addEventListener('mouseleave', () => (hover14.style.opacity = 0))
+  
 }
 
 $(document).ready(effect)

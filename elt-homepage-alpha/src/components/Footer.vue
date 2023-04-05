@@ -61,7 +61,7 @@ console.log(isCurrentAboutPage.value)
 #footer-contact-credits {
   margin: 0 calc(var(--gutter-size) * -0.5);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(8.33%, auto));
   row-gap: 1rem;
   position: relative;
   z-index: 2;
@@ -72,6 +72,7 @@ console.log(isCurrentAboutPage.value)
   font-size: 0.875rem;
   line-height: 1.55;
 }
+
 .footer-col:nth-child(1) {
   grid-column: 1 / span 7;
   grid-row: 1;
@@ -102,8 +103,9 @@ console.log(isCurrentAboutPage.value)
 
 .footer-col span {
   padding-top: 1.25rem;
+  font-style: italic;
   font-size: 0.625rem;
-  opacity: 0.5;
+  letter-spacing: 0.0125rem;
 }
 
 #footer-contact-credits figure {
@@ -156,6 +158,7 @@ console.log(isCurrentAboutPage.value)
 @media screen and (orientation: portrait), (max-width: 699px) {
   #footer {
     padding: calc(var(--height-space) / 2) 1rem var(--gutter-size) 1rem;
+    margin-bottom: 0;
   }
 
   #footer-contact-credits {

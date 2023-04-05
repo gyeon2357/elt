@@ -14,13 +14,22 @@
           :key="idx + 'g'"
         >
           <figure>
-            <img :src="project.mainImg" :alt="project.title" class="lazy"/>
+            <img :src="project.mainImg" :alt="project.title" class="lazy" />
             <figcaption>{{ project.title }}</figcaption>
             <p class="tags">{{ project.tags.map((k) => '#' + k).join(' ') }}</p>
           </figure>
         </RouterLink>
       </div>
     </section>
+
+    <div class="switch">
+      <RouterLink to="/project/gallery" class="switch__button--current">
+        <img src="/assets/img/icon-gallery.svg" />
+      </RouterLink>
+      <RouterLink to="/project/list">
+        <img src="/assets/img/icon-list.svg" />
+      </RouterLink>
+    </div>
   </div>
 </template>
 <script setup>

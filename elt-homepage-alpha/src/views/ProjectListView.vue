@@ -47,6 +47,14 @@
         </RouterLink>
       </div>
     </section>
+    <div class="switch">
+      <RouterLink to="/project/gallery">
+        <img src="/assets/img/icon-gallery.svg" />
+      </RouterLink>
+      <RouterLink to="/project/list" class="switch__button--current">
+        <img src="/assets/img/icon-list.svg" />
+      </RouterLink>
+    </div>
   </div>
 </template>
 <script setup>

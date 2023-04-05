@@ -41,6 +41,10 @@
 
       <div class="another-project-gallery-box">
         <div class="another-project-gallery">
+          <div class="prev__button">
+            <RouterLink to="/"><span>←</span></RouterLink>
+          </div>
+
           <RouterLink
             :to="'/project/' + article._id"
             v-for="article in articleList"
@@ -51,6 +55,10 @@
               <figcaption>{{ article.title }}</figcaption>
             </figure>
           </RouterLink>
+
+          <div class="next__button">
+            <RouterLink to="/"><span>→</span></RouterLink>
+          </div>
         </div>
       </div>
     </section>

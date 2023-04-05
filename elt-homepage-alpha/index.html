@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Every‧little‧thing</title>
+    <title>Every.little.thing</title>
     <meta
       name="keywords"
       content="graphic, editorial, app, web, newmedia, album, music, poster, movie, brochure, branding, illustration, art, @every.little.thing"
@@ -18,7 +18,7 @@
 
     <meta property="og:url" content="https://everylittlething.co.kr" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Every‧little‧thing" />
+    <meta property="og:title" content="Every.little.thing" />
     <meta
       property="og:description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
@@ -27,7 +27,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://everylittlething.co.kr" />
-    <meta property="og:title" content="Every‧little‧thing" />
+    <meta property="og:title" content="Every.little.thing" />
     <meta property="og:image" content="/assets/img/og-image.jpg" />
     <meta
       property="og:description"
@@ -40,7 +40,7 @@
     <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="every‧little‧thing" />
+    <meta name="twitter:title" content="every.little.thing" />
     <meta
       name="twitter:description"
       content="에브리리틀씽(every.little.thing)은 2012년 부터 그래픽 디자인을 기반으로 하여 매거진과 음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인 스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의 시각으로 디자인하고자 노력하고 있습니다."
@@ -72,27 +72,27 @@
   </head>
   <body>
     <div id="loader"><img src="/assets/img/full-logo.svg" /></div>
+
     <div id="app"></div>
     <svg></svg>
     <script type="module" src="/src/main.js"></script>
     <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
     <script type="module" src="/assets/js/script.js"></script>
 
     <script type="text/javascript">
-      $(document).ready(function () {
+      $(function () {
         // loader
-
         setTimeout(function () {
           $('#header').animate({ opacity: 1 })
-        }, 800)
-        $('#loader').fadeOut(1000)
+        }, 100)
+        $('#loader').fadeOut(700)
 
         // header scrollTop
-
         $(function () {
           var lastScrollTop = 0,
             delta = 15
@@ -108,9 +108,44 @@
             lastScrollTop = st
           })
         })
+      })
 
-        // mobile-menu toggle, scroll toggle
+      //header link-color
+      $(function () {
+        $('.header-col')
+          .find('a')
+          .click(function () {
+            $('.header-col a').css('opacity', '1')
+            $(this).not('h1 a').css('opacity', '0.5')
+          })
+      })
 
+      //scroll-to-top
+      $(function () {
+        $('#scroll-to-top').click(function () {
+          $('html, body').animate({ scrollTop: 0 }, 'slow')
+          return false
+        })
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+          $('#scroll-to-top').css({ display: 'none' })
+        }
+
+        window.onscroll = function () {
+          scrollFunction()
+        }
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            $('#scroll-to-top').css('display', 'block')
+          } else {
+            $('#scroll-to-top').css('display', 'none')
+          }
+        }
+      })
+      // mobile-menu toggle, scroll-toggle
+
+      $(function () {
         $('body')
           .find('a')
           .click(function () {
@@ -120,8 +155,12 @@
         $("input:checkbox[id='menu__toggle']").on('change', function () {
           if ($(this).is(':checked')) {
             $('body').css('overflow', 'hidden')
+            $('#scroll-to-top').css('display', 'none')
+            $('#header').css('top', '0')
           } else {
             $('body').css('overflow', 'scroll')
+            $('#scroll-to-top').css('display', 'block')
+            $('#header').css('top', '-4rem')
           }
         })
 
@@ -130,84 +169,58 @@
           .click(function () {
             $('body').css('overflow', 'scroll')
           })
-
-        //scroll to top
-
-        $(function () {
-          $('#scroll-to-top').click(function () {
-            $('html, body').animate({ scrollTop: 0 }, 'slow')
-            return false
-          })
-        })
-
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-          $('#scroll-to-top').css({ display: 'none' })
-        }
       })
 
-      window.onscroll = function () {
-        scrollFunction()
-      }
+      // lazy-loading
 
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          $('#scroll-to-top').css({ display: 'block' })
-        } else {
-          $('#scroll-to-top').css({ display: 'none' })
-        }
+      document.addEventListener('DOMContentLoaded', function () {
+        var lazyloadImages
 
-        // lazy loading
-
-        document.addEventListener('DOMContentLoaded', function () {
-          var lazyloadImages
-
-          if ('IntersectionObserver' in window) {
-            lazyloadImages = document.querySelectorAll('.lazy')
-            var imageObserver = new IntersectionObserver(function (entries, observer) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  var image = entry.target
-                  image.classList.remove('lazy')
-                  imageObserver.unobserve(image)
-                }
-              })
-            })
-
-            lazyloadImages.forEach(function (image) {
-              imageObserver.observe(image)
-            })
-          } else {
-            var lazyloadThrottleTimeout
-            lazyloadImages = document.querySelectorAll('.lazy')
-
-            function lazyload() {
-              if (lazyloadThrottleTimeout) {
-                clearTimeout(lazyloadThrottleTimeout)
+        if ('IntersectionObserver' in window) {
+          lazyloadImages = document.querySelectorAll('.lazy')
+          var imageObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                var image = entry.target
+                image.classList.remove('lazy')
+                imageObserver.unobserve(image)
               }
+            })
+          })
 
-              lazyloadThrottleTimeout = setTimeout(function () {
-                var scrollTop = window.pageYOffset
-                lazyloadImages.forEach(function (img) {
-                  if (img.offsetTop < window.innerHeight + scrollTop) {
-                    img.src = img.dataset.src
-                    img.classList.remove('lazy')
-                  }
-                })
-                if (lazyloadImages.length == 0) {
-                  document.removeEventListener('scroll', lazyload)
-                  window.removeEventListener('resize', lazyload)
-                  window.removeEventListener('orientationChange', lazyload)
-                }
-              }, 20)
+          lazyloadImages.forEach(function (image) {
+            imageObserver.observe(image)
+          })
+        } else {
+          var lazyloadThrottleTimeout
+          lazyloadImages = document.querySelectorAll('.lazy')
+
+          function lazyload() {
+            if (lazyloadThrottleTimeout) {
+              clearTimeout(lazyloadThrottleTimeout)
             }
 
-            document.addEventListener('scroll', lazyload)
-            window.addEventListener('resize', lazyload)
-            window.addEventListener('orientationChange', lazyload)
+            lazyloadThrottleTimeout = setTimeout(function () {
+              var scrollTop = window.pageYOffset
+              lazyloadImages.forEach(function (img) {
+                if (img.offsetTop < window.innerHeight + scrollTop) {
+                  img.src = img.dataset.src
+                  img.classList.remove('lazy')
+                }
+              })
+              if (lazyloadImages.length == 0) {
+                document.removeEventListener('scroll', lazyload)
+                window.removeEventListener('resize', lazyload)
+                window.removeEventListener('orientationChange', lazyload)
+              }
+            }, 20)
           }
-        })
-        
-      }
+
+          document.addEventListener('scroll', lazyload)
+          window.addEventListener('resize', lazyload)
+          window.addEventListener('orientationChange', lazyload)
+        }
+      })
 
       // // function to set the height on fly
       // function autoHeight() {
@@ -227,4 +240,3 @@
     </script>
   </body>
 </html>
-

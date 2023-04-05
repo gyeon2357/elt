@@ -2,21 +2,32 @@
   <div id="content" class="head-padding" data-namespace="home">
     <section id="content-head">
       <div class="content-head">
-        <span data-work-filters="currentCategoryName" style="">Every‧little‧thing</span>
+        <span data-work-filters="currentCategoryName" style="">Every.little.thing</span>
       </div>
     </section>
 
     <section id="about-main-body">
       <div class="about-box">
+        <div class="about-image-plane">
+          <img
+            class="lazy"
+            src="/assets/img/elt-bg.jpg"
+            width="1600"
+            height="900"
+            alt="everylittlething"
+            crossorigin=""
+          />
+        </div>
         <div class="main-info">
           <div class="main-info-box">
             <p>
-              에브리리틀씽(every‧little‧thing)은 2012년부터 그래픽 디자인을 기반으로 하여 매거진과
+              에브리리틀씽(every.little.thing)은 2012년부터 그래픽 디자인을 기반으로 하여 매거진과
               음반, 영화, 온라인 미디어, 굿즈 등 다양한 시각으로 새롭게 디자인을 하는 그래픽 디자인
               스튜디오입니다. 우리에게 익숙하고 쉽게 보여지는 모든 작은 가치있는 것들을 우리의
               시각으로 디자인하고자 노력하고 있습니다.
             </p>
           </div>
+
           <div class="main-info-box">
             <p>
               Every.little.thing is a graphic design studio that has been redesigned from various
