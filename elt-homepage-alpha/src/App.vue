@@ -5,13 +5,11 @@ import Footer from './components/Footer.vue'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 <template>
-  <div>
-    <Header />
-    <main id="page">
-      <RouterView />
-      <Footer />
-    </main>
-  </div>
+  <Header />
+  <main id="page">
+    <RouterView />
+  </main>
+  <Footer />
 </template>
 
 <style lang="scss" scoped></style>

@@ -62,6 +62,7 @@
 </template>
 <script setup>
 import Block from '../components/Block.vue'
+import { format } from 'date-fns'
 import { reactive, watch, inject } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 
@@ -83,9 +84,11 @@ const fetchArticle = async (id) => {
 
 const articleList = reactive([])
 
-const fetchArticleList = async (id) => {
+const fetchArticleList = async (publishedDate) => {
   return $axios
-    .get('/contents?filter={"category": "project"}&limit=4&sort={"createdAt": -1}')
+    .get(
+      `/contents?filter={"category": "project", "isActivated": true, "publishedDate": {"$lt" : "${publishedDate}"} }&limit=4&sort={"pulishedDate": -1}`
+    )
     .then(({ data }) => data)
 }
 const reload = async () => {
@@ -97,11 +100,17 @@ const reload = async () => {
     project.mainImg = l.mainImg
     project.contents = l.contents
     project.publishedDate = l.publishedDate
-  })
 
-  fetchArticleList().then((l) => {
-    articleList.splice(0, 4)
-    articleList.push(...l)
+    fetchArticleList(l.publishedDate).then((l) => {
+      if (l.length === 4) {
+        articleList.splice(0, 4)
+        articleList.push(...l)
+      } else
+        fetchArticleList(format(new Date(), 'yyyy-MM-dd')).then((l) => {
+          articleList.splice(0, 4)
+          articleList.push(...l)
+        })
+    })
   })
 }
 

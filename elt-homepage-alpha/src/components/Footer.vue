@@ -51,10 +51,12 @@ console.log(isCurrentAboutPage.value)
 
 <style scoped>
 #footer {
+  position: relative;
+  height: auto;
+  transform: translateY(-100%);
   font-family: var(--display-font);
   letter-spacing: 0.00125rem;
-  padding: calc(var(--height-space) * 0.5) calc(var(--gutter-size) * 1.5) var(--gutter-size)
-    calc(var(--gutter-size) * 1.5);
+  padding: 40px calc(var(--gutter-size) * 1.5) var(--gutter-size) calc(var(--gutter-size) * 1.5);
   margin-bottom: 1rem;
 }
 
