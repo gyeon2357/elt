@@ -10,7 +10,7 @@
       <div class="weeklyzine-box">
         <RouterLink :to="`/weeklyzine/${item._id}`" v-for="item in projects" :key="item.id">
           <figure>
-            <img :src="item.mainImg" alt="" class="lazy" />
+            <img :src="item.mainImg" alt="item.title" class="lazy" />
             <figcaption>{{ item.title }}</figcaption>
             <p class="tags">{{ item.subtitle }}</p>
           </figure>

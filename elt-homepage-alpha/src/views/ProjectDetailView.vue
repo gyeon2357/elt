@@ -41,9 +41,7 @@
 
       <div class="another-project-gallery-box">
         <div class="another-project-gallery">
-          <div class="prev__button">
-            <RouterLink to="/"><span>←</span></RouterLink>
-          </div>
+          <RouterLink to="/" class="prev__button"><span>←</span></RouterLink>
 
           <RouterLink
             :to="'/project/' + article._id"
@@ -56,9 +54,7 @@
             </figure>
           </RouterLink>
 
-          <div class="next__button">
-            <RouterLink to="/"><span>→</span></RouterLink>
-          </div>
+          <RouterLink to="/" class="next__button"><span>→</span></RouterLink>
         </div>
       </div>
     </section>

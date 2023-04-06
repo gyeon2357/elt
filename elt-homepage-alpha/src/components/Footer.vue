@@ -49,7 +49,7 @@ const isCurrentAboutPage = computed(() => route.path.startsWith('/about'))
 console.log(isCurrentAboutPage.value)
 </script>
 
-<style>
+<style scoped>
 #footer {
   font-family: var(--display-font);
   letter-spacing: 0.00125rem;
@@ -70,7 +70,7 @@ console.log(isCurrentAboutPage.value)
 .footer-col {
   padding: 0 0.5rem;
   font-size: 0.875rem;
-  line-height: 1.55;
+  line-height: 1.4;
 }
 
 .footer-col:nth-child(1) {

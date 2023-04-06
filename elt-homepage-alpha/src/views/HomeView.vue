@@ -119,6 +119,50 @@
 </template>
 
 <script>
+
+const scrollFcn = () => {
+
+var scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  getSpeed: true,
+  getDirection: true
+})
+
+gsap.registerPlugin(ScrollTrigger)
+
+scroller.on('scroll', ScrollTrigger.update)
+
+ScrollTrigger.scrollerProxy('.container', {
+  scrollTop(value) {
+    return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y
+  },
+  getBoundingClientRect() {
+    return {
+      left: 0,
+      top: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  }
+})
+
+ScrollTrigger.create({
+  trigger: '.media-wrapper',
+  scroller: '.container',
+  start: 'top+=30% 50%',
+  end: 'bottom-=40% 50%',
+  animation: gsap.to('.media-wrapper', { backgroundSize: '120%' }),
+  scrub: 2
+  // markers: true
+})
+
+ScrollTrigger.addEventListener('refresh', () => scroller.update())
+  ScrollTrigger.refresh()
+
+console.log('scroll start!')
+}
+
 const effect = () => {
   // mouse effect
 
@@ -298,7 +342,7 @@ const effect = () => {
   // const hover14 = document.querySelector('.tooltip14')
   // div14.addEventListener('mouseenter', () => (hover14.style.opacity = 1))
   // div14.addEventListener('mouseleave', () => (hover14.style.opacity = 0))
-  
+  scrollFcn()
 }
 
 $(document).ready(effect)
