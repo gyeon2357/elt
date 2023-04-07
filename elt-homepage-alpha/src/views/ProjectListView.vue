@@ -2,32 +2,25 @@
   <div id="content" class="head-padding" data-namespace="home">
     <section id="listview-head">
       <div class="list-filters">
-        <button
-          class="work-filters_toggler || form_select-wrapper"
-          data-work-filters="toggler"
-          aria-expanded="false"
-          aria-controls="work-filters-content"
-        >
-          <span
-            data-work-filters="toggler-open-label"
-            class="work-filters_toggler_open-label || form_select"
-          >
-            <span><img src="/assets/img/select.svg" /></span>
+        <button class="work-filters-button || form_select-wrapper">
+          <span data-work-filters="toggler-open-label" class="work-filters || form_select">
+            <div class="filter-icon"><img src="/assets/img/select_on.png" /></div>
             <div class="filter-text">
-              <span data-work-filters="currentCategoryName" style="">All projects </span>
+              <span data-work-filters="currentCategoryName" class="all-project">All projects </span>
             </div>
             <div class="sup-box">
               <sup data-work-filters="currentCategoryQty" style="">{{ projects.length }}</sup>
             </div>
           </span>
-          <span
-            data-work-filters="toggler-close-label"
-            class="work-filters_toggler_close-label -hidden"
-            style="display: none"
-          >
-            Close
-          </span>
         </button>
+        <div id="filters-box" style="display: none">
+          <p id="filters">
+            <span>Editorial</span><span>Graphic</span><span>Branding</span><span>Poster</span
+            ><span>Package</span><span>Calendar</span><span>Album</span><span>Book</span
+            ><span>CI</span><span>BI</span><span>App</span><span>Website</span><span>Brochure</span
+            ><span>Illustration</span><span>Art</span><span>Magazine</span><span>character</span>
+          </p>
+        </div>
       </div>
     </section>
 
@@ -86,7 +79,45 @@ const reload = async () => {
   })
 }
 
+const listviewFcn = () => {
+  $(function () {
+  
+    // var links = document.getElementsByClassName('list-box')
+    // for (var i = 0; i < links.length; i++) {
+    //   links[i].innerHTML = links[i].innerHTML.toLowerCase()
+    // }
+
+    $('.work-filters-button').click(function () {
+      $('.filter-icon')
+        .find('img')
+        .attr('src', function (index, attr) {
+          if (attr.match('_on')) {
+            return attr.replace('_on.png', '_off.png')
+          } else {
+            return attr.replace('_off.png', '_on.png')
+          }
+        })
+
+      $('.sup-box').toggle()
+      $('.work-filters-button')
+        .find('span.all-project')
+        .text(function (index, text) {
+          return text == 'Close' ? 'All projects' : 'Close'
+        })
+
+      $('#filters-box').fadeToggle()
+
+      return false
+    })
+  })
+}
+
+listviewFcn()
 reload()
 </script>
 
-<style></style>
+<style>
+.work-filters {
+  color: inherit;
+}
+</style>

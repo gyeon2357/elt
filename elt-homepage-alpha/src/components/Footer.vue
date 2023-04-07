@@ -26,12 +26,12 @@
       <div class="footer-col">
         <a class="out main-title-text text-plane text-plane-is-link">Contact</a>
         <a
-          to="mailto:design@everylittlething.co.kr"
+          href="mailto:design@everylittlething.co.kr?subject=문의하기"
           class="out main-title-text text-plane text-plane-is-link"
           >design@everylittlething.co.kr</a
         >
         <a
-          to="mailto:graphic@everylittlething.co.kr"
+          href="mailto:graphic@everylittlething.co.kr?subject=문의하기"
           class="out main-title-text text-plane text-plane-is-link"
           >graphic@everylittlething.co.kr</a
         >
@@ -52,12 +52,12 @@ console.log(isCurrentAboutPage.value)
 <style scoped>
 #footer {
   position: relative;
-  height: auto;
-  transform: translateY(-100%);
+  height: 8rem;
+
   font-family: var(--display-font);
   letter-spacing: 0.00125rem;
-  padding: 40px calc(var(--gutter-size) * 1.5) var(--gutter-size) calc(var(--gutter-size) * 1.5);
-  margin-bottom: 1rem;
+  padding: 80px calc(var(--gutter-size) * 2) var(--gutter-size) calc(var(--gutter-size) * 2);
+  z-index: 1;
 }
 
 #footer-contact-credits {
@@ -71,8 +71,12 @@ console.log(isCurrentAboutPage.value)
 
 .footer-col {
   padding: 0 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.4;
+}
+
+.footer-col a {
+  cursor: pointer;
 }
 
 .footer-col:nth-child(1) {
@@ -99,7 +103,12 @@ console.log(isCurrentAboutPage.value)
   -ms-user-select: none;
 }
 
+.footer-col a:not(:first-child) {
+  width: fit-content;
+}
+
 .footer-col a:first-child:hover {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -108,6 +117,8 @@ console.log(isCurrentAboutPage.value)
   font-style: italic;
   font-size: 0.625rem;
   letter-spacing: 0.0125rem;
+
+  margin-bottom: 1rem;
 }
 
 #footer-contact-credits figure {
@@ -159,13 +170,15 @@ console.log(isCurrentAboutPage.value)
 
 @media screen and (orientation: portrait), (max-width: 699px) {
   #footer {
-    padding: calc(var(--height-space) / 2) 1rem var(--gutter-size) 1rem;
+    height: 18rem;
+    padding: calc(var(--height-space) / 2) 1.125rem var(--gutter-size) 1.125rem;
     margin-bottom: 0;
   }
 
   #footer-contact-credits {
     display: block !important;
     margin: 0 !important;
+    padding-bottom: 1rem;
   }
 
   .footer-col {

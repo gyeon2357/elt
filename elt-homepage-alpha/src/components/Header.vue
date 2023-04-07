@@ -65,7 +65,10 @@
               to="/project/gallery/"
               id="gallery-link"
               class="header-plane header-link main-title-text"
-              ><img class="mobile__icon__2" src="/assets/img/icon-gallery.svg" />Gallery&nbsp;view&nbsp;</RouterLink
+              ><img
+                class="mobile__icon__2"
+                src="/assets/img/icon-gallery.svg"
+              />Gallery&nbsp;view&nbsp;</RouterLink
             >
           </div>
         </div>

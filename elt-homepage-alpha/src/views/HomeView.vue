@@ -3,98 +3,96 @@
 </script>
 
 <template>
-  <div id="content" data-namespace="home">
-    <section id="intro">
-      <div class="container" data-scroll-container>
-        <div data-scroll data-scroll-speed="1">
-          <h2 id="intro-title">
-            <p>
-              <span id="graphic">
-                ː graphic&nbsp;<img class="tooltip1" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
+  <div id="content" data-namespace="home" class="container" data-scroll-container>
+    <section id="intro" data-scroll>
+      <div data-scroll data-scroll-speed="1">
+        <h2 id="intro-title">
+          <p>
+            <span id="graphic">
+              ː graphic&nbsp;<img class="tooltip1" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
 
-              <span id="editorial"
-                >¶ editorial&nbsp;<img class="tooltip2" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="application"
-                >≈ app&nbsp;<img class="tooltip3" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="web"
-                >° web&nbsp;<img class="tooltip4" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
+            <span id="editorial"
+              >¶ editorial&nbsp;<img class="tooltip2" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="application"
+              >≈ app&nbsp;<img class="tooltip3" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="web"
+              >° web&nbsp;<img class="tooltip4" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
 
-              <span id="newmedia">
-                newmedia&nbsp;<img class="tooltip5" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="music"
-                >ˇ music&nbsp;<img class="tooltip6" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="album"
-                >— album&nbsp;<img class="tooltip7" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="poster">
-                ℗ poster&nbsp;<img class="tooltip8" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="movie"
-                >+ movie&nbsp;<img class="tooltip9" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="branding"
-                >˘ branding&nbsp;<img class="tooltip10" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="brochure"
-                >× brochure&nbsp;<img class="tooltip11" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="illustration"
-                >illustration&nbsp;<img class="tooltip12" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
-              <span id="art"
-                >* art ˝&nbsp;<img class="tooltip13" src="/assets/img/elt-bg-bk.jpg"
-              /></span>
+            <span id="newmedia">
+              newmedia&nbsp;<img class="tooltip5" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="music"
+              >ˇ music&nbsp;<img class="tooltip6" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="album"
+              >— album&nbsp;<img class="tooltip7" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="poster">
+              ℗ poster&nbsp;<img class="tooltip8" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="movie"
+              >+ movie&nbsp;<img class="tooltip9" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="branding"
+              >˘ branding&nbsp;<img class="tooltip10" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="brochure"
+              >× brochure&nbsp;<img class="tooltip11" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="illustration"
+              >illustration&nbsp;<img class="tooltip12" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
+            <span id="art"
+              >* art ˝&nbsp;<img class="tooltip13" src="/assets/img/elt-bg-bk.jpg"
+            /></span>
 
-              <span id="everylittlething"
-                >@every.little.thing <img class="line" src="/assets/img/logo-line.svg" /><img
-                  class="tooltip14"
-                  src="/assets/img/elt-bg.jpg"
-              /></span>
-            </p>
-          </h2>
-        </div>
+            <span id="everylittlething"
+              >@every.little.thing <img class="line" src="/assets/img/logo-line.svg" /><img
+                class="tooltip14"
+                src="/assets/img/elt-bg.jpg"
+            /></span>
+          </p>
+        </h2>
+      </div>
 
-        <div data-scroll data-scroll-speed="1">
-          <div class="main-image-thumb">
-            <div class="media-wrapper">
-              <div class="plane main-image-plane main-main-image-plane main-gradient">
-                <img
-                  class="lazy"
-                  src="/assets/img/elt-bg-bk.jpg"
-                  width="1600"
-                  height="900"
-                  alt="everylittlething"
-                  crossorigin=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-scroll data-scroll-speed="1">
-          <div id="intro-desc">
-            <div class="text-plane">
-              Every.little.thing we does. And you know the things we does. graphic design lab.
-              hannam-dong office&sup1; &#47; hangang-ro office&sup2; &gt; since 2012
+      <div data-scroll data-scroll-speed="4">
+        <div class="main-image-thumb">
+          <div class="media-wrapper">
+            <div class="plane main-image-plane main-main-image-plane main-gradient">
+              <img
+                src="/assets/img/elt-bg-bk.jpg"
+                width="1600"
+                height="900"
+                alt="everylittlething"
+                crossorigin=""
+              />
             </div>
           </div>
         </div>
       </div>
-
-      <div id="nav-desc" data-scroll data-scroll-speed="3">
-        <div class="nav-box">
-          <RouterLink to="/about" class="text-plane text-plane-is-link">More About Us </RouterLink
-          ><span>→</span>
+      <div data-scroll data-scroll-speed="1">
+        <div id="intro-desc">
+          <div class="text-plane">
+            Every.little.thing we does. And you know the things we does. graphic design lab.
+            hannam-dong office&sup1; &#47; hangang-ro office&sup2; &gt; since 2012
+          </div>
         </div>
-        <div class="nav-box">
-          <RouterLink to="/project/list" class="text-plane text-plane-is-link"
-            >Explore the project </RouterLink
-          ><span>→</span>
+      </div>
+      <div data-scroll data-scroll-speed="2">
+        <div id="nav-desc">
+          <div class="nav-box">
+            <RouterLink to="/about" class="text-plane text-plane-is-link">More About Us </RouterLink
+            ><span>→</span>
+          </div>
+          <div class="nav-box">
+            <RouterLink to="/project/list" class="text-plane text-plane-is-link"
+              >Explore the project </RouterLink
+            ><span>→</span>
+          </div>
         </div>
       </div>
     </section>
@@ -119,53 +117,19 @@
 </template>
 
 <script>
-
 const scrollFcn = () => {
-
-var scroller = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  getSpeed: true,
-  getDirection: true
-})
-
-gsap.registerPlugin(ScrollTrigger)
-
-scroller.on('scroll', ScrollTrigger.update)
-
-ScrollTrigger.scrollerProxy('.container', {
-  scrollTop(value) {
-    return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y
-  },
-  getBoundingClientRect() {
-    return {
-      left: 0,
-      top: 0,
-      width: window.innerWidth,
-      height: window.innerHeight
-    }
-  }
-})
-
-ScrollTrigger.create({
-  trigger: '.media-wrapper',
-  scroller: '.container',
-  start: 'top+=30% 50%',
-  end: 'bottom-=40% 50%',
-  animation: gsap.to('.media-wrapper', { backgroundSize: '120%' }),
-  scrub: 2
-  // markers: true
-})
-
-ScrollTrigger.addEventListener('refresh', () => scroller.update())
-  ScrollTrigger.refresh()
-
-console.log('scroll start!')
+  let locoScroll
+  locoScroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+  })
+  new ResizeObserver(() => locoScroll.update()).observe(
+    document.querySelector('[data-scroll-container]')
+  )
 }
 
 const effect = () => {
   // mouse effect
-
   let svgns = 'http://www.w3.org/2000/svg'
   let root = document.querySelector('svg')
   let ease = 0.7
@@ -225,7 +189,6 @@ const effect = () => {
   }
 
   // skew example
-
   gsap.fromTo(
     '#intro-title p, .main-image-thumb, #intro-desc',
     {
