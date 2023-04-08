@@ -35,7 +35,7 @@
       <figure>
         <div :class="`post-img-center`">
           <img
-            :src="`https://resize.samworks.io/crop/1200/webp/${data.file.url}`"
+            v-lazy="`https://resize.samworks.io/crop/1200/webp/${data.file.url}`"
             :alt="data.caption"
             :class="{ stretched: data.stretched }"
           />
