@@ -34,7 +34,10 @@
         >
           <p>{{ project.title }}</p>
           <div class="list-image">
-            <img :src="project.mainImg" class="lazy" />
+            <img
+              :src="`https://resize.samworks.io/crop/100x100/webp/${project.mainImg}`"
+              class="lazy"
+            />
           </div>
           <span>{{ project.publishedDate.substring(0, 4) }}</span>
         </RouterLink>
@@ -81,7 +84,6 @@ const reload = async () => {
 
 const listviewFcn = () => {
   $(function () {
-  
     // var links = document.getElementsByClassName('list-box')
     // for (var i = 0; i < links.length; i++) {
     //   links[i].innerHTML = links[i].innerHTML.toLowerCase()

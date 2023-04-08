@@ -14,7 +14,11 @@
           :key="idx + 'g'"
         >
           <figure>
-            <img :src="project.mainImg" :alt="project.title" class="lazy" />
+            <img
+              :src="`https://resize.samworks.io/crop/450/webp/${project.mainImg}`"
+              :alt="project.title"
+              class="lazy"
+            />
             <figcaption>{{ project.title }}</figcaption>
             <p class="tags">{{ project.tags.map((k) => '#' + k).join(' ') }}</p>
           </figure>

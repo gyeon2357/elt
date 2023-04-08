@@ -47,7 +47,8 @@
             :key="article._id"
           >
             <figure>
-              <img :src="article.mainImg" />
+              <img :src="`https://resize.samworks.io/crop/320x240/webp/${article.mainImg}`" />
+
               <figcaption>{{ article.title }}</figcaption>
             </figure>
           </RouterLink>
@@ -117,6 +118,7 @@ watch(
     if (!id) return
     else {
       console.log('id => ', id)
+
       reload()
       // const a = await fetchArticle(id)
       // console.log('article => ', a)

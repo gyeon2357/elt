@@ -12,7 +12,12 @@
         <div class="main-info">
           <div class="main-info-box">
             <figure>
-              <img :src="project.mainImg" style="width: 100%" class="lazy"/>
+              <img
+                v-if="project.mainImg"
+                :src="`https://resize.samworks.io/crop/800/webp/${project.mainImg}`"
+                style="width: 100%"
+                class="lazy"
+              />
             </figure>
           </div>
           <div class="main-info-box">

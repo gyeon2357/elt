@@ -20,7 +20,10 @@
       <div class="single-project-gallery-box">
         <div class="single-project-gallery">
           <figure>
-            <img :src="project.mainImg" class="lazy" />
+            <img
+              :src="`https://resize.samworks.io/crop/1200/webp/${project.mainImg}`"
+              class="lazy"
+            />
           </figure>
         </div>
       </div>

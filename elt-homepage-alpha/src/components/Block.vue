@@ -34,7 +34,11 @@
     <template v-if="blockType === 'image'">
       <figure>
         <div :class="`post-img-center`">
-          <img :src="data.file.url" :alt="data.caption" :class="{ stretched: data.stretched }" />
+          <img
+            :src="`https://resize.samworks.io/crop/1200/webp/${data.file.url}`"
+            :alt="data.caption"
+            :class="{ stretched: data.stretched }"
+          />
         </div>
         <!-- <v-img :src="data.file.url" contain max-height="530" max-width="840"></v-img> -->
         <figcaption v-if="data.caption.length > 0">
@@ -97,8 +101,8 @@ li {
 }
 // @import '@/scss/variables.scss';
 .block {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .heading {
   margin-top: 0px;
