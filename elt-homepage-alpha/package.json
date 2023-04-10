@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "deploy": "aws s3 sync ./dist s3://src-prd.everylittlething.co.kr --profile bpatisserie  && aws cloudfront create-invalidation --distribution-id E20FL3RXU262E7 --paths '/*' --profile bpatisserie"
   },
   "dependencies": {
     "axios": "^1.3.4",
