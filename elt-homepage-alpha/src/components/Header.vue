@@ -95,7 +95,8 @@
     </div>
 
     <button id="scroll-to-top" class="main-title-text text-plane">
-      <img id="scroll" fetchpriority="high" src="/assets/img/backtotop.svg" />
+      <!-- <img id="scroll" fetchpriority="high" src="/assets/img/backtotop.svg" /> -->
+      <p id="scroll">top</p>
     </button>
   </header>
 </template>

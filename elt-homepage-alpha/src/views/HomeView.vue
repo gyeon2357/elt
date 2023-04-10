@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div id="content" data-namespace="home" class="container" data-scroll-container>
-    <section id="intro" data-scroll>
-      <div data-scroll data-scroll-speed="1">
+  <div id="content" data-namespace="home">
+    <section id="intro">
+      <div>
         <h2 id="intro-title">
           <p>
             <span id="graphic">
@@ -59,7 +59,7 @@
         </h2>
       </div>
 
-      <div data-scroll data-scroll-speed="4">
+      <div>
         <div class="main-image-thumb">
           <div class="media-wrapper">
             <div class="plane main-image-plane main-main-image-plane main-gradient">
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div data-scroll data-scroll-speed="1">
+      <div>
         <div id="intro-desc">
           <div class="text-plane">
             Every.little.thing we does. And you know the things we does. graphic design lab.
@@ -82,7 +82,7 @@
           </div>
         </div>
       </div>
-      <div data-scroll data-scroll-speed="2">
+      <div>
         <div id="nav-desc">
           <div class="nav-box">
             <RouterLink to="/about" class="text-plane text-plane-is-link">More About Us </RouterLink
@@ -117,16 +117,46 @@
 </template>
 
 <script>
-const scrollFcn = () => {
-  let locoScroll
-  locoScroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
-  })
-  new ResizeObserver(() => locoScroll.update()).observe(
-    document.querySelector('[data-scroll-container]')
-  )
-}
+// const scrollFcn = () => {
+//   const scroller = new LocomotiveScroll({
+//     el: document.querySelector('[data-scroll-container]'),
+//     smooth: true
+//   })
+//   new ResizeObserver(() => scroller.update()).observe(
+//     document.querySelector('[data-scroll-container]')
+//   )
+//   gsap.registerPlugin(ScrollTrigger)
+
+//   scroller.on('scroll', ScrollTrigger.update)
+
+//   ScrollTrigger.scrollerProxy('.container', {
+//     scrollTop(value) {
+//       return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y
+//     },
+//     getBoundingClientRect() {
+//       return {
+//         left: 0,
+//         top: 0,
+//         width: window.innerWidth,
+//         height: window.innerHeight
+//       }
+//     }
+//   })
+
+//   ScrollTrigger.create({
+//     trigger: '#everylittlething',
+//     scroller: '.container',
+//     start: 'top+=30% 50%',
+//     end: 'bottom-=40% 50%',
+//     animation: gsap.to('.image-mask', { backgroundSize: '120%' }),
+//     scrub: 2
+//     // markers: true
+//   })
+
+//   ScrollTrigger.addEventListener('refresh', () => scroller.update())
+
+//   ScrollTrigger.refresh()
+// }
 
 const effect = () => {
   // mouse effect
@@ -188,7 +218,7 @@ const effect = () => {
     return pos
   }
 
-  // skew example
+  // skew effect
   gsap.fromTo(
     '#intro-title p, .main-image-thumb, #intro-desc',
     {
@@ -228,7 +258,6 @@ const effect = () => {
       }
     }
   })
-
   gsap.set('#intro-title', {
     transformOrigin: 'center center',
     force3D: true
@@ -305,7 +334,7 @@ const effect = () => {
   // const hover14 = document.querySelector('.tooltip14')
   // div14.addEventListener('mouseenter', () => (hover14.style.opacity = 1))
   // div14.addEventListener('mouseleave', () => (hover14.style.opacity = 0))
-  scrollFcn()
+  // scrollFcn()
 }
 
 $(document).ready(effect)

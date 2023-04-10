@@ -84,11 +84,14 @@ const reload = async () => {
 
 const listviewFcn = () => {
   $(function () {
-    // var links = document.getElementsByClassName('list-box')
-    // for (var i = 0; i < links.length; i++) {
-    //   links[i].innerHTML = links[i].innerHTML.toLowerCase()
-    // }
+    //list-view text-transform
+    $('.list-box p')
+      .text(function (index, currentText) {
+        return currentText.toLowerCase()
+      })
+      .addClass('capitalize')
 
+    //list-view filters-button
     $('.work-filters-button').click(function () {
       $('.filter-icon')
         .find('img')
@@ -108,15 +111,16 @@ const listviewFcn = () => {
         })
 
       $('#filters-box').fadeToggle()
-
       return false
     })
   })
 }
 
-listviewFcn()
 reload()
+listviewFcn()
 </script>
+
+<script></script>
 
 <style>
 .work-filters {
