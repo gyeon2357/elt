@@ -1449,7 +1449,7 @@ p.arrow {
 
   #menu__toggle:checked+.menu__btn>span {
     transform: rotate(45deg);
-    top: 8px;
+    top: 20px;
   }
 
   #menu__toggle:checked+.menu__btn>span::before {
@@ -1468,12 +1468,21 @@ p.arrow {
 
   .menu__btn {
     position: fixed;
-    top: 1.5rem;
+
+    top: 0.75rem;
     right: 1rem;
-    width: 1.5rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
     cursor: pointer;
     z-index: 1001 !important;
+
+    padding: .5rem;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .menu__btn>span,
@@ -1483,7 +1492,7 @@ p.arrow {
     padding: 0 !important;
     margin: 0 !important;
     position: absolute;
-    width: 100%;
+    width: 1.5rem;
     height: 2.5px;
     background-color: #000;
 
@@ -1493,12 +1502,12 @@ p.arrow {
 
   .menu__btn>span::before {
     content: '';
-    top: 8px;
+    top: -8px;
   }
 
   .menu__btn>span::after {
     content: '';
-    top: 16px;
+    top: 8px;
   }
 
   .menu__box {
@@ -1782,15 +1791,15 @@ p.arrow {
   }
 
   button#scroll-to-top {
-    bottom: 2rem;
-    right: 1.375rem;
+    bottom: 2.0625rem;
+    right: 1.3rem;
 
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   button#scroll-to-top p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding-top: .25rem;
   }
 
