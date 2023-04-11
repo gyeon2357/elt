@@ -127,9 +127,6 @@ li {
 }
 
 figure {
-  // margin-top: 24px;
-  // margin-bottom: 24px;
-  padding-bottom: 20px;
   width: 100%;
   div {
     width: 100%;
@@ -138,11 +135,10 @@ figure {
 
 figcaption {
   font-size: 0.75rem;
+  font-weight: 400;
   display: block;
-  margin-top: 8px;
-  text-align: center;
-  padding-left: 16px;
-  padding-right: 16px;
+  margin: 0.25rem 0 .375rem 0;
+  text-align: left;
 }
 .desc {
   font-weight: 400;
@@ -182,12 +178,12 @@ figcaption {
   display: inline-block;
   content: '* * *';
   font-size: 30px;
-  line-height: 65px;
+  line-height: 1.5;
   height: 30px;
   letter-spacing: 0.2em;
 }
 .delimiter {
-  line-height: 1.6em;
+  line-height: 1.5;
   width: 100%;
   text-align: center;
 }
@@ -210,7 +206,7 @@ hr {
 
   // @include font-and-weight('AktivGrotesk', 700);
   font-size: 0.875rem;
-  line-height: 15px;
+  line-height: 1.5;
   color: #ffffff;
   margin-bottom: 19px;
   @include horizontal-divider(50%);
@@ -237,7 +233,7 @@ hr {
 
   font-weight: 900;
   font-size: 2.375rem;
-  line-height: 35px;
+  line-height: 1.5;
 }
 
 .post-heading-2 {
@@ -245,7 +241,7 @@ hr {
 
   font-weight: 200;
   font-size: 1.375rem;
-  line-height: 56px;
+  line-height: 1.5;
   margin-top: 44px;
   margin-bottom: 16px;
 }
@@ -256,7 +252,7 @@ hr {
   margin-top: 0px;
   font-weight: 600;
   font-size: 1.3rem;
-  line-height: 2rem;
+  line-height: 1.5;
   // margin-bottom: 40px;
 }
 
@@ -266,7 +262,7 @@ hr {
   font-weight: 600;
   // font-family: 'SpoqaBold', sans-serif;
   font-size: 1.1rem;
-  line-height: 30.28px;
+  line-height: 1.5;
   .desc {
     font-weight: 300;
   }
@@ -281,7 +277,7 @@ hr {
   // @include left-align;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 25.02px;
+  line-height: 1.5;
   margin-top: -12px;
 }
 
@@ -331,12 +327,12 @@ hr {
 
 @media screen and (max-width: 1024px) {
   .post-date-divider {
-    line-height: 13px;
+    line-height: 1.5;
   }
 
   .post-heading-1 {
     font-size: 1.75rem;
-    line-height: 26px;
+    line-height: 1.5;
   }
 }
 
@@ -354,32 +350,32 @@ hr {
   }
   .post-heading-1 {
     font-size: 2.375rem;
-    line-height: 3rem;
+    line-height: 1.5;
   }
 
   .post-heading-2 {
     font-size: 1.5rem;
-    line-height: 2rem;
+    line-height: 1.5;
   }
 
   .post-heading-3 {
     font-size: 0.875rem;
-    line-height: 1.2rem;
+    line-height: 1.5;
   }
 
   .post-heading-4 {
     font-size: 1.1rem;
-    line-height: 1.3rem;
+    line-height: 1.5;
   }
 
   .post-heading-5 {
     font-size: 0.875rem;
-    line-height: 18px;
+    line-height: 1.5;
   }
 
   .post-paragraph {
     font-size: 0.875rem;
-    line-height: 1.2rem;
+    line-height: 1.5;
   }
 }
 
@@ -387,13 +383,13 @@ hr {
   margin-top: 8px;
   // @include font-and-weight('AktivGrotesk', 700);
   font-size: 1.3125rem;
-  line-height: 21px;
+  line-height: 1.5;
 }
 
 .h5-style {
   // @include font-and-weight('AktivGrotesk', 700);
   font-size: 1rem;
-  line-height: 21px;
+  line-height: 1.5;
 }
 
 blockquote {
@@ -404,7 +400,7 @@ blockquote {
   font-family: MaruBuri-Regular;
   font-size: 1rem;
   // text-indent: 1.6em;
-  line-height: 1.5rem;
+  line-height: 1.5;
 }
 blockquote:before {
   position: absolute;
@@ -431,7 +427,7 @@ blockquote:after {
 //   margin-bottom: 16px;
 //   // border-left: 6px solid black;
 //   font-size: 1em;
-//   line-height: 1.4em;
+//   line-height: 1.5;
 //   font-weight: 500;
 //   color: #868e96;
 // }

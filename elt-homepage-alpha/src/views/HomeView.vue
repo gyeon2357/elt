@@ -3,11 +3,12 @@
 </script>
 
 <template>
+  <!-- <canvas id="springydemo"></canvas> -->
   <div id="content" data-namespace="home">
     <section id="intro">
       <div>
         <h2 id="intro-title">
-          <p>
+          <p class="js-cursor-hover">
             <span id="graphic">
               ː graphic&nbsp;<img class="tooltip1" src="/assets/img/elt-bg-bk.jpg"
             /></span>
@@ -117,47 +118,6 @@
 </template>
 
 <script>
-// const scrollFcn = () => {
-//   const scroller = new LocomotiveScroll({
-//     el: document.querySelector('[data-scroll-container]'),
-//     smooth: true
-//   })
-//   new ResizeObserver(() => scroller.update()).observe(
-//     document.querySelector('[data-scroll-container]')
-//   )
-//   gsap.registerPlugin(ScrollTrigger)
-
-//   scroller.on('scroll', ScrollTrigger.update)
-
-//   ScrollTrigger.scrollerProxy('.container', {
-//     scrollTop(value) {
-//       return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y
-//     },
-//     getBoundingClientRect() {
-//       return {
-//         left: 0,
-//         top: 0,
-//         width: window.innerWidth,
-//         height: window.innerHeight
-//       }
-//     }
-//   })
-
-//   ScrollTrigger.create({
-//     trigger: '#everylittlething',
-//     scroller: '.container',
-//     start: 'top+=30% 50%',
-//     end: 'bottom-=40% 50%',
-//     animation: gsap.to('.image-mask', { backgroundSize: '120%' }),
-//     scrub: 2
-//     // markers: true
-//   })
-
-//   ScrollTrigger.addEventListener('refresh', () => scroller.update())
-
-//   ScrollTrigger.refresh()
-// }
-
 const effect = () => {
   // mouse effect
   let svgns = 'http://www.w3.org/2000/svg'
@@ -185,6 +145,7 @@ const effect = () => {
 
   function createLine(leader, i) {
     let line = document.createElementNS(svgns, 'line')
+    // line.style.mixBlendMode = 'difference';
     root.appendChild(line)
 
     gsap.set(line, { x: -1500, y: -750 })
@@ -220,7 +181,7 @@ const effect = () => {
 
   // skew effect
   gsap.fromTo(
-    '#intro-title p, .main-image-thumb, #intro-desc',
+    '#intro-title, #intro-desc',
     {
       y: 100,
       opacity: 0
@@ -229,6 +190,7 @@ const effect = () => {
       delay: 0.9,
       duration: 1.125,
       y: 0,
+
       opacity: 1,
       ease: 'power2.easeOut',
       stagger: {
@@ -263,78 +225,78 @@ const effect = () => {
     force3D: true
   })
 
-  //intro-title-mouseover-toggle
+  // main-image animation
+  gsap.utils.toArray('.main-image-thumb').forEach((el, index) => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom',
+        toggleActions: 'play none none reverse',
+        markers: false
+      }
+    })
 
-  // const div1 = document.querySelector('#graphic')
-  // const hover1 = document.querySelector('.tooltip1')
-  // div1.addEventListener('mouseenter', () => (hover1.style.opacity = 1))
-  // div1.addEventListener('mouseleave', () => (hover1.style.opacity = 0))
+    tl.set(el, { transformOrigin: 'center center' }).fromTo(
+      el,
+      { opacity: 0, scale: 0.85, y: '+=25' },
+      { opacity: 1, scale: 1, y: 0, duration: 0.75, immediateRender: false }
+    )
+  })
 
-  // const div2 = document.querySelector('#editorial')
-  // const hover2 = document.querySelector('.tooltip2')
-  // div2.addEventListener('mouseenter', () => (hover2.style.opacity = 1))
-  // div2.addEventListener('mouseleave', () => (hover2.style.opacity = 0))
+  // //intro-animation-springy
+  // var graph = new Springy.Graph()
 
-  // const div3 = document.querySelector('#application')
-  // const hover3 = document.querySelector('.tooltip3')
-  // div3.addEventListener('mouseenter', () => (hover3.style.opacity = 1))
-  // div3.addEventListener('mouseleave', () => (hover3.style.opacity = 0))
+  // var everylittlething = graph.newNode({
+  //   label: 'everylittlething',
+  //   ondoubleclick: function () {
+  //     console.log('Hello!')
+  //   }
+  // })
+  // var graphic = graph.newNode({ label: 'ː graphic' })
+  // var editorial = graph.newNode({ label: '¶ editorial' })
+  // var app = graph.newNode({ label: '≈ app' })
+  // var web = graph.newNode({ label: '° web' })
+  // var music = graph.newNode({ label: 'ˇ music' })
+  // var album = graph.newNode({ label: '— album' })
+  // var poster = graph.newNode({ label: '℗ poster' })
+  // var movie = graph.newNode({ label: '+ movie' })
+  // // var a = graph.newNode({ label: 'etc' })
+  // // var b = graph.newNode({ label: 'etc2' })
 
-  // const div4 = document.querySelector('#web')
-  // const hover4 = document.querySelector('.tooltip4')
-  // div4.addEventListener('mouseenter', () => (hover4.style.opacity = 1))
-  // div4.addEventListener('mouseleave', () => (hover4.style.opacity = 0))
+  // graph.newEdge(everylittlething, graphic, { color: '#333' })
+  // graph.newEdge(graphic, everylittlething, { color: '#333' })
+  // graph.newEdge(graphic, editorial, { color: '#333' })
+  // graph.newEdge(editorial, web, { color: '#333' })
+  // graph.newEdge(graphic, app, { color: '#333' })
+  // graph.newEdge(music, album, { color: '#333' })
+  // graph.newEdge(everylittlething, album, { color: '#333' })
+  // graph.newEdge(album, poster, { color: '#333' })
+  // graph.newEdge(web, app, { color: '#333' })
+  // graph.newEdge(everylittlething, movie, { color: '#333' })
+  // graph.newEdge(movie, album, { color: '#333' })
 
-  // const div5 = document.querySelector('#newmedia')
-  // const hover5 = document.querySelector('.tooltip5')
-  // div5.addEventListener('mouseenter', () => (hover5.style.opacity = 1))
-  // div5.addEventListener('mouseleave', () => (hover5.style.opacity = 0))
+  // jQuery(function () {
+  //   var springy = (window.springy = jQuery('#springydemo').springy({
+  //     graph: graph,
+  //     nodeSelected: function (node) {
+  //       console.log('Node selected: ' + JSON.stringify(node.data))
+  //     }
+  //   }))
+  // })
 
-  // const div6 = document.querySelector('#music')
-  // const hover6 = document.querySelector('.tooltip6')
-  // div6.addEventListener('mouseenter', () => (hover6.style.opacity = 1))
-  // div6.addEventListener('mouseleave', () => (hover6.style.opacity = 0))
-
-  // const div7 = document.querySelector('#album')
-  // const hover7 = document.querySelector('.tooltip7')
-  // div7.addEventListener('mouseenter', () => (hover7.style.opacity = 1))
-  // div7.addEventListener('mouseleave', () => (hover7.style.opacity = 0))
-
-  // const div8 = document.querySelector('#poster')
-  // const hover8 = document.querySelector('.tooltip8')
-  // div8.addEventListener('mouseenter', () => (hover8.style.opacity = 1))
-  // div8.addEventListener('mouseleave', () => (hover8.style.opacity = 0))
-
-  // const div9 = document.querySelector('#movie')
-  // const hover9 = document.querySelector('.tooltip9')
-  // div9.addEventListener('mouseenter', () => (hover9.style.opacity = 1))
-  // div9.addEventListener('mouseleave', () => (hover9.style.opacity = 0))
-
-  // const div10 = document.querySelector('#branding')
-  // const hover10 = document.querySelector('.tooltip10')
-  // div10.addEventListener('mouseenter', () => (hover10.style.opacity = 1))
-  // div10.addEventListener('mouseleave', () => (hover10.style.opacity = 0))
-
-  // const div11 = document.querySelector('#brochure')
-  // const hover11 = document.querySelector('.tooltip11')
-  // div11.addEventListener('mouseenter', () => (hover11.style.opacity = 1))
-  // div11.addEventListener('mouseleave', () => (hover11.style.opacity = 0))
-
-  // const div12 = document.querySelector('#illustration')
-  // const hover12 = document.querySelector('.tooltip12')
-  // div12.addEventListener('mouseenter', () => (hover12.style.opacity = 1))
-  // div12.addEventListener('mouseleave', () => (hover12.style.opacity = 0))
-
-  // const div13 = document.querySelector('#art')
-  // const hover13 = document.querySelector('.tooltip13')
-  // div13.addEventListener('mouseenter', () => (hover13.style.opacity = 1))
-  // div13.addEventListener('mouseleave', () => (hover13.style.opacity = 0))
-
-  // const div14 = document.querySelector('#everylittlething')
-  // const hover14 = document.querySelector('.tooltip14')
-  // div14.addEventListener('mouseenter', () => (hover14.style.opacity = 1))
-  // div14.addEventListener('mouseleave', () => (hover14.style.opacity = 0))
-  // scrollFcn()
+  //intro-hover
+  // $(function () {
+  //   $('#intro-title')
+  //     .find('span')
+  //     .hover(
+  //       function () {
+  //         $('svg').find('line').css('stroke', 'var(--third-color-50)').css('stroke-width', '40')
+  //       },
+  //       function () {
+  //         $('svg').find('line').css('stroke', 'var(--secondary-color-50)').css('stroke-width', '20')
+  //       }
+  //     )
+  // })
 }
 
 $(document).ready(effect)

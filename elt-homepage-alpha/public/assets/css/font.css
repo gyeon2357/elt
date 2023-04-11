@@ -18,7 +18,7 @@
 	font-family: "founders";
 	src: url("../fonts/FoundersGrotesk-Semibold.woff2") format("woff2"),
 		url("../fonts/FoundersGrotesk-Semibold.woff") format("woff"),
-		url("../fonts/FoundersGrotesk-Semibold.ttf") format("truetype");
+		url("../fonts/FoundersGrotesk-Semibold.otf") format("opentype");
 	font-weight: 600;
 }
 

@@ -113,15 +113,30 @@ const listviewFcn = () => {
       $('#filters-box').fadeToggle()
       return false
     })
+
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+      ? true
+      : false
+
+    if ($(window).width() >= 699 || isMobile == true) {
+      // list-view hover effect
+      $('.list-box').hover(
+        function () {
+          $(this).find('.list-image').css('display', 'block')
+        },
+        function () {
+          $(this).find('.list-image').css('display', 'none')
+        }
+      )
+    }
   })
 }
 
-reload()
 listviewFcn()
+reload()
 </script>
 
 <script></script>
-
 <style>
 .work-filters {
   color: inherit;

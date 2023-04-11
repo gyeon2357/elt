@@ -12,6 +12,7 @@
   --secondary-color-30: #299900;
   --secondary-color-50: #44ff00;
   --secondary-color-90: #c7ffb2;
+  --third-color-50: #ffff00;
 
   --display-font: 'founders', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
@@ -322,14 +323,6 @@ html {
     transform: translateX(0.5rem);
   }
 
-  #list-link {
-    padding-right: 0.4rem !important;
-  }
-
-  #gallery-link {
-    padding-left: 0.4rem !important;
-  }
-
   #content {
     position: relative;
     z-index: 2;
@@ -345,6 +338,11 @@ html {
     height: 100%;
     width: 100%;
     z-index: -1;
+  }
+
+  svg#cursor {
+    transition: top 0.0125s ease-in-out, left 0.0125s ease-in-out,
+      transform 0.3s ease-in-out;
   }
 
   line {
@@ -374,17 +372,23 @@ html {
     word-spacing: -0.125rem;
 
     min-height: 100vh;
+
   }
 
   #intro-title p {
     color: var(--main-text-color);
     position: relative;
     overflow: hidden;
+
   }
 
   #intro-title span {
     display: inline-block;
     cursor: pointer;
+  }
+
+  #springydemo {
+    z-index: -1;
   }
 
   #intro-title span img:where(.tooltip1,
@@ -553,7 +557,9 @@ html {
     z-index: 1;
     overflow: hidden;
 
-    margin: 3rem auto 0 auto;
+    opacity: 0;
+
+    margin: 0 auto 0 auto;
     text-decoration: none;
     color: var(--main-text-color);
   }
@@ -1010,6 +1016,7 @@ div#index {
 
 #index a:hover {
   color: var(--secondary-color-50);
+
 }
 
 #index span {
@@ -1023,6 +1030,18 @@ div#index {
 
 #index .list-image {
   display: none;
+
+  position: absolute;
+  transform: translateY(0.125rem);
+  margin-left: 25%;
+}
+
+#index .list-image img {
+  object-fit: cover;
+
+  width: 100px;
+  height: 75px;
+
 }
 
 .sup-box {
@@ -1031,14 +1050,14 @@ div#index {
   text-align: center;
   transform: translate(0.25rem, -0.75rem);
 
-  padding: 0.125rem 0.75rem;
+  padding: 0.125rem 0.625rem;
   border-radius: 3rem;
 
   background-color: var(--secondary-color-50);
 }
 
 sup {
-  top: -0.4rem;
+  top: -0.45rem;
   color: var(--bg-color);
 }
 
@@ -1216,12 +1235,8 @@ div.about-box {
   margin-top: 1rem;
 }
 
-p.arrow {
-  font-family: var(--text-font);
-}
-
 @media screen and (orientation: portrait),
-(max-width: 699px) {
+(min-width: 341px) and (max-width: 699px) {
   :root {
     --gutter-size: 5vw;
     --height-space: 15vh;
@@ -1656,7 +1671,7 @@ p.arrow {
     height: 1.75rem;
     transform: translate(0.25rem, -0.625rem);
 
-    padding: 0.25rem 0.625rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 2rem;
   }
 
@@ -1675,13 +1690,12 @@ p.arrow {
   }
 
   #index p {
-    width: fit-content;
     display: inline-block;
 
     padding: 0 !important;
     cursor: pointer;
 
-    width: 25ch;
+    width: 70%;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1703,7 +1717,11 @@ p.arrow {
   #index .list-image {
     display: block;
 
+    position: relative;
     float: right;
+
+    transform: translateY(0);
+    margin-left: 0;
   }
 
   #index .list-image img {
@@ -1712,7 +1730,6 @@ p.arrow {
 
     width: 72px;
     height: 54px;
-    object-fit: cover;
 
     border-radius: 0.125rem;
   }
@@ -1909,20 +1926,7 @@ p.arrow {
 
   .another-project-gallery img {
     width: 240px;
-    height: 160px;
-  }
-
-  #page-404-title {
-    font-size: 7.5rem;
-  }
-
-  #page-404-text {
-    width: 100%;
-  }
-
-  p.arrow {
-    font-family: var(--text-font);
-    display: inline;
+    height: 120px;
   }
 
   #scroll-to-top {

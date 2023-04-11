@@ -6,9 +6,7 @@ $(function () {
   $('#loader').fadeOut(700)
 
   //preload
-
   const preloadimages = ['/assets/img/full-logo-letter.svg']
-
   const preload = (preloadimages) => {
     preloadimages.forEach((image) => {
       const img = new Image()
