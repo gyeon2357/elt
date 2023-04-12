@@ -24,10 +24,11 @@ Copyright (c) 2010 Dennis Hotson
 */
 
 ;(function () {
-  jQuery.fn.springy = function (params) {
+  $.fn.springy = function (params) {
     var graph = (this.graph = params.graph || new Springy.Graph())
-    var nodeFont = '500 20px founders, sans-serif'
-    var edgeFont = '500 16px founders, sans-serif'
+    var nodeFont = '16px founders, sans-serif'
+    var edgeFont = '12px founders, sans-serif'
+
     var stiffness = params.stiffness || 400.0
     var repulsion = params.repulsion || 400.0
     var damping = params.damping || 0.5
@@ -38,8 +39,12 @@ Copyright (c) 2010 Dennis Hotson
 
     var canvas = this[0]
     var ctx = canvas.getContext('2d')
-    ctx.canvas.width = window.innerWidth
-    ctx.canvas.height = window.innerHeight
+
+    var viewportWidth = window.innerWidth * 0.8
+    var viewportHeight = window.innerHeight * 0.8
+
+    ctx.canvas.width = viewportWidth
+    ctx.canvas.height = viewportHeight
     ctx.imageSmoothingQuality = 'high'
 
     var layout = (this.layout = new Springy.Layout.ForceDirected(
@@ -91,37 +96,19 @@ Copyright (c) 2010 Dennis Hotson
     var nearest = null
     var dragged = null
 
-    jQuery(canvas).mousedown(function (e) {
-      var pos = jQuery(this).offset()
+    $(canvas).mousemove(function (e) {
+      var pos = $(this).offset()
       var p = fromScreen({ x: e.pageX - pos.left, y: e.pageY - pos.top })
       selected = nearest = dragged = layout.nearest(p)
+      nearest = layout.nearest(p)
 
       if (selected.node !== null) {
-        dragged.point.m = 10000.0
+        dragged.point.m = 100.0
 
         if (nodeSelected) {
           nodeSelected(selected.node)
         }
       }
-
-      renderer.start()
-    })
-
-    // Basic double click handler
-    jQuery(canvas).dblclick(function (e) {
-      var pos = jQuery(this).offset()
-      var p = fromScreen({ x: e.pageX - pos.left, y: e.pageY - pos.top })
-      selected = layout.nearest(p)
-      node = selected.node
-      if (node && node.data && node.data.ondoubleclick) {
-        node.data.ondoubleclick()
-      }
-    })
-
-    jQuery(canvas).mousemove(function (e) {
-      var pos = jQuery(this).offset()
-      var p = fromScreen({ x: e.pageX - pos.left, y: e.pageY - pos.top })
-      nearest = layout.nearest(p)
 
       if (dragged !== null && dragged.node !== null) {
         dragged.point.p.x = p.x
@@ -131,9 +118,33 @@ Copyright (c) 2010 Dennis Hotson
       renderer.start()
     })
 
-    jQuery(window).bind('mouseup', function (e) {
-      dragged = null
-    })
+    // // Basic double click handler
+    // $(canvas).dblclick(function (e) {
+    //   var pos = $(this).offset()
+    //   var p = fromScreen({ x: e.pageX - pos.left, y: e.pageY - pos.top })
+    //   selected = layout.nearest(p)
+    //   node = selected.node
+    //   if (node && node.data && node.data.ondoubleclick) {
+    //     node.data.ondoubleclick()
+    //   }
+    // })
+
+    // $(canvas).mousemove(function (e) {
+    //   var pos = $(this).offset()
+    //   var p = fromScreen({ x: e.pageX - pos.left, y: e.pageY - pos.top })
+    //   nearest = layout.nearest(p)
+
+    //   if (dragged !== null && dragged.node !== null) {
+    //     dragged.point.p.x = p.x
+    //     dragged.point.p.y = p.y
+    //   }
+
+    //   renderer.start()
+    // })
+
+    // $(window).bind('mouseup', function (e) {
+    //   dragged = null
+    // })
 
     var getTextWidth = function (node) {
       var text = node.data.label !== undefined ? node.data.label : node.id
@@ -254,7 +265,7 @@ Copyright (c) 2010 Dennis Hotson
           intersection = s2
         }
 
-        var stroke = edge.data.color !== undefined ? edge.data.color : '#000000'
+        var stroke = edge.data.color !== undefined ? edge.data.color : '#333'
 
         var arrowWidth
         var arrowLength
@@ -270,12 +281,11 @@ Copyright (c) 2010 Dennis Hotson
         // line
         var lineEnd
         if (directional) {
-          lineEnd = intersection.subtract(direction.normalise().multiply(arrowLength * 1))
+          lineEnd = intersection.subtract(direction.normalise().multiply(arrowLength * 0.5))
         } else {
           lineEnd = s2
         }
-
-        ctx.strokeStyle = stroke
+        ctx.strokeStyle = '#333'
         ctx.beginPath()
         ctx.moveTo(s1.x, s1.y)
         ctx.lineTo(lineEnd.x, lineEnd.y)
@@ -284,14 +294,14 @@ Copyright (c) 2010 Dennis Hotson
         // arrow
         if (directional) {
           ctx.save()
-          ctx.fillStyle = stroke
+          ctx.fillStyle = '#333'
           ctx.translate(intersection.x, intersection.y)
           ctx.rotate(Math.atan2(y2 - y1, x2 - x1))
           ctx.beginPath()
           ctx.moveTo(-arrowLength, arrowWidth)
           ctx.lineTo(0, 0)
           ctx.lineTo(-arrowLength, -arrowWidth)
-          ctx.lineTo(-arrowLength * 0.8, -0)
+          ctx.lineTo(-arrowLength * 5, -0)
           ctx.closePath()
           ctx.fill()
           ctx.restore()
@@ -325,8 +335,8 @@ Copyright (c) 2010 Dennis Hotson
 
         // Pulled out the padding aspect sso that the size functions could be used in multiple places
         // These should probably be settable by the user (and scoped higher) but this suffices for now
-        var paddingX = 16
-        var paddingY = 12
+        var paddingX = 4
+        var paddingY = 4
 
         var contentWidth = node.getWidth()
         var contentHeight = node.getHeight()
@@ -334,13 +344,13 @@ Copyright (c) 2010 Dennis Hotson
         var boxHeight = contentHeight + paddingY
 
         // clear background
-        ctx.clearRect(s.x - boxWidth / 2, s.y - boxHeight / 2, boxWidth, boxHeight)
+        ctx.clearRect(s.x, s.y, boxWidth, boxHeight)
 
         // fill background
         if (selected !== null && selected.node !== null && selected.node.id === node.id) {
           ctx.fillStyle = '#44ff00'
         } else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-          ctx.fillStyle = '#44ff0030'
+          ctx.fillStyle = '#44ff00'
         } else {
           ctx.fillStyle = '#fefefe'
         }
@@ -348,21 +358,49 @@ Copyright (c) 2010 Dennis Hotson
         // ctx.shadowColor = '#eee'
         // ctx.shadowBlur = 8
 
-        ctx.fillRect(s.x - boxWidth / 2, s.y - boxHeight / 2, boxWidth, boxHeight)
+        // ctx.fillRect(s.x - boxWidth / 2, s.y - boxHeight / 2, boxWidth, boxHeight)
+
+        ctx.beginPath()
+        ctx.arc(s.x, s.y, boxWidth, boxHeight, 2 * Math.PI, true)
+        ctx.stroke()
+        ctx.closePath()
+        ctx.fill()
+
+        // media-query
+        const orientationChange = window.matchMedia('(orientation:landscape)')
+        const changeMedia = function (e) {
+          if (e.matches) {
+            nodeFont = '16px founders, sans-serif'
+            edgeFont = '12px founders, sans-serif'
+            viewportWidth = window.innerWidth * 1
+            viewportHeight = window.innerHeight * 1
+          } else {
+            nodeFont = '10px founders, sans-serif'
+            edgeFont = '8px founders, sans-serif'
+            viewportWidth = window.innerWidth * 1
+            viewportHeight = window.innerHeight * 1
+          }
+        }
+
+        orientationChange.addListener(changeMedia)
+        changeMedia(orientationChange)
 
         if (node.data.image == undefined) {
           ctx.textAlign = 'left'
           ctx.textBaseline = 'top'
           ctx.font = node.data.font !== undefined ? node.data.font : nodeFont
+
           ctx.fillStyle = node.data.color !== undefined ? node.data.color : '#333'
           var text = node.data.label !== undefined ? node.data.label : node.id
           ctx.fillText(text, s.x - contentWidth / 2, s.y - contentHeight / 2)
         } else {
           // Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
-          var src = node.data.image.src // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.
+          var src = node.data.image.src
+          // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.
           if (src in nodeImages) {
             if (nodeImages[src].loaded) {
               // Our image is loaded, so it's safe to draw
+
               ctx.drawImage(
                 nodeImages[src].object,
                 s.x - contentWidth / 2,

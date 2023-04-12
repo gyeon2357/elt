@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <!-- <canvas id="springydemo"></canvas> -->
+  <!-- <span class="flex-center">
+    <canvas id="springydemo"></canvas>
+  </span> -->
   <div id="content" data-namespace="home">
     <section id="intro">
       <div>
@@ -119,6 +121,72 @@
 
 <script>
 const effect = () => {
+  // intro-animation-springy
+  // http://getspringy.com
+
+  // var graph = new Springy.Graph()
+
+  // var everylittlething = graph.newNode({
+  //   image: { src: '/assets/img/logo.svg', width: 32, height: 32 },
+  //   ondoubleclick: function () {
+  //     console.log('Hello!')
+  //   }
+  // })
+  // var graphic = graph.newNode({ label: 'ː Graphic' })
+
+  // var editorial = graph.newNode({ label: '¶ Editorial' })
+  // var app = graph.newNode({ label: '* App' })
+  // var web = graph.newNode({ label: '/ Web' })
+
+  // var album = graph.newNode({ label: 'ˇ Music' })
+  // var poster = graph.newNode({ label: '℗ Poster' })
+  // var movie = graph.newNode({ label: '+ Movie' })
+  // var branding = graph.newNode({ label: '× Branding' })
+  // var packages = graph.newNode({ label: '≈ Package' })
+  // var brochure = graph.newNode({ label: '˛ Brochure' })
+  // var magazine = graph.newNode({ label: 'º Magazine' })
+  // var calendar = graph.newNode({ label: '~ Calendar' })
+  // var book = graph.newNode({ label: 'Book' })
+  // var ci = graph.newNode({ label: 'CI' })
+  // var bi = graph.newNode({ label: 'BI' })
+  // var illustration = graph.newNode({ label: 'Illustration' })
+  // var art = graph.newNode({ label: 'Art' })
+  // var character = graph.newNode({ label: 'Character' })
+
+  // graph.newEdge(everylittlething, graphic, { color: '#515151', label: 'Foo bar' })
+  // graph.newEdge(graphic, editorial, { color: '#515151' })
+  // graph.newEdge(art, everylittlething, { color: '#515151' })
+
+  // graph.newEdge(magazine, editorial, { color: '#515151' })
+  // graph.newEdge(editorial, brochure, { color: '#515151' })
+  // graph.newEdge(editorial, book, { color: '#515151' })
+  // graph.newEdge(editorial, calendar, { color: '#515151' })
+
+  // graph.newEdge(everylittlething, branding, { color: '#515151' })
+  // graph.newEdge(branding, album, { color: '#515151' })
+  // graph.newEdge(branding, packages, { color: '#515151' })
+
+  // graph.newEdge(graphic, poster, { color: '#515151' })
+  // graph.newEdge(graphic, web, { color: '#515151' })
+
+  // graph.newEdge(graphic, illustration, { color: '#515151' })
+  // graph.newEdge(character, illustration, { color: '#515151' })
+
+  // graph.newEdge(web, app, { color: '#515151' })
+  // graph.newEdge(movie, branding, { color: '#515151' })
+
+  // graph.newEdge(bi, ci, { color: '#515151' })
+  // graph.newEdge(branding, bi, { color: '#515151' })
+
+  // $(function () {
+  //   var springy = (window.springy = $('#springydemo').springy({
+  //     graph: graph,
+  //     nodeSelected: function (node) {
+  //       console.log('Node selected: ' + JSON.stringify(node.data))
+  //     }
+  //   }))
+  // })
+
   // mouse effect
   let svgns = 'http://www.w3.org/2000/svg'
   let root = document.querySelector('svg')
@@ -206,7 +274,7 @@ const effect = () => {
 
   ScrollTrigger.create({
     onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -500)
+      let skew = clamp(self.getVelocity() / -1000)
       // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
       if (Math.abs(skew) > Math.abs(proxy.skew)) {
         proxy.skew = skew
@@ -230,7 +298,7 @@ const effect = () => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: 'top bottom',
+        start: 'center bottom',
         toggleActions: 'play none none reverse',
         markers: false
       }
@@ -243,60 +311,6 @@ const effect = () => {
     )
   })
 
-  // //intro-animation-springy
-  // var graph = new Springy.Graph()
-
-  // var everylittlething = graph.newNode({
-  //   label: 'everylittlething',
-  //   ondoubleclick: function () {
-  //     console.log('Hello!')
-  //   }
-  // })
-  // var graphic = graph.newNode({ label: 'ː graphic' })
-  // var editorial = graph.newNode({ label: '¶ editorial' })
-  // var app = graph.newNode({ label: '≈ app' })
-  // var web = graph.newNode({ label: '° web' })
-  // var music = graph.newNode({ label: 'ˇ music' })
-  // var album = graph.newNode({ label: '— album' })
-  // var poster = graph.newNode({ label: '℗ poster' })
-  // var movie = graph.newNode({ label: '+ movie' })
-  // // var a = graph.newNode({ label: 'etc' })
-  // // var b = graph.newNode({ label: 'etc2' })
-
-  // graph.newEdge(everylittlething, graphic, { color: '#333' })
-  // graph.newEdge(graphic, everylittlething, { color: '#333' })
-  // graph.newEdge(graphic, editorial, { color: '#333' })
-  // graph.newEdge(editorial, web, { color: '#333' })
-  // graph.newEdge(graphic, app, { color: '#333' })
-  // graph.newEdge(music, album, { color: '#333' })
-  // graph.newEdge(everylittlething, album, { color: '#333' })
-  // graph.newEdge(album, poster, { color: '#333' })
-  // graph.newEdge(web, app, { color: '#333' })
-  // graph.newEdge(everylittlething, movie, { color: '#333' })
-  // graph.newEdge(movie, album, { color: '#333' })
-
-  // jQuery(function () {
-  //   var springy = (window.springy = jQuery('#springydemo').springy({
-  //     graph: graph,
-  //     nodeSelected: function (node) {
-  //       console.log('Node selected: ' + JSON.stringify(node.data))
-  //     }
-  //   }))
-  // })
-
-  //intro-hover
-  // $(function () {
-  //   $('#intro-title')
-  //     .find('span')
-  //     .hover(
-  //       function () {
-  //         $('svg').find('line').css('stroke', 'var(--third-color-50)').css('stroke-width', '40')
-  //       },
-  //       function () {
-  //         $('svg').find('line').css('stroke', 'var(--secondary-color-50)').css('stroke-width', '20')
-  //       }
-  //     )
-  // })
 }
 
 $(document).ready(effect)

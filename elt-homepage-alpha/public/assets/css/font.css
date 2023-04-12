@@ -23,16 +23,20 @@
 }
 
 @font-face {
-	font-family: "DIN-bold";
-	src: url("../fonts/DIN-Bold.otf") format("opentype");
+	font-family: "afrikola";
+	src: url("../fonts/Afrikola-Regular.woff2") format("woff2"),
+		url("../fonts/Afrikola-Regular.ttf") format("truetype"),
+		url("../fonts/Afrikola-Regular.otf") format("opentype");
 }
 
 @font-face {
-	font-family: "Gill-Sans-bold";
-	src: url("../fonts/GillSansStd-Bold.otf") format("opentype");
+	font-family: "monument";
+	src: url("../fonts/MonumentExtended-Regular.woff") format("woff"),
+		url("../fonts/MonumentExtended-Regular.otf") format("opentype");
 }
 
 @font-face {
-	font-family: "Univers-bold";
-	src: url("../fonts/UniversLTStd-Bold.otf") format("opentype");
+	font-family: "arnold";
+	src: url("../fonts/Arnold-Regular.woff2") format("woff2"),
+		url("../fonts/Arnold-Regular.woff") format("woff");
 }
