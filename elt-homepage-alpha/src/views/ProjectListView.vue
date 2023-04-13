@@ -27,6 +27,8 @@
     <section id="listview-body">
       <div id="index">
         <RouterLink
+          @mouseover="over"
+          @mouseleave="leave"
           :key="idx + 'p'"
           v-for="(project, idx) in projects"
           class="list-box"
@@ -62,6 +64,43 @@ const tags = ref({})
 const _projects = []
 const projects = reactive([])
 const $axios = inject('$axios')
+const over = (e) => {
+  try {
+    if (e.target.nodeName === 'A') {
+      e.target.childNodes[1].style.display = 'block'
+    } else {
+      e.target.nextSibling.style.display = 'block'
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+const leave = (e) => {
+  if (e.target.nodeName === 'A') {
+    e.target.childNodes[1].style.display = 'none'
+  } else {
+    e.target.nextSibling.style.display = 'none'
+  }
+}
+
+// const hoverFcn = () => {
+//   var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+//     ? true
+//     : false
+//   console.log('HOVER ================')
+//   if ($(window).width() >= 699 || isMobile == true) {
+//     console.log('hover')
+//     // list-view hover effect
+//     $('.list-box').hover(
+//       function () {
+//         $(this).find('.list-image').css('display', 'block')
+//       },
+//       function () {
+//         $(this).find('.list-image').css('display', 'none')
+//       }
+//     )
+//   }
+// }
 const listviewFcn = () => {
   $(function () {
     //list-view text-transform
@@ -97,22 +136,7 @@ const listviewFcn = () => {
       $('#filters-box').fadeToggle()
       return false
     })
-
-    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
-      ? true
-      : false
-
-    if ($(window).width() >= 699 || isMobile == true) {
-      // list-view hover effect
-      $('.list-box').hover(
-        function () {
-          $(this).find('.list-image').css('display', 'block')
-        },
-        function () {
-          $(this).find('.list-image').css('display', 'none')
-        }
-      )
-    }
+    // hoverFcn()
   })
 }
 const fetchArticleList = async (query) => {
@@ -140,6 +164,7 @@ const selectTag = (tag) => {
     projects.push(...l)
   }
   document.querySelector('.work-filters-button').click()
+  // hoverFcn()
 }
 const reload = async () => {
   fetchArticleList({
@@ -163,7 +188,6 @@ const reload = async () => {
     }, _tags)
     tags.value = _tags
 
-    console.log(tags.value)
     listviewFcn()
   })
 }

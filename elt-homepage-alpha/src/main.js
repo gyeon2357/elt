@@ -16,13 +16,13 @@ app.use(VueLazyLoad, {
   error: '',
   lifecycle: {
     loading: (el) => {
-      console.log('loading', el)
+      // console.log('loading', el)
     },
     error: (el) => {
-      console.log('error', el)
+      // console.log('error', el)
     },
     loaded: (el) => {
-      console.log('loaded', el)
+      // console.log('loaded', el)
     }
   }
 })

@@ -84,7 +84,7 @@ const articleList = reactive([])
 const fetchArticleList = async (publishedDate) => {
   return $axios
     .get(
-      `/contents?filter={"category": "project", "isActivated": true, "publishedDate": {"$lt" : "${publishedDate}"} }&limit=4&sort={"pulishedDate": -1}`
+      `/contents?filter={"category": "project", "isActivated": true, "publishedDate": {"$lt" : "${publishedDate}"} }&limit=4&sort={"publishedDate": -1}`
     )
     .then(({ data }) => data)
 }
