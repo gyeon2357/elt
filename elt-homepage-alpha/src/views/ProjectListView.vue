@@ -15,10 +15,10 @@
         </button>
         <div id="filters-box" style="display: none">
           <p id="filters">
-            <span>Editorial</span><span>Graphic</span><span>Branding</span><span>Poster</span
-            ><span>Package</span><span>Calendar</span><span>Album</span><span>Book</span
-            ><span>CI</span><span>BI</span><span>App</span><span>Website</span><span>Brochure</span
-            ><span>Illustration</span><span>Art</span><span>Magazine</span><span>character</span>
+            <span @click="selectTag('all')">All</span>
+            <span v-for="tag in Object.keys(tags)" :key="tag" @click="selectTag(tag)">{{
+              tag
+            }}</span>
           </p>
         </div>
       </div>
@@ -54,34 +54,14 @@
   </div>
 </template>
 <script setup>
-import { inject, reactive } from 'vue'
+import { inject, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
+const selectedTag = ref('')
+const tags = ref({})
+const _projects = []
 const projects = reactive([])
 const $axios = inject('$axios')
-const fetchArticleList = async (query) => {
-  const qs = (obj) => {
-    const str = []
-    for (const p in obj) {
-      if (obj.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
-      }
-    }
-    return str.join('&')
-  }
-  const qq = qs(query)
-  return $axios.get('/contents?' + qq).then(({ data }) => data)
-}
-const reload = async () => {
-  fetchArticleList({
-    filter: { category: 'project', isActivated: true },
-    sort: { publishedDate: -1 }
-  }).then((l) => {
-    projects.splice(0, projects.length)
-    projects.push(...l)
-  })
-}
-
 const listviewFcn = () => {
   $(function () {
     //list-view text-transform
@@ -107,7 +87,11 @@ const listviewFcn = () => {
       $('.work-filters-button')
         .find('span.all-project')
         .text(function (index, text) {
-          return text == 'Close' ? 'All projects' : 'Close'
+          return text == 'Close'
+            ? selectedTag.value === ''
+              ? 'All Projects'
+              : selectedTag.value
+            : 'Close'
         })
 
       $('#filters-box').fadeToggle()
@@ -131,8 +115,59 @@ const listviewFcn = () => {
     }
   })
 }
+const fetchArticleList = async (query) => {
+  const qs = (obj) => {
+    const str = []
+    for (const p in obj) {
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])))
+      }
+    }
+    return str.join('&')
+  }
+  const qq = qs(query)
+  return $axios.get('/contents?' + qq).then(({ data }) => data)
+}
 
-listviewFcn()
+const selectTag = (tag) => {
+  projects.splice(0, projects.length)
+  if (tag === 'all') {
+    selectedTag.value = ''
+    projects.push(..._projects)
+  } else {
+    selectedTag.value = tag
+    const l = _projects.filter((p) => p.tags.includes(tag))
+    projects.push(...l)
+  }
+  document.querySelector('.work-filters-button').click()
+}
+const reload = async () => {
+  fetchArticleList({
+    filter: { category: 'project', isActivated: true },
+    sort: { publishedDate: -1 }
+  }).then((l) => {
+    _projects.push(...l)
+    projects.splice(0, projects.length)
+    projects.push(...l)
+
+    const _tags = {}
+    l.reduce((acc, cur) => {
+      cur.tags.forEach((tag) => {
+        if (acc[tag]?.length > 0) {
+          acc[tag].push(cur._id)
+        } else {
+          acc[tag] = [cur._id]
+        }
+      })
+      return acc
+    }, _tags)
+    tags.value = _tags
+
+    console.log(tags.value)
+    listviewFcn()
+  })
+}
+
 reload()
 </script>
 
