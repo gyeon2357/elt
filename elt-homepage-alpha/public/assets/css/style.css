@@ -596,7 +596,7 @@ html {
     background-color: var(--secondary-color-50);
     border-radius: 50%;
 
-    z-index: 101;
+    z-index: 102;
 
     cursor: pointer;
     transition: opacity 0.125s ease-out;
@@ -627,7 +627,7 @@ html {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    z-index: 100 !important;
+    z-index: 102 !important;
     border-radius: 3rem;
   }
 
@@ -944,19 +944,19 @@ div.content-head {
 #filters-box {
   position: absolute;
   width: 100%;
-  height: 30%;
 
   background: linear-gradient(180deg, #fefefe 85.74%, rgba(255, 255, 255, 0.4) 97.99%);
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+  z-index: 101;
 }
 
 #filters {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 1.75rem;
+  font-weight: 700;
   line-height: 1.4;
   text-transform: capitalize;
   width: 30ch;
-  padding: .5rem;
+  padding: 0.5rem 0.5rem 3rem 0;
 }
 
 .filter-icon {
@@ -974,12 +974,13 @@ div.content-head {
 #filters span {
   display: inline-block;
   cursor: pointer;
-  transition: color 0.125s;
-  margin-left: 1rem;
+  transition: all 0.125s;
+  margin-left: 0.875rem;
 }
 
 #filters span:hover {
   color: var(--secondary-color-50);
+  box-shadow: inset 0 -1px 0 0 var(--secondary-color-50);
 }
 
 
@@ -1672,7 +1673,7 @@ div.about-box {
   }
 
   #filters {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.6;
     width: 90%;
@@ -1681,7 +1682,7 @@ div.about-box {
   }
 
   #filters span {
-    margin-left: 1.125rem;
+    margin-left: 0.75rem;
   }
 
   .sup-box {
@@ -1735,7 +1736,7 @@ div.about-box {
   }
 
   #index .list-image {
-    display: block;
+    display: block !important;
 
     position: relative;
     float: right;
@@ -1941,7 +1942,11 @@ div.about-box {
   }
 
   .another-project-gallery figcaption {
-    display: none;
+    transform: translateY(-2.25rem);
+  }
+
+  .another-project-gallery:hover figcaption {
+    transform: translateY(-2.25rem);
   }
 
   .another-project-gallery img {
