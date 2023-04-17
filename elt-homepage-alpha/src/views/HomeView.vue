@@ -54,9 +54,7 @@
             /></span>
 
             <span id="everylittlething"
-              >@every.little.thing <img class="line" src="/assets/img/logo-line.svg" /><img
-                class="tooltip14"
-                src="/assets/img/elt-bg.jpg"
+              >@every.little.thing&nbsp;<img class="tooltip14" src="/assets/img/elt-bg.jpg"
             /></span>
           </p>
         </h2>
@@ -121,7 +119,7 @@
 
 <script>
 const effect = () => {
-  // intro-animation-springy
+  // working on intro-animation-springy
   // http://getspringy.com
 
   // var graph = new Springy.Graph()
@@ -310,7 +308,6 @@ const effect = () => {
       { opacity: 1, scale: 1, y: 0, duration: 0.75, immediateRender: false }
     )
   })
-
 }
 
 $(document).ready(effect)
