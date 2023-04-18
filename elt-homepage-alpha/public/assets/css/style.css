@@ -959,9 +959,9 @@ div.content-head {
   transition: all 0.125s;
   margin: 0.25rem 0.25rem;
 
-  background-color: var(--primary-color-95);
+  border: 2px solid var(--primary-color-95);
   border-radius: 3rem;
-  padding: .5rem 1rem;
+  padding: .5rem 1rem .625rem 1rem;
 }
 
 #filters span:hover {
@@ -969,7 +969,7 @@ div.content-head {
 }
 
 #filters span:first-child {
-  background-color: var(--primary-color-70);
+  border: 2px solid var(--primary-color-70);
 }
 
 div#index {
@@ -1673,7 +1673,8 @@ div.about-box {
   }
 
   #filters span {
-    padding: .375rem .875rem;
+    margin: 0.2rem;
+    padding: .375rem .875rem .5rem .875rem;
   }
 
   .sup-box {
