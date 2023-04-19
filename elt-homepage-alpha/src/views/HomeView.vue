@@ -12,45 +12,45 @@
         <h2 id="intro-title">
           <p class="js-cursor-hover">
             <span id="graphic">
-              ː graphic&nbsp;<img class="tooltip1" src="/assets/img/elt-bg-bk.jpg"
+              ː graphic&nbsp;<img class="tooltip1" src="/assets/img/background.jpg"
             /></span>
 
             <span id="editorial"
-              >¶ editorial&nbsp;<img class="tooltip2" src="/assets/img/elt-bg-bk.jpg"
+              >¶ editorial&nbsp;<img class="tooltip2" src="/assets/img/background.jpg"
             /></span>
             <span id="application"
-              >≈ app&nbsp;<img class="tooltip3" src="/assets/img/elt-bg-bk.jpg"
+              >≈ app&nbsp;<img class="tooltip3" src="/assets/img/background.jpg"
             /></span>
             <span id="web"
-              >° web&nbsp;<img class="tooltip4" src="/assets/img/elt-bg-bk.jpg"
+              >° web&nbsp;<img class="tooltip4" src="/assets/img/background.jpg"
             /></span>
 
             <span id="newmedia">
-              newmedia&nbsp;<img class="tooltip5" src="/assets/img/elt-bg-bk.jpg"
+              newmedia&nbsp;<img class="tooltip5" src="/assets/img/background.jpg"
             /></span>
             <span id="music"
-              >ˇ music&nbsp;<img class="tooltip6" src="/assets/img/elt-bg-bk.jpg"
+              >ˇ music&nbsp;<img class="tooltip6" src="/assets/img/background.jpg"
             /></span>
             <span id="album"
-              >— album&nbsp;<img class="tooltip7" src="/assets/img/elt-bg-bk.jpg"
+              >— album&nbsp;<img class="tooltip7" src="/assets/img/background.jpg"
             /></span>
             <span id="poster">
-              ℗ poster&nbsp;<img class="tooltip8" src="/assets/img/elt-bg-bk.jpg"
+              ℗ poster&nbsp;<img class="tooltip8" src="/assets/img/background.jpg"
             /></span>
             <span id="movie"
-              >+ movie&nbsp;<img class="tooltip9" src="/assets/img/elt-bg-bk.jpg"
+              >+ movie&nbsp;<img class="tooltip9" src="/assets/img/background.jpg"
             /></span>
             <span id="branding"
-              >˘ branding&nbsp;<img class="tooltip10" src="/assets/img/elt-bg-bk.jpg"
+              >˘ branding&nbsp;<img class="tooltip10" src="/assets/img/background.jpg"
             /></span>
             <span id="brochure"
-              >× brochure&nbsp;<img class="tooltip11" src="/assets/img/elt-bg-bk.jpg"
+              >× brochure&nbsp;<img class="tooltip11" src="/assets/img/background.jpg"
             /></span>
             <span id="illustration"
-              >illustration&nbsp;<img class="tooltip12" src="/assets/img/elt-bg-bk.jpg"
+              >illustration&nbsp;<img class="tooltip12" src="/assets/img/background.jpg"
             /></span>
             <span id="art"
-              >* art ˝&nbsp;<img class="tooltip13" src="/assets/img/elt-bg-bk.jpg"
+              >* art ˝&nbsp;<img class="tooltip13" src="/assets/img/background.jpg"
             /></span>
 
             <span id="everylittlething"
@@ -65,7 +65,7 @@
           <div class="media-wrapper">
             <div class="plane main-image-plane main-main-image-plane main-gradient">
               <img
-                src="/assets/img/elt-bg-bk.jpg"
+                src="/assets/img/background.jpg"
                 width="1600"
                 height="900"
                 alt="everylittlething"

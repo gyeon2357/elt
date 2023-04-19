@@ -42,6 +42,17 @@ import { RouterLink } from 'vue-router'
 
 const projects = reactive([])
 const $axios = inject('$axios')
+
+const galleryviewFcn = () => {
+  $(function () {
+    $('.img-gallery-box figcaption')
+      .text(function (index, currentText) {
+        return currentText.toLowerCase()
+      })
+      .addClass('capitalize')
+  })
+}
+
 const fetchArticleList = async (query) => {
   const qs = (obj) => {
     const str = []
@@ -62,6 +73,8 @@ const reload = async () => {
   }).then((l) => {
     projects.splice(0, projects.length)
     projects.push(...l)
+
+    galleryviewFcn()
   })
 }
 

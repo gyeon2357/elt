@@ -34,6 +34,17 @@
       </div>
     </section>
 
+    <section id="share-url">
+      <div class="share-url-box">
+        <figure>
+          <img src="/assets/img/kakaotalk.svg" />
+          <img src="/assets/img/twitter.svg" />
+          <img src="/assets/img/facebook.svg" />
+          <span>Copy URL</span>
+        </figure>
+      </div>
+    </section>
+
     <section id="another-project">
       <div class="another-project-title-box">
         <p>You may also like</p>
@@ -81,6 +92,16 @@ const fetchArticle = async (id) => {
 
 const articleList = reactive([])
 
+const detailviewFcn = () => {
+  $(function () {
+    $('.project-head span')
+      .text(function (index, currentText) {
+        return currentText.toLowerCase()
+      })
+      .addClass('capitalize')
+  })
+}
+
 const fetchArticleList = async (publishedDate) => {
   return $axios
     .get(
@@ -108,6 +129,7 @@ const reload = async () => {
           articleList.push(...l)
         })
     })
+    detailviewFcn()
   })
 }
 

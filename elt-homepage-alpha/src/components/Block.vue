@@ -101,8 +101,7 @@ li {
 }
 // @import '@/scss/variables.scss';
 .block {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.25rem 0;
 }
 .heading {
   margin-top: 0px;
