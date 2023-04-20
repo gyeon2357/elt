@@ -37,10 +37,24 @@
     <section id="share-url">
       <div class="share-url-box">
         <figure>
-          <img src="/assets/img/kakaotalk.svg" />
-          <img src="/assets/img/twitter.svg" />
-          <img src="/assets/img/facebook.svg" />
-          <img src="/assets/img/share.svg" />
+          <!-- <img src="/assets/img/kakaotalk.svg" /> -->
+
+          <a target="_blank" :href="buildTwitterButton()"><img src="/assets/img/twitter.svg" /></a>
+          <div
+            style="display: inline-block"
+            class="fb-share-button"
+            :data-href="url"
+            data-layout="button"
+            data-size="large"
+          >
+            <a
+              target="_blank"
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverylittlething.co.kr%2F&amp;src=sdkpreparse"
+              class="fb-xfbml-parse-ignore"
+              ><img src="/assets/img/facebook.svg"
+            /></a>
+          </div>
+          <img src="/assets/img/share.svg" @click="copyUrl(url)" />
         </figure>
       </div>
     </section>
@@ -69,9 +83,10 @@
   </div>
 </template>
 <script setup>
+// import 'https://platform.twitter.com/widgets.js'
 import Block from '../components/Block.vue'
 import { format } from 'date-fns'
-import { reactive, watch, inject } from 'vue'
+import { reactive, watch, inject, ref } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 const project = reactive({
@@ -84,12 +99,22 @@ Diet Cooking Expert @nemo. Kim Jiyoung's Recipe Book.
 Client. 동아일보사
 Work. Book Design, 2019.`
 })
+const url = ref('')
 const route = useRoute()
 const $axios = inject('$axios')
 const fetchArticle = async (id) => {
   return $axios.get('/contents/' + id).then(({ data }) => data)
 }
 
+const copyUrl = (text) => {
+  navigator.clipboard.writeText(text).then(() => alert('주소가 복사되었습니다 - ' + text))
+}
+const buildTwitterButton = () => {
+  const text = project.title
+  const hashtags = (project?.tags || []).join(',')
+  return `http://twitter.com/share?lang=ko&text=${text}&url=${url.value}&hashtags=${hashtags}`
+  // text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3
+}
 const articleList = reactive([])
 
 const detailviewFcn = () => {
@@ -110,6 +135,7 @@ const fetchArticleList = async (publishedDate) => {
     .then(({ data }) => data)
 }
 const reload = async () => {
+  url.value = window.location.href
   fetchArticle(route.params.id).then((l) => {
     project.title = l.title
     project.subtitle = l.subtitle
@@ -130,6 +156,7 @@ const reload = async () => {
         })
     })
     detailviewFcn()
+    // twttr.widgets.load()
   })
 }
 
