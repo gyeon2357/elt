@@ -40,7 +40,7 @@
           <img src="/assets/img/kakaotalk.svg" />
           <img src="/assets/img/twitter.svg" />
           <img src="/assets/img/facebook.svg" />
-          <span>Copy URL</span>
+          <img src="/assets/img/share.svg" />
         </figure>
       </div>
     </section>
