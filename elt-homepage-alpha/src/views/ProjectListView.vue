@@ -103,6 +103,16 @@ const leave = (e) => {
 // }
 const listviewFcn = () => {
   $(function () {
+    // hover-effect
+    $('a, button').hover(
+      function () {
+        $('line').addClass('line-animate')
+      },
+      function () {
+        $('line').removeClass('line-animate')
+      }
+    )
+
     //list-view text-transform
     $('.list-box p')
       .text(function (index, currentText) {

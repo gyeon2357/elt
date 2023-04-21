@@ -119,6 +119,16 @@ const articleList = reactive([])
 
 const detailviewFcn = () => {
   $(function () {
+    // hover-effect
+    $('a, button').hover(
+      function () {
+        $('line').addClass('line-animate')
+      },
+      function () {
+        $('line').removeClass('line-animate')
+      }
+    )
+    //text-transform
     $('.project-head span')
       .text(function (index, currentText) {
         return currentText.toLowerCase()

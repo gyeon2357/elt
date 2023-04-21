@@ -45,6 +45,16 @@ const $axios = inject('$axios')
 
 const galleryviewFcn = () => {
   $(function () {
+    // hover-effect
+    $('a, button').hover(
+      function () {
+        $('line').addClass('line-animate')
+      },
+      function () {
+        $('line').removeClass('line-animate')
+      }
+    )
+    //text-transform
     $('.img-gallery-box figcaption')
       .text(function (index, currentText) {
         return currentText.toLowerCase()

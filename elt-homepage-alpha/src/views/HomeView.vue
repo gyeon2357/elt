@@ -10,7 +10,7 @@
     <section id="intro">
       <div>
         <h2 id="intro-title">
-          <p class="js-cursor-hover">
+          <p>
             <span id="graphic">
               ː graphic&nbsp;<img class="tooltip1" src="/assets/img/background.jpg"
             /></span>
@@ -65,7 +65,7 @@
           <div class="media-wrapper">
             <div class="plane main-image-plane main-main-image-plane main-gradient">
               <img
-                src="/assets/img/background.jpg"
+                src="/assets/img/background-bk.jpg"
                 width="1600"
                 height="900"
                 alt="everylittlething"
@@ -185,65 +185,16 @@ const effect = () => {
   //   }))
   // })
 
-  // mouse effect
-  let svgns = 'http://www.w3.org/2000/svg'
-  let root = document.querySelector('svg')
-  let ease = 0.7
 
-  let pointer = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-  }
-
-  window.addEventListener('mousemove', (event) => {
-    pointer.x = event.clientX
-    pointer.y = event.clientY
-  })
-
-  let leader = (prop) => {
-    return prop === 'x' ? pointer.x : pointer.y
-  }
-
-  let total = 50
-  for (let i = 0; i < total; i++) {
-    leader = createLine(leader, i)
-  }
-
-  function createLine(leader, i) {
-    let line = document.createElementNS(svgns, 'line')
-    // line.style.mixBlendMode = 'difference';
-    root.appendChild(line)
-
-    gsap.set(line, { x: -1500, y: -750 })
-
-    let pos = gsap.getProperty(line)
-
-    gsap.to(line, {
-      duration: 10000,
-      x: '+=150',
-      y: '+=10',
-      repeat: -1,
-      ease: 'expo.inOut',
-      modifiers: {
-        x: () => {
-          let posX = pos('x')
-          let leaderX = leader('x')
-          let x = posX + (leaderX - posX) * ease
-          line.setAttribute('x2', leaderX - x)
-          return x
-        },
-        y: () => {
-          let posY = pos('y')
-          let leaderY = leader('y')
-          let y = posY + (leaderY - posY) * ease
-          line.setAttribute('y2', leaderY - y)
-          return y
-        }
-      }
-    })
-
-    return pos
-  }
+  // hover-effect
+  $('a, button, #intro-title span, #intro-desc, #notice-desc').hover(
+    function () {
+      $('line').addClass('line-animate')
+    },
+    function () {
+      $('line').removeClass('line-animate')
+    }
+  )
 
   // skew effect
   gsap.fromTo(
