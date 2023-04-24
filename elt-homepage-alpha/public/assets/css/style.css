@@ -336,7 +336,7 @@ line {
 }
 
 .line-animate {
-  stroke-width: 50;
+  stroke-width: 60;
   stroke-linecap: butt;
 }
 
@@ -1296,6 +1296,11 @@ div.about-box {
   line {
     stroke-width: 15;
     stroke-linecap: round;
+  }
+
+  .line-animate {
+    stroke-width: 50;
+    stroke-linecap: butt;
   }
 
   #home-link {
