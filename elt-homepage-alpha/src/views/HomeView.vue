@@ -6,7 +6,7 @@
   <!-- <span class="flex-center">
     <canvas id="springydemo"></canvas>
   </span> -->
-  <div id="content" data-namespace="home">
+  <div id="home-content" data-namespace="home">
     <section id="intro">
       <div>
         <h2 id="intro-title">
@@ -59,7 +59,8 @@
           </p>
         </h2>
       </div>
-
+    </section>
+    <section id="back-image">
       <div>
         <div class="main-image-thumb">
           <div class="media-wrapper">
@@ -75,6 +76,8 @@
           </div>
         </div>
       </div>
+    </section>
+    <section id="back-text">
       <div>
         <div id="intro-desc">
           <div class="text-plane">
@@ -185,7 +188,6 @@ const effect = () => {
   //   }))
   // })
 
-
   // hover-effect
   $('a, button, #intro-title span, #intro-desc, #notice-desc').hover(
     function () {
@@ -198,7 +200,7 @@ const effect = () => {
 
   // skew effect
   gsap.fromTo(
-    '#intro-title, #intro-desc',
+    '#intro-title',
     {
       y: 100,
       opacity: 0
@@ -247,7 +249,7 @@ const effect = () => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: 'center bottom',
+        start: 'top center',
         toggleActions: 'play none none reverse',
         markers: false
       }
@@ -255,8 +257,8 @@ const effect = () => {
 
     tl.set(el, { transformOrigin: 'center center' }).fromTo(
       el,
-      { opacity: 0, scale: 0.85, y: '+=25' },
-      { opacity: 1, scale: 1, y: 0, duration: 0.75, immediateRender: false }
+      { opacity: 0, scale: 1, y: '+=150' },
+      { opacity: 1, scale: 1, y: 0, duration: 1.5, immediateRender: false }
     )
   })
 }

@@ -18,7 +18,7 @@ let leader = (prop) => {
   return prop === 'x' ? pointer.x : pointer.y
 }
 
-let total = 30
+let total = 50
 for (let i = 0; i < total; i++) {
   leader = createLine(leader, i)
 }
@@ -175,4 +175,3 @@ $(function () {
       $('body').css('overflow', 'scroll')
     })
 })
-
