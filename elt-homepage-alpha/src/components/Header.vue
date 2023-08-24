@@ -5,6 +5,7 @@
     </h1>
 
     <div id="header-center" class="header-col">
+      <div class="header-menu">
       <span>Project</span>
       <span>&lpar;</span>
       <RouterLink
@@ -27,6 +28,7 @@
         class="header-plane header-link main-title-text"
         >Weeklyzine</RouterLink
       >
+      </div>
     </div>
 
     <div id="header-right" class="header-col">
@@ -105,4 +107,9 @@
 import { RouterLink } from 'vue-router'
 </script>
 
-<style scoped></style>
+<style scoped>
+.header-menu {
+  max-width: 980px;
+  margin: 0 auto;
+}
+</style>
