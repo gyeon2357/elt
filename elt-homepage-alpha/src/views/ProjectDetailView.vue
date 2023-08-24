@@ -2,14 +2,6 @@
   <div id="content"
        class="head-padding"
        data-namespace="home">
-
-    <!-- <loading :active="isLoading"
-             :is-full-page="true"
-             :can-cancel="true"
-             loader="dots"
-             :height="10"
-             :width="10"
-             color="#44ff00"></loading> -->
     <section id="single-project-head">
       <div class="project-head">
         <span>{{ project.title }}</span>
@@ -34,7 +26,11 @@
           <!-- <p style="margin-top: 24px" v-html="project.description.split('\n').join('<br />')"></p> -->
         </div>
       </div>
+      <PreLoader color="#44ff00"
+                 scale="0.8"
+                 v-show="loading" />
       <div class="single-project-gallery-box"
+           v-show="!loading"
            :key="bodyKey">
         <Block v-for="(item, idx) in project.contents"
                :key="item.type + idx + bodyKey"
@@ -43,7 +39,6 @@
                align="left" />
       </div>
     </section>
-
     <section id="share-url">
       <div class="share-url-box">
         <figure>
@@ -51,15 +46,15 @@
 
           <a target="_blank"
              :href="buildTwitterButton()"><img src="/assets/img/twitter.svg" /></a>
-          <div style="display: inline-block"
+          <!-- <div style="display: inline-block"
                class="fb-share-button"
                :data-href="url"
                data-layout="button"
-               data-size="large">
-            <a target="_blank"
-               href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverylittlething.co.kr%2F&amp;src=sdkpreparse"
-               class="fb-xfbml-parse-ignore"><img src="/assets/img/facebook.svg" /></a>
-          </div>
+               data-size="large"> -->
+          <a target="_blank"
+             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverylittlething.co.kr%2F&amp;src=sdkpreparse"
+             class="fb-xfbml-parse-ignore"><img src="/assets/img/facebook.svg" /></a>
+          <!-- </div> -->
           <img src="/assets/img/share.svg"
                @click="copyUrl(url)" />
         </figure>
@@ -90,15 +85,14 @@
 <script setup>
 // import 'https://platform.twitter.com/widgets.js'
 import Block from '../components/Block.vue'
+
+import PreLoader from '../components/PreLoader.vue'
 import { format } from 'date-fns'
 import { reactive, watch, inject, ref } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-// Import the method.
-import { useLoading } from 'vue3-loading-overlay';
-// Import stylesheet
-import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 
-const isLoading = ref(false)
+
+const loading = ref(false)
 const project = reactive({
   title: 'Arena Homme+ November 2022 Oh Yeongsu',
   subtitle: '2022, Seoul',
@@ -149,7 +143,6 @@ const detailviewFcn = () => {
 
 const bodyKey = ref(0)
 
-const loader = useLoading();
 
 const fetchArticleList = async (publishedDate) => {
   return $axios
@@ -159,10 +152,8 @@ const fetchArticleList = async (publishedDate) => {
     .then(({ data }) => data)
 }
 const reload = async () => {
-
-  console.log(loader)
   url.value = window.location.href
-  fetchArticle(route.params.id).then((l) => {
+  return fetchArticle(route.params.id).then((l) => {
     project.title = l.title
     project.subtitle = l.subtitle
     project.tags = l.tags
@@ -171,7 +162,7 @@ const reload = async () => {
     project.contents = l.contents
     project.publishedDate = l.publishedDate
 
-    fetchArticleList(l.publishedDate).then((l) => {
+    return fetchArticleList(l.publishedDate).then((l) => {
       if (l.length === 4) {
         articleList.splice(0, 4)
         articleList.push(...l)
@@ -180,9 +171,12 @@ const reload = async () => {
           articleList.splice(0, 4)
           articleList.push(...l)
         })
-      setTimeout(loader.hide, 1000);
+      setTimeout(() => {
+        loading.value = false
+      }, 1000);
+
+      detailviewFcn()
     })
-    detailviewFcn()
     // twttr.widgets.load()
   })
 }
@@ -194,18 +188,27 @@ watch(
     if (!id) return
     else {
       console.log('id => ', id)
-      loader.show({
-        // Optional parameters
-        container: null,
-        canCancel: true,
-        color: '#44ff00',
-        width: 88,
-        height: 88,
-        loader: 'dots'
+      loading.value = true
+      // const l = loader.show({
+      //   // Optional parameters
+      //   container: null,
+      //   canCancel: true,
+      //   color: '#44ff00',
+      //   width: 88,
+      //   height: 88,
+      //   loader: 'dots'
+      // })
 
-      });
+      // console.log(l)
       // simulate AJAX
       bodyKey.value++
+
+      setTimeout(() => {
+        console.log('----hide----')
+        // console.log(l)
+
+        // l.hide()
+      }, 1000);
       reload()
       // const a = await fetchArticle(id)
       // console.log('article => ', a)
