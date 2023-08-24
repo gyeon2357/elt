@@ -2,7 +2,7 @@
   <footer id="footer">
     <div id="footer-contact-credits">
       <div class="footer-col">
-        <a class="out main-title-text text-plane text-plane-is-link">Social</a>
+        <a class="out main-title-text text-plane text-plane-is-link footer-title">Social</a>
         <a
           href="https://www.instagram.com/everylittlething_graphic/"
           target="_blank"
@@ -24,7 +24,7 @@
       </div>
 
       <div class="footer-col">
-        <a class="out main-title-text text-plane text-plane-is-link">Contact</a>
+        <a class="out main-title-text text-plane text-plane-is-link footer-title">Contact</a>
         <a
           href="mailto:design@everylittlething.co.kr?subject=문의하기"
           class="out main-title-text text-plane text-plane-is-link"
@@ -237,3 +237,4 @@ console.log(isCurrentAboutPage.value)
   }
 }
 </style>
+

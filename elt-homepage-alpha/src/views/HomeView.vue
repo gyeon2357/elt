@@ -6,11 +6,11 @@
   <!-- <span class="flex-center">
     <canvas id="springydemo"></canvas>
   </span> -->
-  <div id="content" data-namespace="home">
+  <div id="home-content" data-namespace="home">
     <section id="intro">
       <div>
         <h2 id="intro-title">
-          <p class="js-cursor-hover">
+          <p>
             <span id="graphic">
               ː graphic&nbsp;<img class="tooltip1" src="/assets/img/background.jpg"
             /></span>
@@ -59,13 +59,14 @@
           </p>
         </h2>
       </div>
-
+    </section>
+    <section id="back-image">
       <div>
         <div class="main-image-thumb">
           <div class="media-wrapper">
             <div class="plane main-image-plane main-main-image-plane main-gradient">
               <img
-                src="/assets/img/background.jpg"
+                src="/assets/img/background-bk.jpg"
                 width="1600"
                 height="900"
                 alt="everylittlething"
@@ -75,6 +76,8 @@
           </div>
         </div>
       </div>
+    </section>
+    <section id="back-text">
       <div>
         <div id="intro-desc">
           <div class="text-plane">
@@ -185,69 +188,19 @@ const effect = () => {
   //   }))
   // })
 
-  // mouse effect
-  let svgns = 'http://www.w3.org/2000/svg'
-  let root = document.querySelector('svg')
-  let ease = 0.7
-
-  let pointer = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-  }
-
-  window.addEventListener('mousemove', (event) => {
-    pointer.x = event.clientX
-    pointer.y = event.clientY
-  })
-
-  let leader = (prop) => {
-    return prop === 'x' ? pointer.x : pointer.y
-  }
-
-  let total = 50
-  for (let i = 0; i < total; i++) {
-    leader = createLine(leader, i)
-  }
-
-  function createLine(leader, i) {
-    let line = document.createElementNS(svgns, 'line')
-    // line.style.mixBlendMode = 'difference';
-    root.appendChild(line)
-
-    gsap.set(line, { x: -1500, y: -750 })
-
-    let pos = gsap.getProperty(line)
-
-    gsap.to(line, {
-      duration: 10000,
-      x: '+=150',
-      y: '+=10',
-      repeat: -1,
-      ease: 'expo.inOut',
-      modifiers: {
-        x: () => {
-          let posX = pos('x')
-          let leaderX = leader('x')
-          let x = posX + (leaderX - posX) * ease
-          line.setAttribute('x2', leaderX - x)
-          return x
-        },
-        y: () => {
-          let posY = pos('y')
-          let leaderY = leader('y')
-          let y = posY + (leaderY - posY) * ease
-          line.setAttribute('y2', leaderY - y)
-          return y
-        }
-      }
-    })
-
-    return pos
-  }
+  // hover-effect
+  $('a, button, #intro-title span, #intro-desc, #notice-desc').hover(
+    function () {
+      $('line').addClass('line-animate')
+    },
+    function () {
+      $('line').removeClass('line-animate')
+    }
+  )
 
   // skew effect
   gsap.fromTo(
-    '#intro-title, #intro-desc',
+    '#intro-title',
     {
       y: 100,
       opacity: 0
@@ -296,7 +249,7 @@ const effect = () => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: 'center bottom',
+        start: 'top center',
         toggleActions: 'play none none reverse',
         markers: false
       }
@@ -304,8 +257,8 @@ const effect = () => {
 
     tl.set(el, { transformOrigin: 'center center' }).fromTo(
       el,
-      { opacity: 0, scale: 0.85, y: '+=25' },
-      { opacity: 1, scale: 1, y: 0, duration: 0.75, immediateRender: false }
+      { opacity: 0, scale: 1, y: '+=150' },
+      { opacity: 1, scale: 1, y: 0, duration: 1.5, immediateRender: false }
     )
   })
 }
