@@ -1,5 +1,7 @@
 <template>
-  <div id="content" class="head-padding" data-namespace="home">
+  <div id="content"
+       class="head-padding"
+       data-namespace="home">
     <section id="single-project-head">
       <div class="project-head">
         <span>Weeklyzine</span>
@@ -20,10 +22,9 @@
       <div class="single-project-gallery-box">
         <div class="single-project-gallery">
           <figure>
-            <img
-              :src="`https://resize.samworks.io/crop/1200/webp/${project.mainImg}`"
-              class="lazy"
-            />
+            <img loading="lazy"
+                 :src="`https://resize.samworks.io/width/800/webp/${project.mainImg}`"
+                 class="lazy" />
           </figure>
         </div>
       </div>
