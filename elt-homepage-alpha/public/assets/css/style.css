@@ -248,7 +248,9 @@ a {
   content: url(../img/logo.svg);
   width: 2.75rem;
 }
-
+#header-right {
+ z-index: 100 !important;
+}
 #header a,
 #header span {
   display: inline-block;
@@ -793,12 +795,14 @@ div#single-project-body {
 .single-project-gallery figure {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .single-project-gallery img {
   display: block;
-
-  width: 115ch;
+  max-width: 800px;
+  /* width: 115ch; */
+  width: 100%;
   object-fit: cover;
   border-radius: 0;
 }
