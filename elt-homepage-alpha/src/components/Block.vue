@@ -1,44 +1,45 @@
 <template>
   <div class="block">
     <template v-if="blockType === 'paragraph'">
-      <p class="post-paragraph" v-html="data.text" :style="`text-align: ${align}`"></p>
+      <p class="post-paragraph"
+         v-html="data.text"
+         :style="`text-align: ${align}`"></p>
     </template>
     <template v-if="blockType === 'list'">
-      <ul class="post-paragraph" :style="`text-align: ${align}`">
-        <li v-for="item in data.items" v-html="item" :key="item"></li>
+      <ul class="post-paragraph"
+          :style="`text-align: ${align}`">
+        <li v-for="item in data.items"
+            v-html="item"
+            :key="item"></li>
       </ul>
     </template>
     <template v-if="blockType === 'header'">
       <div :class="[`post-heading-${data.level} `]">
-        <span
-          class="desc"
-          v-if="data.text.split(/\|/).length > 1"
-          v-html="data.text.split(/\|/)[0]"
-        ></span>
-        <span class="text" v-html="data.text.split(/\|/).pop()"></span>
+        <span class="desc"
+              v-if="data.text.split(/\|/).length > 1"
+              v-html="data.text.split(/\|/)[0]"></span>
+        <span class="text"
+              v-html="data.text.split(/\|/).pop()"></span>
       </div>
     </template>
     <template v-if="blockType === 'embed'">
       <div :class="[`video-block`]">
         <div class=""></div>
-        <iframe
-          style="width: 100%"
-          height="400"
-          frameborder="0"
-          allowfullscreen
-          :src="data.embed"
-        ></iframe>
+        <iframe style="width: 100%"
+                height="400"
+                frameborder="0"
+                allowfullscreen
+                :src="data.embed"></iframe>
         <small>{{ data.caption }}</small>
       </div>
     </template>
     <template v-if="blockType === 'image'">
       <figure>
         <div :class="`post-img-center`">
-          <img
-            v-lazy="`https://resize.samworks.io/crop/1200/webp/${data.file.url}`"
-            :alt="data.caption"
-            :class="{ stretched: data.stretched }"
-          />
+          <img loading="lazy"
+               :src="`https://resize.samworks.io/crop/800/webp/${data.file.url}`"
+               :alt="data.caption"
+               :class="{ stretched: data.stretched }" />
         </div>
         <!-- <v-img :src="data.file.url" contain max-height="530" max-width="840"></v-img> -->
         <figcaption v-if="data.caption.length > 0">
@@ -53,7 +54,8 @@
     </template>
     <template v-if="blockType === 'quote'">
       <blockquote class="sidekick text-center">
-        <span class="d-block" v-html="trans(data.text)"></span>
+        <span class="d-block"
+              v-html="trans(data.text)"></span>
         <cite>{{ data.caption }}</cite>
       </blockquote>
     </template>
@@ -91,18 +93,22 @@ export default {
 .text-center {
   text-align: center !important;
 }
+
 ul {
   margin-bottom: 0.7rem;
   margin-left: 1rem;
 }
+
 li {
   list-style: disc;
   margin-bottom: 8px;
 }
+
 // @import '@/scss/variables.scss';
 .block {
   padding: 0.25rem 0;
 }
+
 .heading {
   margin-top: 0px;
 }
@@ -112,6 +118,7 @@ li {
   margin: auto;
   text-align: center;
 }
+
 .embed-tool__url {
   position: absolute;
   bottom: 20px;
@@ -127,6 +134,7 @@ li {
 
 figure {
   width: 100%;
+
   div {
     width: 100%;
   }
@@ -139,9 +147,11 @@ figcaption {
   margin: 0.25rem 0 .375rem 0;
   text-align: left;
 }
+
 .desc {
   font-weight: 400;
 }
+
 /* editor용 style */
 @mixin center-align {
   display: flex;
@@ -181,6 +191,7 @@ figcaption {
   height: 30px;
   letter-spacing: 0.2em;
 }
+
 .delimiter {
   line-height: 1.5;
   width: 100%;
@@ -196,6 +207,7 @@ hr {
   // margin-top: 20px;
   // margin-bottom: 20px;
 }
+
 .white--text hr {
   border-color: white !important;
 }
@@ -262,9 +274,11 @@ hr {
   // font-family: 'SpoqaBold', sans-serif;
   font-size: 1.1rem;
   line-height: 1.5;
+
   .desc {
     font-weight: 300;
   }
+
   .desc:after {
     content: '|';
     margin-right: 8px;
@@ -300,6 +314,7 @@ hr {
     height: auto;
     object-fit: cover;
   }
+
   img.stretched {
     width: 100%;
     max-height: initial;
@@ -347,6 +362,7 @@ hr {
       max-height: 350px;
     }
   }
+
   .post-heading-1 {
     font-size: 2.375rem;
     line-height: 1.5;
@@ -401,6 +417,7 @@ blockquote {
   // text-indent: 1.6em;
   line-height: 1.5;
 }
+
 blockquote:before {
   position: absolute;
   top: -20px;
@@ -410,6 +427,7 @@ blockquote:before {
   font-family: 'AktivGrotesk', sans-serif;
   color: #bcbcbc;
 }
+
 blockquote:after {
   position: absolute;
   content: '”';
@@ -443,6 +461,7 @@ blockquote:after {
   margin-top: 16px;
   // transform: translate(-30px, 14px);
 }
+
 // .sidekick cite:before {
 //   content: ' \2015 ';
 // }
