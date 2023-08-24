@@ -77,7 +77,7 @@
                       v-for="article in articleList"
                       :key="article._id">
             <figure>
-              <img :src="`https://resize.samworks.io/crop/320x240/webp/${article.mainImg}`" />
+              <img :src="`https://resize.samworks.io/crop/320/webp/${article.mainImg}`" />
 
               <figcaption>{{ article.title }}</figcaption>
             </figure>
