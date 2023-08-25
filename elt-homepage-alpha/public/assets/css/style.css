@@ -1661,8 +1661,8 @@ div.about-box {
     overflow-y: hidden;
   }
 
-  .menu__box #header-center,
-  .menu__box #header-right {
+  .menu__box .header-center,
+  .menu__box .header-right {
     display: block;
 
     font-size: 2rem;
@@ -1676,13 +1676,13 @@ div.about-box {
     border-bottom: 1px solid var(--primary-color-0);
   }
 
-  .menu__box #header-right,
+  .menu__box .header-right,
   .menu__box #weeklyzine-link {
     font-weight: 700;
   }
 
-  .menu__box #header-center a,
-  .menu__box #header-right a {
+  .menu__box .header-center a,
+  .menu__box .header-right a {
     display: block;
     width: fit-content;
     transition: filter .25s ease;
@@ -1692,22 +1692,22 @@ div.about-box {
     color: inherit;
   }
 
-  .menu__box #header-center a:hover,
-  .menu__box #header-right a:hover {
+  .menu__box .header-center a:hover,
+  .menu__box .header-right a:hover {
     filter: invert(64%) sepia(82%) saturate(2019%) hue-rotate(60deg) brightness(119%) contrast(122%);
   }
 
-  .menu__box #header-right a:first-child {
+  .menu__box .header-right a:first-child {
     margin-bottom: 0.25rem;
   }
 
-  .menu__box #header-center span:first-child {
+  .menu__box .header-center span:first-child {
     margin-bottom: 0.5rem;
     font-weight: 700;
   }
 
-  .menu__box #header-center span,
-  .menu__box #header-right span {
+  .menu__box .header-center span,
+  .menu__box .header-right span {
     display: block;
     padding: 0 !important;
   }
@@ -1717,8 +1717,8 @@ div.about-box {
     font-weight: 400;
   }
 
-  .menu__box #header-center #list-link,
-  .menu__box #header-center #gallery-link {
+  .menu__box .header-center #list-link,
+  .menu__box .header-center #gallery-link {
     display: inline-block;
   }
 
