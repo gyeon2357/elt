@@ -68,15 +68,15 @@
 
       <div class="another-project-gallery-box">
         <div class="another-project-gallery">
-          <RouterLink :to="'/project/' + article._id"
-                      v-for="article in articleList"
-                      :key="article._id">
-            <figure>
+          <figure v-for="article in articleList"
+                  :key="article._id">
+            <RouterLink :to="'/project/' + article._id">
               <img :src="`https://resize.samworks.io/crop/320/webp/${article.mainImg}`" />
 
               <figcaption>{{ article.title }}</figcaption>
-            </figure>
-          </RouterLink>
+            </RouterLink>
+          </figure>
+
         </div>
       </div>
     </section>
