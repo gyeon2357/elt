@@ -1,7 +1,5 @@
 <template>
-  <div id="content"
-       class="head-padding"
-       data-namespace="home">
+  <div id="content" class="head-padding" data-namespace="home">
     <section id="single-project-head">
       <div class="project-head">
         <span>{{ project.title }}</span>
@@ -16,8 +14,7 @@
         </div>
 
         <div class="single-project-image-box">
-          <img :src="project.mainImg"
-               class="lazy" />
+          <img :src="project.mainImg" class="lazy" />
         </div>
 
         <div class="single-project-title-desc">
@@ -26,17 +23,15 @@
           <!-- <p style="margin-top: 24px" v-html="project.description.split('\n').join('<br />')"></p> -->
         </div>
       </div>
-      <PreLoader color="#44ff00"
-                 scale="0.8"
-                 v-show="loading" />
-      <div class="single-project-gallery-box"
-           v-show="!loading"
-           :key="bodyKey">
-        <Block v-for="(item, idx) in project.contents"
-               :key="item.type + idx + bodyKey"
-               :blockType="item.type"
-               :data="item.data"
-               align="left" />
+      <PreLoader color="#44ff00" :scale="0.8" v-show="loading" />
+      <div class="single-project-gallery-box" v-show="!loading" :key="bodyKey">
+        <Block
+          v-for="(item, idx) in project.contents"
+          :key="item.type + idx + bodyKey"
+          :blockType="item.type"
+          :data="item.data"
+          align="left"
+        />
       </div>
     </section>
     <section id="share-url">
@@ -44,19 +39,20 @@
         <figure>
           <!-- <img src="/assets/img/kakaotalk.svg" /> -->
 
-          <a target="_blank"
-             :href="buildTwitterButton()"><img src="/assets/img/twitter.svg" /></a>
+          <a target="_blank" :href="buildTwitterButton()"><img src="/assets/img/twitter.svg" /></a>
           <!-- <div style="display: inline-block"
                class="fb-share-button"
                :data-href="url"
                data-layout="button"
                data-size="large"> -->
-          <a target="_blank"
-             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverylittlething.co.kr%2F&amp;src=sdkpreparse"
-             class="fb-xfbml-parse-ignore"><img src="/assets/img/facebook.svg" /></a>
+          <a
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Feverylittlething.co.kr%2F&amp;src=sdkpreparse"
+            class="fb-xfbml-parse-ignore"
+            ><img src="/assets/img/facebook.svg"
+          /></a>
           <!-- </div> -->
-          <img src="/assets/img/share.svg"
-               @click="copyUrl(url)" />
+          <img src="/assets/img/share.svg" @click="copyUrl(url)" />
         </figure>
       </div>
     </section>
@@ -68,15 +64,13 @@
 
       <div class="another-project-gallery-box">
         <div class="another-project-gallery">
-          <figure v-for="article in articleList"
-                  :key="article._id">
+          <figure v-for="article in articleList" :key="article._id">
             <RouterLink :to="'/project/' + article._id">
               <img :src="`https://resize.samworks.io/crop/320/webp/${article.mainImg}`" />
 
               <figcaption>{{ article.title }}</figcaption>
             </RouterLink>
           </figure>
-
         </div>
       </div>
     </section>
@@ -90,7 +84,6 @@ import PreLoader from '../components/PreLoader.vue'
 import { format } from 'date-fns'
 import { reactive, watch, inject, ref } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-
 
 const loading = ref(false)
 const project = reactive({
@@ -143,7 +136,6 @@ const detailviewFcn = () => {
 
 const bodyKey = ref(0)
 
-
 const fetchArticleList = async (publishedDate) => {
   return $axios
     .get(
@@ -173,7 +165,7 @@ const reload = async () => {
         })
       setTimeout(() => {
         loading.value = false
-      }, 1000);
+      }, 1000)
 
       detailviewFcn()
     })
@@ -208,7 +200,7 @@ watch(
         // console.log(l)
 
         // l.hide()
-      }, 1000);
+      }, 1000)
       reload()
       // const a = await fetchArticle(id)
       // console.log('article => ', a)

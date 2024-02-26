@@ -58,7 +58,10 @@
 <script setup>
 import { inject, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
 const selectedTag = ref('')
 const tags = ref({})
 const _projects = []
@@ -69,7 +72,7 @@ const over = (e) => {
     if (e.target.nodeName === 'A') {
       e.target.childNodes[1].style.display = 'block'
     } else {
-      e.target.nextSibling.style.display = 'block'
+      if (e?.target?.nextSibling) e.target.nextSibling.style.display = 'block'
     }
   } catch (error) {
     console.log(error)
@@ -79,7 +82,7 @@ const leave = (e) => {
   if (e.target.nodeName === 'A') {
     e.target.childNodes[1].style.display = 'none'
   } else {
-    e.target.nextSibling.style.display = 'none'
+    if (e?.target?.nextSibling) e.target.nextSibling.style.display = 'none'
   }
 }
 
@@ -101,6 +104,13 @@ const leave = (e) => {
 //     )
 //   }
 // }
+
+const doFilter = (tag) => {
+  $('.work-filters-button')
+    .find('span.all-project')
+    .text(tag === '' || tag === 'all' ? 'All Projects' : tag)
+  return false
+}
 const listviewFcn = () => {
   $(function () {
     // hover-effect
@@ -122,6 +132,7 @@ const listviewFcn = () => {
 
     //list-view filters-button
     $('.work-filters-button').click(function () {
+      console.log('selectedTag.value', selectedTag.value)
       $('.filter-icon')
         .find('img')
         .attr('src', function (index, attr) {
@@ -136,6 +147,8 @@ const listviewFcn = () => {
       $('.work-filters-button')
         .find('span.all-project')
         .text(function (index, text) {
+          console.log('text', text, selectedTag.value)
+
           return text == 'Close'
             ? selectedTag.value === ''
               ? 'All Projects'
@@ -149,6 +162,7 @@ const listviewFcn = () => {
     // hoverFcn()
   })
 }
+
 const fetchArticleList = async (query) => {
   const qs = (obj) => {
     const str = []
@@ -163,7 +177,16 @@ const fetchArticleList = async (query) => {
   return $axios.get('/contents?' + qq).then(({ data }) => data)
 }
 
+const redirectTag = (tag) => {
+  if (tag === 'all') {
+    router.push('/project/list')
+  } else {
+    router.push(`/project/list?tag=${tag}`)
+  }
+}
+
 const selectTag = (tag) => {
+  router.push({ query: { tag } })
   projects.splice(0, projects.length)
   if (tag === 'all') {
     selectedTag.value = ''
@@ -176,6 +199,7 @@ const selectTag = (tag) => {
   document.querySelector('.work-filters-button').click()
   // hoverFcn()
 }
+
 const reload = async () => {
   fetchArticleList({
     filter: { category: 'project', isActivated: true },
@@ -199,6 +223,12 @@ const reload = async () => {
     tags.value = _tags
 
     listviewFcn()
+    if (route.query?.tag) {
+      selectTag(route.query.tag)
+      doFilter(route.query.tag)
+    } else {
+      router.push({ query: { tag: 'all' } })
+    }
   })
 }
 
