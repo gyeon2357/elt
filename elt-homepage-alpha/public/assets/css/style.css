@@ -1295,12 +1295,12 @@ div.about-box {
 }
 
 .sub-info-box:nth-child(1) {
-  grid-column: 1 / span 4;
+  grid-column: 1 / span 5;
   padding: 0 0 0.375rem 0.5rem;
 }
 
 .sub-info-box:nth-child(2) {
-  grid-column: 8 / span 4;
+  grid-column: 8 / span 5;
   padding-left: 2rem;
 }
 
