@@ -1,45 +1,45 @@
 <template>
   <div class="block">
     <template v-if="blockType === 'paragraph'">
-      <p class="post-paragraph"
-         v-html="data.text"
-         :style="`text-align: ${align}`"></p>
+      <p class="post-paragraph" v-html="data.text" :style="`text-align: ${align}`"></p>
     </template>
     <template v-if="blockType === 'list'">
-      <ul class="post-paragraph"
-          :style="`text-align: ${align}`">
-        <li v-for="item in data.items"
-            v-html="item"
-            :key="item"></li>
+      <ul class="post-paragraph" :style="`text-align: ${align}`">
+        <li v-for="item in data.items" v-html="item" :key="item"></li>
       </ul>
     </template>
     <template v-if="blockType === 'header'">
       <div :class="[`post-heading-${data.level} `]">
-        <span class="desc"
-              v-if="data.text.split(/\|/).length > 1"
-              v-html="data.text.split(/\|/)[0]"></span>
-        <span class="text"
-              v-html="data.text.split(/\|/).pop()"></span>
+        <span
+          class="desc"
+          v-if="data.text.split(/\|/).length > 1"
+          v-html="data.text.split(/\|/)[0]"
+        ></span>
+        <span class="text" v-html="data.text.split(/\|/).pop()"></span>
       </div>
     </template>
     <template v-if="blockType === 'embed'">
       <div :class="[`video-block`]">
         <div class=""></div>
-        <iframe style="width: 100%"
-                height="400"
-                frameborder="0"
-                allowfullscreen
-                :src="data.embed"></iframe>
+        <iframe
+          style="width: 100%"
+          height="400"
+          frameborder="0"
+          allowfullscreen
+          :src="data.embed"
+        ></iframe>
         <small>{{ data.caption }}</small>
       </div>
     </template>
     <template v-if="blockType === 'image'">
       <figure>
         <div :class="`post-img-center`">
-          <img loading="lazy"
-               :src="`https://resize.samworks.io/crop/800/webp/${data.file.url}`"
-               :alt="data.caption"
-               :class="{ stretched: data.stretched }" />
+          <img
+            loading="lazy"
+            :src="`https://resize.samworks.io/width/1800/webp/${data.file.url}`"
+            :alt="data.caption"
+            :class="{ stretched: data.stretched }"
+          />
         </div>
         <!-- <v-img :src="data.file.url" contain max-height="530" max-width="840"></v-img> -->
         <figcaption v-if="data.caption.length > 0">
@@ -54,8 +54,7 @@
     </template>
     <template v-if="blockType === 'quote'">
       <blockquote class="sidekick text-center">
-        <span class="d-block"
-              v-html="trans(data.text)"></span>
+        <span class="d-block" v-html="trans(data.text)"></span>
         <cite>{{ data.caption }}</cite>
       </blockquote>
     </template>
@@ -106,7 +105,7 @@ li {
 
 // @import '@/scss/variables.scss';
 .block {
-  padding: 0.25rem 0;
+  padding: 0.75rem 0;
 }
 
 .heading {
@@ -144,7 +143,7 @@ figcaption {
   font-size: 0.75rem;
   font-weight: 400;
   display: block;
-  margin: 0.25rem 0 .375rem 0;
+  margin: 0.25rem 0 0.375rem 0;
   text-align: left;
 }
 
@@ -353,13 +352,13 @@ hr {
 @media screen and (max-width: 600px) {
   .book-img {
     img {
-      max-height: 250px;
+      // max-height: 250px;
     }
   }
 
   .post-img-center {
     img {
-      max-height: 350px;
+      // max-height: 350px;
     }
   }
 

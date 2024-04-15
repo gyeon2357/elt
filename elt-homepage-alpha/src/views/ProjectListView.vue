@@ -173,7 +173,7 @@ const fetchArticleList = async (query) => {
     }
     return str.join('&')
   }
-  const qq = qs(query)
+  const qq = qs({...query, limit: 500})
   return $axios.get('/contents?' + qq).then(({ data }) => data)
 }
 
@@ -204,6 +204,7 @@ const reload = async () => {
   fetchArticleList({
     filter: { category: 'project', isActivated: true },
     sort: { publishedDate: -1 }
+    
   }).then((l) => {
     _projects.push(...l)
     projects.splice(0, projects.length)

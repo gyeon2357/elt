@@ -73,7 +73,7 @@ const fetchArticleList = async (query) => {
     }
     return str.join('&')
   }
-  const qq = qs(query)
+  const qq = qs({...query, limit: 500})
   return $axios.get('/contents?' + qq).then(({ data }) => data)
 }
 const reload = async () => {

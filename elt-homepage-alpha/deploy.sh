@@ -1,0 +1,1 @@
+yarn build && aws s3 sync ./dist/ s3://src-prd.everylittlething.co.kr --profile bpatisserie 
