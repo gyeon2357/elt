@@ -62,6 +62,8 @@
 
               <span>로버트 프로스트 ‘가지 않은 길’ 중</span>
             </p>
+            <br/>
+            <b>크리에이티브 디렉터</b> 이주승, 김지빈
           </div>
           <div class="sub-info-box">
             <p>
@@ -72,6 +74,8 @@
 
               <span>Robert Frost ‘The Road Not Taken’</span>
             </p>
+            <br/>
+            <b>Creative Director</b> Jooseung Lee, Jibin Kim
           </div>
         </div>
       </div>
